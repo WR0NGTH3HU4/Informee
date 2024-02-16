@@ -1,20 +1,31 @@
 <script setup lang="ts">
     import {ref} from 'vue'
+    //Később import Button.vue-ból 
     interface Button{
         id: number;
         template:string;
     }
-    const NavLinks = ref([
+    interface Link{
+        Title: string,
+        Url: string,
+    }
+    const NavLinks = ref<Link[]>([
         {Title:"Kezdőlap", Url:"Kezdolap.html"},
         {Title:"Rólunk", Url:"Rolunk.html"},
         {Title:"Posztok", Url:"Posztok.html"},
         {Title:"Saját posztok", Url:"SajatPoszt.html"}
     ]);    
     const NavButtons = ref<Button[]>([
-        {id: 1, template:'<button>Jelentkezz be!</button>'},
-        {id: 1, template:'<button>Új poszt</button>'}
+        //Import felhasználása
+        {id: 1, template:'<button>Jelentkezz be!</button>', },
+        {
+            id: 1, 
+            template:'<button id="NewPost">Új poszt</button>',
+            
+        }
         
     ])
+    
 
 </script>
 
@@ -38,13 +49,15 @@
             </svg>
             <!--NavLinks-->
             <ul class="NavLinks">
-                <li v-for="(NavLink,index) in NavLinks" :key="index">
-                    <a :href="NavLink.Url" >{{NavLink.Title}}</a>
+                <li>
+                    <!--<a :href="NavLink.Url" >{{NavLink.Title}}</a>-->
+                    <a :href="NavLinks[0].Url">{{NavLinks[0].Title}}</a>
+                    <a :href="NavLinks[1].Url">{{NavLinks[1].Title}}</a>
                 </li>
             </ul>
             
         </div>
-        <div v-html="NavButtons[0].template" class="NavRight">
+        <div v-html="NavButtons[0].template">
            
         </div>
 
@@ -56,12 +69,15 @@
 </template>
 
 <style scoped>
+*{
+    padding: 0;
+}
+
 .FullNav{
-    
-    
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-content: space-between;
     align-items: center;
     
 }
@@ -75,11 +91,19 @@
     list-style: none;
     display: flex;
     flex-direction: row;
-    padding: 0%;
+    justify-content: flex-start;
     align-items: center;
 }
 #separator{
 margin: 0 2rem;
 
 }
+li a{
+    margin-right: 2rem;
+    font-size: 120%;
+    text-decoration: none;
+    color: black;
+}
+
+
 </style>
