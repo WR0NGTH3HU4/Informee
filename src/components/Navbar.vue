@@ -6,15 +6,23 @@
         template:string;
     }
     interface Link{
+        Id: number,
         Title: string,
         Url: string,
     }
-    const NavLinks = ref<Link[]>([
-        {Title:"Kezdőlap", Url:"Kezdolap.html"},
-        {Title:"Rólunk", Url:"Rolunk.html"},
-        {Title:"Posztok", Url:"Posztok.html"},
-        {Title:"Saját posztok", Url:"SajatPoszt.html"}
-    ]);    
+    //Global Var helyett
+    let IsLoggedIn= false;
+
+    const LoggedInContent = ref<Link[]>([
+        {Id:0,Title:"Posztok", Url:"Posztok.html"},
+        {Id:1,Title:"Saját posztok", Url:"SajatPoszt.html"}
+    ])
+    const LoggedOutContent = ref<Link[]>([
+        {Id:0,Title:"Kezdőlap", Url:"Kezdolap.html"},
+        {Id:1,Title:"Rólunk", Url:"Rolunk.html"},
+
+    ])
+     
     const NavButtons = ref<Button[]>([
         //Import felhasználása
         {id: 1, template:'<button>Jelentkezz be!</button>', },
@@ -25,7 +33,8 @@
         }
         
     ])
-    
+
+
 
 </script>
 
@@ -49,10 +58,11 @@
             </svg>
             <!--NavLinks-->
             <ul class="NavLinks">
-                <li>
-                    <!--<a :href="NavLink.Url" >{{NavLink.Title}}</a>-->
-                    <a :href="NavLinks[0].Url">{{NavLinks[0].Title}}</a>
-                    <a :href="NavLinks[1].Url">{{NavLinks[1].Title}}</a>
+                <li v-if="IsLoggedIn">
+                    <a  v-for="(link, index) in LoggedInContent" :key="index" :href="link.Url">{{ link.Title }}</a>
+                </li>
+                <li v-else>
+                    <a  v-for="(link, index) in LoggedOutContent" :key="index" :href="link.Url">{{ link.Title }}</a>
                 </li>
             </ul>
             
