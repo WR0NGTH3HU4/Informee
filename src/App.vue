@@ -4,7 +4,6 @@ import HelloWorld from './components/HelloWorld.vue'*/
 import Logo from './components/Logo.vue';
 import Navbar from './components/Navbar.vue'
 
-
   
 
 </script>
@@ -15,7 +14,6 @@ import Navbar from './components/Navbar.vue'
 </div>
 <Navbar></Navbar>
 <Logo></Logo>
-
 </template>
 
 <style scoped>
