@@ -1,10 +1,7 @@
 <script setup lang="ts">
     import {ref} from 'vue'
-    //Később import Button.vue-ból 
-    interface Button{
-        id: number;
-        template:string;
-    }
+    import Button from './Button.vue';
+
     interface Link{
         Id: number,
         Title: string,
@@ -67,9 +64,7 @@
             </ul>
             
         </div>
-        <div v-html="NavButtons[0].template">
-           
-        </div>
+        <Button></Button>
 
     </div>
 
