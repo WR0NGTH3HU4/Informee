@@ -1,9 +1,9 @@
 <script setup lang="ts">
-defineProps(['text', 'type']);
+defineProps(['text', 'type', 'click']);
 </script>
 
 <template>
-    <button :class="type">{{ text }}</button>
+    <button :class="type" @click="click">{{ text }}</button>
 </template>
 
 <style scoped>
@@ -29,6 +29,23 @@ defineProps(['text', 'type']);
 
     .danger:active {
         background-color: #DC2626;
+    }
+
+    .muted, .muted:hover, .muted:active {
+        background-color: #D4D4D4;
+        cursor: default;
+    }
+
+    .success {
+        background-color: #22C55E;
+    }
+
+    .success:hover {
+        background-color: #4ADE80;
+    }
+
+    .success:active {
+        background-color: #16A34A;
     }
 
     button {

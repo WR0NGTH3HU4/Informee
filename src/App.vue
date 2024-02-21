@@ -4,7 +4,9 @@ import HelloWorld from './components/HelloWorld.vue'*/
 import Logo from './components/Logo.vue';
 import Navbar from './components/Navbar.vue'
 import Button from './components/Button.vue';
-  
+function asd() {
+    alert("asdasdasd")
+}  
 
 </script>
 
