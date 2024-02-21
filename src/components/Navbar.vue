@@ -97,6 +97,7 @@ li a{
 #NavLink:hover{
     font-size: 130%;
     font-weight: 600;
+    color: #171717;
 }
 
 </style>
