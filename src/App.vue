@@ -4,7 +4,9 @@ import HelloWorld from './components/HelloWorld.vue'*/
 import Logo from './components/Logo.vue';
 import Navbar from './components/Navbar.vue'
 import Button from './components/Button.vue';
-  
+function asd() {
+    alert("asdasdasd")
+}  
 
 </script>
 
@@ -14,8 +16,12 @@ import Button from './components/Button.vue';
     </div>
 
     <Navbar></Navbar>
-    <Button text="Primary button" type="primary"></Button>
-    <Button text="Danger button" type="danger"></Button>
+    <!--
+        <Button text="Primary button" type="primary"></Button>
+        <Button text="Danger button" type="danger"></Button>
+        <Button text="Muted button" type="muted"></Button>
+        <Button text="Success button" type="success"></Button>
+    -->
 </template>
 
 <style scoped>
