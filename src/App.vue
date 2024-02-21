@@ -22,6 +22,9 @@ function asd() {
         <Button text="Muted button" type="muted"></Button>
         <Button text="Success button" type="success"></Button>
     -->
+    <Logo></Logo>
+    <Button text="Primary button" type="primary"></Button>
+    <Button text="Danger button" type="danger"></Button>
 </template>
 
 <style scoped>
