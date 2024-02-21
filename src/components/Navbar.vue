@@ -1,4 +1,5 @@
 <script setup lang="ts">
+
     import {ref} from 'vue'
     import Button from './Button.vue';
 
@@ -11,24 +12,15 @@
     let IsLoggedIn= false;
 
     const LoggedInContent = ref<Link[]>([
-        {Id:0,Title:"Posztok", Url:"Posztok.html"},
-        {Id:1,Title:"Saját posztok", Url:"SajatPoszt.html"}
+        {Id:0,Title:"Posztok", Url:"/Posztok"},
+        {Id:1,Title:"Saját posztok", Url:"/SajatPosztok"}
     ])
     const LoggedOutContent = ref<Link[]>([
-        {Id:0,Title:"Kezdőlap", Url:"Kezdolap.html"},
-        {Id:1,Title:"Rólunk", Url:"Rolunk.html"},
+        {Id:0,Title:"Kezdőlap", Url:"/Kezdolap"},
+        {Id:1,Title:"Rólunk", Url:"/Rolunk"},
 
     ])
-    const NavButtons = ref<Button[]>([
-        //Import felhasználása
-        {id: 1, template:'<button>Jelentkezz be!</button>', },
-        {
-            id: 1, 
-            template:'<button id="NewPost">Új poszt</button>',
-            
-        }
-        
-    ])
+
 </script>
 
 <template>
@@ -52,16 +44,16 @@
             <!--NavLinks-->
             <ul class="NavLinks">
                 <li v-if="IsLoggedIn">
-                    <a id="NavLink" v-for="(link, index) in LoggedInContent" :key="index" :href="link.Url">{{ link.Title }}</a>
+                    <a id="NavLink" v-for="link in LoggedInContent" :key="link.Id" :href="link.Url">{{ link.Title }}</a>
                 </li>
                 <li v-else>
-                    <a id="NavLink" v-for="(link, index) in LoggedOutContent" :key="index" :href="link.Url">{{ link.Title }}</a>
+                    <a id="NavLink" v-for="link in LoggedOutContent" :key="link.Id" :href="link.Url">{{ link.Title }}</a>
                 </li>
             </ul>
             
         </div>
         <Button text="Bejelentkezés"></Button>
-
+        
     </div>
 
 

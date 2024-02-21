@@ -9,6 +9,30 @@ const router = createRouter({
       name: 'home',
       component: HomeView
     },
+    //Kezdőlap
+    {
+      path:'/Kezdolap',
+      name: 'Kezdolap',
+      component: () => import('../views/Kezdolap.vue')
+    },
+    //Rólunk
+    {
+      path:'/Rolunk',
+      name: 'Rolunk',
+      component: () => import('../views/Rolunk.vue')
+    },
+    //Posztok
+    {
+      path:'/Posztok',
+      name: 'Posztok',
+      component: () => import('../views/Posztok.vue')
+    },
+    //Saját posztok
+    {
+      path:'/SajatPosztok',
+      name: 'SajatPosztok',
+      component: () => import('../views/SajatPosztok.vue')
+    },
     {
       path: '/about',
       name: 'about',
