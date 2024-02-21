@@ -33,6 +33,18 @@ const router = createRouter({
       name: 'SajatPosztok',
       component: () => import('../views/SajatPosztok.vue')
     },
+    //Bejelentkezés
+    {
+      path:'/Login',
+      name: 'Login',
+      component: () => import('../views/Login.vue')
+    },
+    //Regisztráció
+    {
+      path:'/Registration',
+      name: 'Registration',
+      component: () => import('../views/Registration.vue')
+    },
     {
       path: '/about',
       name: 'about',

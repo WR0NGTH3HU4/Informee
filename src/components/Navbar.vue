@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+    import { RouterLink, RouterView } from 'vue-router'
     import {ref} from 'vue'
     import Button from './Button.vue';
 
@@ -52,7 +52,10 @@
             </ul>
             
         </div>
+    <RouterLink to="/Login">
         <Button text="Bejelentkezés"></Button>
+    </RouterLink>
+
         
     </div>
 
@@ -100,7 +103,7 @@ li a{
 }
 #NavLink:hover{
     font-size: 125%;
-    text-shadow: 2px 1px 3px lightgray ;
+    font-weight: 600;
 }
 
 </style>
