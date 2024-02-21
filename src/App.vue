@@ -9,11 +9,7 @@ import Button from './components/Button.vue';
 </script>
 
 <template>
-    <div ref="ParentCompRef">
-
-    </div>
-
-    <Navbar></Navbar>
+    <Navbar/>
     <Button text="Primary button" type="primary"></Button>
     <Button text="Danger button" type="danger"></Button>
 </template>

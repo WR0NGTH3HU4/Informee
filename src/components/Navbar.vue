@@ -19,7 +19,6 @@
         {Id:1,Title:"Rólunk", Url:"Rolunk.html"},
 
     ])
-     
     const NavButtons = ref<Button[]>([
         //Import felhasználása
         {id: 1, template:'<button>Jelentkezz be!</button>', },
@@ -30,9 +29,6 @@
         }
         
     ])
-
-
-
 </script>
 
 <template>
@@ -56,10 +52,10 @@
             <!--NavLinks-->
             <ul class="NavLinks">
                 <li v-if="IsLoggedIn">
-                    <a  v-for="(link, index) in LoggedInContent" :key="index" :href="link.Url">{{ link.Title }}</a>
+                    <a id="NavLink" v-for="(link, index) in LoggedInContent" :key="index" :href="link.Url">{{ link.Title }}</a>
                 </li>
                 <li v-else>
-                    <a  v-for="(link, index) in LoggedOutContent" :key="index" :href="link.Url">{{ link.Title }}</a>
+                    <a id="NavLink" v-for="(link, index) in LoggedOutContent" :key="index" :href="link.Url">{{ link.Title }}</a>
                 </li>
             </ul>
             
@@ -79,6 +75,7 @@
 }
 
 .FullNav{
+    
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -109,6 +106,9 @@ li a{
     text-decoration: none;
     color: black;
 }
-
+#NavLink:hover{
+    font-size: 125%;
+    text-shadow: 2px 1px 3px lightgray ;
+}
 
 </style>
