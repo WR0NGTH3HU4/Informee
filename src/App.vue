@@ -14,6 +14,7 @@ import Button from './components/Button.vue';
     </div>
 
     <Navbar></Navbar>
+    <Logo></Logo>
     <Button text="Primary button" type="primary"></Button>
     <Button text="Danger button" type="danger"></Button>
 </template>
