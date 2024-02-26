@@ -95,6 +95,7 @@ li a{
     color: #404040;
 }
 #NavLink:hover{
+    /*Animation / tail-wind classok */
     font-size: 130%;
     font-weight: 600;
     color: #171717;

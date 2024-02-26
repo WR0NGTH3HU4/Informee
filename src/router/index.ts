@@ -13,13 +13,19 @@ const router = createRouter({
     {
       path:'/Kezdolap',
       name: 'Kezdolap',
-      component: () => import('../views/Kezdolap.vue')
+      component: () => import('../views/Kezdolap.vue'),
+      meta: {
+        public: true
+      }
     },
     //Rólunk
     {
       path:'/Rolunk',
       name: 'Rolunk',
-      component: () => import('../views/Rolunk.vue')
+      component: () => import('../views/Rolunk.vue'),
+      meta: {
+        public: true
+      }
     },
     //Posztok
     {
@@ -54,6 +60,16 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue')
     }
   ]
-})
+});
+
+/*router.beforeEach((to, from) =>{
+  const userStore= Függvény meghívása login checkhez;
+
+  if (to.meta['public'] || userStore/*bejelentkezve){
+    return; // Ha publikus a route vagy a bejelentkezve fgv true akkor a route megjelenik
+  }
+
+  router.push('login') // "else" -> küldje a login oldalra
+})*/
 
 export default router
