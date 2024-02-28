@@ -1,3 +1,4 @@
+import { useUserStore } from '@/stores/user';
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
@@ -62,14 +63,14 @@ const router = createRouter({
   ]
 });
 
-/*router.beforeEach((to, from) =>{
-  const userStore= Függvény meghívása login checkhez;
+router.beforeEach((to, from) =>{
+  const userStore= useUserStore();
 
-  if (to.meta['public'] || userStore/*bejelentkezve){
+  if (to.meta['public'] || userStore.loggedIn()){
     return; // Ha publikus a route vagy a bejelentkezve fgv true akkor a route megjelenik
   }
 
   router.push('login') // "else" -> küldje a login oldalra
-})*/
+})
 
 export default router
