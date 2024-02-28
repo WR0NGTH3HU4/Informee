@@ -8,7 +8,10 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomeView,
+      meta:{
+        public: true
+      }
 
     },
     //Kezdőlap
@@ -64,7 +67,7 @@ const router = createRouter({
   ]
 });
 
-/*router.beforeEach((to, from) =>{
+router.beforeEach((to, from) =>{
   const userStore= useUserStore();
 
   if (to.meta['public'] || userStore.loggedIn()){
@@ -72,6 +75,6 @@ const router = createRouter({
   }
 
   router.push('login') // "else" -> küldje a login oldalra
-})*/
+})
 
 export default router
