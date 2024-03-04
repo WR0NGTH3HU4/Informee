@@ -36,8 +36,8 @@
         max-height: 100vw;
     }
     .loginWindow{
-        width: 40vw;
-        height: 30vw;
+        width: 30vw;
+        height: 20vw;
         padding: 2% 1% 2% 1%;
     }
     .GoToPages{
