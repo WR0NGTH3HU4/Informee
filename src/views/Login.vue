@@ -3,7 +3,7 @@
     import {ref} from 'vue'
 </script>
 <template>
-    <div class="container flex flex-col justify-center items-center content-center">
+    <div class="container h-screen flex flex-col justify-center items-center content-center">
         <div class="loginWindow rounded-lg border-2 border-neutral-300 bg-neutral-100 drop-shadow-lg flex flex-col justify-between items-center content-center">
 
                 <div class="TitleContainer w-full flex justify-start">
