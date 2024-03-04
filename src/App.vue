@@ -13,10 +13,16 @@ function asd() {
 
 <template>
   <Navbar />
-  <Button text="Primary button" type="primary"></Button>
-  <Button text="Danger button" type="danger"></Button>
-  <PostActionButton class="upvote"></PostActionButton>
+  <!--<Button text="Primary button" type="primary"></Button>-->
+  <!--<Button text="Danger button" type="danger"></Button>-->
+  <!--<PostActionButton class="upvote"></PostActionButton>-->
   <RouterView />
 </template>
 
-<style scoped></style>
+<style scoped>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+
+</style>
