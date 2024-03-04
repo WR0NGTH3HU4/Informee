@@ -1,6 +1,7 @@
 <script lang="ts">
     import { RouterLink, RouterView } from 'vue-router'
     import {ref} from 'vue'
+    import Button from '../components/Button.vue'
 </script>
 <template>
     <div class="container h-screen flex flex-col justify-center items-center content-center">
@@ -19,7 +20,7 @@
 
                     <h5 class="text-neutral-500 font-medium flex flex-row">Nincs még fiókod?<RouterLink to="/Registration"><h5 class="text-orange-500 underline" id="Reg">Regisztrálj!</h5></RouterLink></h5> 
                     <!--Login button-->
-                    <button>Bejelentkezés</button>
+                    <Button text="Bejelentkezés" type="primary"></Button>
                 </div>
                 
             
@@ -36,8 +37,8 @@
         max-height: 100vw;
     }
     .loginWindow{
-        width: 30vw;
-        height: 20vw;
+        width: 40vw;
+        height: 30vw;
         padding: 2% 1% 2% 1%;
     }
     .GoToPages{
