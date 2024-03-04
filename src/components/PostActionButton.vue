@@ -1,14 +1,16 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
-    <button :class="type" @click="click">{{ text }}</button>
+  <button :class="class" @click="click">
+    <span class="material-symbols-outlined">
+add_box
+</span>
+  </button>
 </template>
 
 <style scoped>
-    .upVote {
-        border-radius: 10px;
-    }
-   
+.upvote {
+  border-radius: 10px;
+  background-color: #22c55e;
+}
 </style>
