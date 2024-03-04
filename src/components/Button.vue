@@ -7,11 +7,6 @@ defineProps(['text', 'type', 'click']);
 </template>
 
 <style scoped>
-
-    .upVote {
-        border-radius: 10px;
-        background-color: #22C55E;
-    }
     .primary {
         background-color: #F97316;
     }

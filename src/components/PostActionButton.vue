@@ -12,5 +12,11 @@ add_box
 .upvote {
   border-radius: 10px;
   background-color: #22c55e;
+  color: #FAFAFA;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
 }
 </style>
