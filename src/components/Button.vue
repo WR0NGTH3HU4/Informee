@@ -3,69 +3,23 @@ defineProps(['text', 'type', 'click']);
 </script>
 
 <template>
-    <button :class="type" @click="click">{{ text }}</button>
+    <button class="shadow-md" :class="type" @click="click">{{ text }}</button>
 </template>
 
 <style scoped>
-    .primary {
-        background-color: #F97316;
-    }
+    .primary { @apply bg-orange-500 hover:bg-orange-400 active:bg-orange-600; }
 
-    .primary:hover {
-        background-color: #FB923C;
-    }
+    .danger { @apply bg-red-500 hover:bg-red-400 active:bg-red-600}
 
-    .primary:active {
-        background-color: #EA580C;
-    }
+    .muted { @apply bg-neutral-500 cursor-default; }
 
-    .danger {
-        background-color: #EF4444;
-    }
-
-    .danger:hover {
-        background-color: #F87171;
-    }
-
-    .danger:active {
-        background-color: #DC2626;
-    }
-
-    .muted, .muted:hover, .muted:active {
-        background-color: #D4D4D4;
-        cursor: default;
-    }
-
-    .success {
-        background-color: #22C55E;
-    }
-
-    .success:hover {
-        background-color: #4ADE80;
-    }
-
-    .success:active {
-        background-color: #16A34A;
-    }
+    .success { @apply bg-green-500 hover:bg-green-400 active:bg-green-600; }
 
     button {
-        padding: 10px 20px 10px 20px;
-        height: 60px;
-        border-radius: 5px;
-        background-color: #262626;
-        color: #FAFAFA;
-        border: none;
-        font-size: 1em;
-        transition-duration: 0.2s;
-        cursor: pointer;
-        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        @apply px-4 py-2 rounded-md border-none shadow-md duration-200 text-zinc-100 cursor-pointer;
     }
 
-    button:hover {
-        background-color: #404040;
-    }
-
-    button:active {
-        background-color: #171717;
+    button:not(.primary):not(.danger):not(.muted):not(.success) {
+        @apply bg-neutral-900 hover:bg-neutral-800 active:bg-neutral-950;
     }
 </style>
