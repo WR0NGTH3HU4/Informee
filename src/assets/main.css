@@ -7,9 +7,19 @@
 /*Urbanist*/
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
 
+html, body, #app {
+    min-height: 100vh;
+}
+
 *{
     font-family: "Inter", sans-serif;
     font-weight: 600;
     margin: 0;
     padding: 0;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
 }
