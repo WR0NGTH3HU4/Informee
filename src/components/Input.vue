@@ -1,13 +1,5 @@
 <template>
-
-  <h1>input mezők</h1>
-  <br>
   <input type="text" name="" class="mezo" id="alap" placeholder="Placeholder">
-  <br>
-  <input type="text" name="" class="mezo" id="disabled" placeholder="Placeholder" disabled>
-  <br>
-  <input type="text" name="" class="mezo" id="aktiv" placeholder="Placeholder">
-
 </template>
 
 <script setup lang="ts">
