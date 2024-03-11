@@ -48,13 +48,20 @@ const router = createRouter({
     {
       path:'/Login',
       name: 'Login',
-      component: () => import('../views/Login.vue')
+      component: () => import('../views/Login.vue'),
+      meta:
+      {
+        public: true
+      }
     },
     //Regisztráció
     {
       path:'/Registration',
       name: 'Registration',
-      component: () => import('../views/Registration.vue')
+      component: () => import('../views/Registration.vue'),
+      meta:{
+        public:true
+      }
     },
     {
       path: '/about',

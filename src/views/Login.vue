@@ -1,5 +1,66 @@
+<script setup lang="ts">
+    import { RouterLink, RouterView } from 'vue-router'
+    import {ref} from 'vue'
+    import Button from '../components/Button.vue'
+    
+    import Input from '@/components/Input.vue';
+</script>
 <template>
-    <div>
-        <h2>Login</h2>
-    </div>
+    <!--     <div class="container w-full flex flex-col justify-center items-center"> -->
+        <div class=" flex flex-column justify-center content-center items-center h-screen">
+            <div class="loginWindow rounded-lg border-2 border-neutral-300 bg-neutral-100 drop-shadow-lg flex flex-col justify-between items-center content-center">
+
+            <div class="TitleContainer w-full flex justify-start">
+                <h1 class="text-neutral-800 text-3xl" id="Title">Bejelentkezés</h1>
+            </div>
+                <div class="w-full flex flex-col justify-center content-center">
+                    <h3 class="text-neutral-500">E-mail</h3>
+                    <Input id="email" placeholder="E-mail"/>
+                </div>
+                <div class="w-full flex flex-col justify-center content-center">
+                    <h3 class="text-neutral-500">Jelszó</h3>
+                    <Input id="passwd" placeholder="Jelszó"/>
+                </div>
+                
+                <!--PassWd input field-->
+
+                <div class="GoToPages flex flex-row justify-between content-center items-end">
+
+                    <h5 class="text-neutral-500 font-medium flex flex-row">Nincs még fiókod?<RouterLink to="/Registration"><h5 class="text-orange-500 underline" id="Reg">Regisztrálj!</h5></RouterLink></h5> 
+                    <!--Login button-->
+                    <Button text="Bejelentkezés" type="primary"></Button>
+                </div>
+
+
+            </div>
+        </div>
+        
+    <!--</div> -->
+    <!--Footer-->
+    
 </template>
+<style scoped>
+    *{
+        margin: 0;
+        padding: 0;
+
+    }
+    #email{
+        width: 100%;
+    }
+    #passwd{
+        width: 100%;
+    }
+    .loginWindow{
+        width: 30%;
+        height: 50%;
+        padding: 2rem 1rem 2rem 1rem;
+    }
+    .GoToPages{
+        width: 100%;
+    }
+    #Reg{
+        padding-left: 5px;
+    }
+
+</style>
