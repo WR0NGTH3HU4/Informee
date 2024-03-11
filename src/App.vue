@@ -14,14 +14,14 @@ function asd() {
 <template>
   <Navbar />
 
-  <Button text="Primary button" type="primary"></Button>
+  <!--<Button text="Primary button" type="primary"></Button>
   <Button text="Danger button" type="danger"></Button>
   <PostActionButton class="upvote"></PostActionButton>
   <PostActionButton class="dislike"></PostActionButton>
   <PostActionButton class="share"></PostActionButton>
   <PostActionButton class="report"></PostActionButton>
-  <RouterView />
-=======
+  <RouterView />-->
+
   <!--<Button text="Primary button" type="primary"></Button>-->
   <!--<Button text="Danger button" type="danger"></Button>-->
   <!--<PostActionButton class="upvote"></PostActionButton>-->

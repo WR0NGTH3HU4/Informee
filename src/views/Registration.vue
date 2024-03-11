@@ -13,25 +13,25 @@
             <div class="TitleContainer w-full flex justify-start">
                 <h1 class="text-neutral-800 text-3xl" id="Title">Regisztráció</h1>
             </div>
-                <div class="w-full flex flex-col justify-center content-center">
+                <div class="InputContainer">
                     <h3 class="text-neutral-500">E-mail</h3>
                     <Input id="email" placeholder="E-mail"/>
                 </div>
-                <div class="w-full flex flex-col justify-center content-center">
-                    <h3 class="text-neutral-500">User name</h3>
-                    <Input id="username" placeholder="User name"/>
+                <div class="InputContainer">
+                    <h3 class="text-neutral-500">Felhasználónév</h3>
+                    <Input id="username" placeholder="Felhasználónév"/>
                 </div>
-                <div class="w-full flex flex-col justify-center content-center">
-                    <h3 class="text-neutral-500">Display name</h3>
-                    <Input id="displayname" placeholder="E-mail"/>
+                <div class="InputContainer">
+                    <h3 class="text-neutral-500">Megjelenített név</h3>
+                    <Input id="displayname" placeholder="Megjelenített név"/>
                 </div>
-                <div class="w-full flex flex-col justify-center content-center">
+                <div class="InputContainer">
                     <h3 class="text-neutral-500">Jelszó</h3>
                     <Input id="passwd" placeholder="Jelszó"/>
                 </div>
-                <div class="w-full flex flex-col justify-center content-center">
+                <div class="InputContainer">
                     <h3 class="text-neutral-500">Jelszó megerősítés</h3>
-                    <Input id="passwdconf" placeholder="Jelszó"/>
+                    <Input id="passwdconf" placeholder="Jelszó megerősítés"/>
                 </div>
                 
                 <!--PassWd input field-->
@@ -51,7 +51,7 @@
     <!--Footer-->
     
 </template>
-<style scoped>
+<style scoped lang="scss">
     *{
         margin: 0;
         padding: 0;
@@ -73,15 +73,22 @@
         width: 100%;
     }
     .loginWindow{
-        width: 30%;
+        width: 40%;
         height: 70%;
         padding: 2rem 1rem 2rem 1rem;
     }
     .GoToPages{
         width: 100%;
+
     }
     #Reg{
         padding-left: 5px;
+    }
+
+    .InputContainer {
+        @apply w-full flex flex-col justify-center content-center;
+
+        
     }
 
 </style>

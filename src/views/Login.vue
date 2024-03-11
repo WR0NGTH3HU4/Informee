@@ -52,8 +52,8 @@
         width: 100%;
     }
     .loginWindow{
-        width: 30%;
-        height: 50%;
+        width: 40%;
+        height: 40%;
         padding: 2rem 1rem 2rem 1rem;
     }
     .GoToPages{
