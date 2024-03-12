@@ -13,20 +13,27 @@
                 <h3>Leírás</h3>
                 <Input id="leriras" placeholder="Leírás"/>
             </div>
-            <div class="tartalom Title">
+            <div class="tartalom Title flex-grow">
                 <h3>Tartalom</h3>
                 <Input id="tartalom" placeholder="Tartalom"/>
             </div>
     </div>
 </template>
-<style scoped>
+<style lang="scss" scoped>
     .container{
-        @apply flex flex-col justify-center content-center
+        @apply flex flex-col justify-start content-center;
+        height: 100%;
+        margin: 0px 10px;
     }
     #tartalom{
-        height: 520px;
+        height: 92%;
+        
+    }
+    #tartalom::placeholder {
+        vertical-align: top; 
     }
     .Title{
         @apply text-neutral-500
     }
+    
 </style>
