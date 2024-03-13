@@ -33,7 +33,10 @@
         vertical-align: top; 
     }
     .Title{
-        @apply text-neutral-500
+        
+        width: 190%;
     }
-    
+    h3{
+        @apply text-neutral-500;
+    }
 </style>
