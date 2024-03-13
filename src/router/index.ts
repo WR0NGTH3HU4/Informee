@@ -47,6 +47,15 @@ const router = createRouter({
         public: true
       }
     },
+    {
+      path: '/PostOpened',
+      name: 'PostOpened',
+      component: () => import('../views/PostOpened.vue'), 
+      //Ideiglenesen, teszteléshez
+      meta:{
+        public: true
+      }
+    },
     //Saját posztok
     {
       path:'/SajatPosztok',
