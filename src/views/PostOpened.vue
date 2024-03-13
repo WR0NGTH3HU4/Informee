@@ -56,7 +56,7 @@
         @apply flex flex-row justify-between content-center
     }
     .profile{
-        @apply flex flex-row justify-between content-center items-center
+        @apply flex flex-row justify-between content-center items-end
 
     }
     .infos{
@@ -66,13 +66,13 @@
         margin-right: 10px;
     }
     .Title{
-        @apply flex flex-row justify-center content-center items-center;
+        @apply flex flex-row justify-center content-center items-center text-4xl text-neutral-800;
         width: 100%;
         margin-top: 2rem;
         margin-bottom: 2rem
     }
     .Text{ 
-        @apply flex flex-row justify-center content-center items-center;
+        @apply flex flex-row justify-center content-center items-center text-xl text-neutral-800;
         width: 100%;
     }
 </style>
