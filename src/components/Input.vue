@@ -23,6 +23,7 @@ background: #E5E5E5;
 }
 ::placeholder {
 color: #D4D4D4;
+
 }
 input[type="text"]:disabled::placeholder {
 color: #A3A3A3;
