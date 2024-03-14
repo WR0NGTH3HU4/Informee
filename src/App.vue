@@ -11,10 +11,19 @@ function asd() {
 
 <template>
   <Navbar />
+
   <!--<Button text="Primary button" type="primary"></Button>-->
   <!--<Button text="Danger button" type="danger"></Button>-->
   <!--<PostActionButton class="upvote"></PostActionButton>-->
   <RouterView class=""/>
+
+
+  <!--
+  <Button text="Primary button" type="primary"></Button>
+  <Button text="Danger button" type="danger"></Button>
+  <PostActionButton class="upvote"></PostActionButton>
+   -->
+  <RouterView />
 
 </template>
 
