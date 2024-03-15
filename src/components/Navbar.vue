@@ -27,7 +27,7 @@
 <template>
     <div class="FullNav">
         <div class="NavLeft">
-            <!--Logo-->
+            <!--Logo-->     
             <Logo/>
             <!--Separator-->
             <svg id="separator" width="3" height="61" viewBox="0 0 3 61" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -41,19 +41,12 @@
                 <li v-else>
                     <a id="NavLink" v-for="link in LoggedOutContent" :key="link.Id" :href="link.Url">{{ link.Title }}</a>
                 </li>
-            </ul>
-            
+            </ul>  
         </div>
     <RouterLink to="/Login">
         <Button text="Bejelentkezés"></Button>
     </RouterLink>
-
-        
     </div>
-
-
-
-    
 </template>
 
 <style scoped>
@@ -62,7 +55,7 @@
 }
 
 .FullNav{
-    
+    background-color: rgba(255, 255, 255, 0.7);
     display: flex;
     flex-direction: row;
     justify-content: space-between;

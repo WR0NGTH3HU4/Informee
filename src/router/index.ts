@@ -38,6 +38,24 @@ const router = createRouter({
       name: 'Posztok',
       component: () => import('../views/Posztok.vue')
     },
+    {
+      path: '/PosztSzerkeszto',
+      name: 'PosztSzerkeszto',
+      component: () => import('../views/Posztszerkesztes.vue'),
+      //Ideiglenesen, teszteléshez
+      meta:{
+        public: true
+      }
+    },
+    {
+      path: '/PostOpened',
+      name: 'PostOpened',
+      component: () => import('../views/PostOpened.vue'), 
+      //Ideiglenesen, teszteléshez
+      meta:{
+        public: true
+      }
+    },
     //Saját posztok
     {
       path:'/SajatPosztok',
@@ -70,7 +88,8 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/AboutView.vue')
-    }
+    },
+
   ]
 });
 
