@@ -1,10 +1,18 @@
-<template>
-  <input type="text" name="" class="mezo" id="alap" placeholder="Placeholder">
-</template>
-
 <script setup lang="ts">
+import { getAllJSDocTags } from 'typescript';
+import { defineProps } from 'vue';
+const props = defineProps(['modelValue','type']);
+const emit= defineEmits();
+const updateModel = (event: Event) => {
+  emit('update:modelValue', (event.target as HTMLInputElement).value);
+}
 
 </script>
+<template>
+  <input :type="type" name="" class="mezo" id="alap" placeholder="Placeholder" @input="updateModel">
+</template>
+
+
 
 
 <style scoped>
