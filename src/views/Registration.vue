@@ -7,6 +7,11 @@
     import passwdHidden from '@/components/passwdHidden.vue';
     import { onMounted } from 'vue';
 
+    const Email = ref('');
+    const UserName = ref('');
+    const DisplayName = ref('');
+    const Passwd = ref('');
+    const PasswdConf = ref('');
 
     let passShown = ref<boolean>(false);
     let passConfShown = ref<boolean>(false);
@@ -15,7 +20,6 @@
         passShown.value =!passShown.value
         
     }
-    
 
     const onPasswdConfShown = () =>{
         passConfShown.value =! passConfShown.value
@@ -35,20 +39,20 @@
             </div>
                 <div class="InputContainer">
                     <h3 class="inputName">E-mail</h3>
-                    <Input id="email" placeholder="E-mail"/>
+                    <Input id="email" placeholder="E-mail" v-model="Email"/>
                 </div>
                 <div class="InputContainer">
                     <h3 class="inputName">Felhasználónév</h3>
-                    <Input id="username" placeholder="Felhasználónév"/>
+                    <Input id="username" placeholder="Felhasználónév" v-model="UserName"/>
                 </div>
                 <div class="InputContainer">
                     <h3 class="inputName">Megjelenített név</h3>
-                    <Input id="displayname" placeholder="Megjelenített név"/>
+                    <Input id="displayname" placeholder="Megjelenített név" v-model="DisplayName"/>
                 </div>
                 <div class="InputContainer">
                     <h3 class="inputName">Jelszó</h3>
                     <div class="passwdCon">
-                        <Input :type="passShown ? 'text' : 'password'" class="passwd" placeholder="Jelszó"/>
+                        <Input :type="passShown ? 'text' : 'password'" class="passwd" placeholder="Jelszó" v-model="Passwd"/>
                         <div v-if="passShown" class="PasswdSVG">
                             <passwdShown @click.prevent="onPasswdShown" class="show"/>
                         </div>
@@ -60,7 +64,7 @@
                 <div class="InputContainer">
                     <h3 class="inputName">Jelszó megerősítés</h3>
                     <div class="passwdCon">
-                        <Input :type="passConfShown ? 'text' : 'password'" class="passwd" placeholder="Jelszó"/>
+                        <Input :type="passConfShown ? 'text' : 'password'" class="passwd" placeholder="Jelszó" v-model="PasswdConf"/>
                         <div v-if="passShown" class="PasswdSVG">
                             <passwdShown @click.prevent="onPasswdConfShown" class="show"/>
                         </div>
