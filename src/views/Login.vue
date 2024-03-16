@@ -39,7 +39,7 @@
             <div class="InputContainer">
                 <h3 class="inputName">Jelszó</h3>
                 <div class="passwdCon">
-                    <Input :type="passShown ? 'text' : 'password'" id="passwdinput" placeholder="Jelszó" v-model="Passwd"/>
+                    <Input :type="passShown ? 'text' : 'password'" id="passwdinput" :class="{'hide' : !passShown}" placeholder="Jelszó" v-model="Passwd"/>
                     <div v-if="passShown" class="PasswdSVG">
                         <passwdShown @click.prevent="onShown" class="show"/>
                     </div>
@@ -97,8 +97,11 @@
         width: 100%;
     }
     #passwdinput{
-        @apply tracking-widest;
+        @apply tracking-normal;
         width: 90%;
+        &.hide{
+            @apply tracking-widest
+        }
     }
     #Reg{
         padding-left: 5px;
