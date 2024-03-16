@@ -38,8 +38,8 @@
             </div>
             <div class="InputContainer">
                 <h3 class="inputName">Jelszó</h3>
-                <div class="passwd">
-                    <Input :type="passShown ? 'text' : 'password'" id="passwd" placeholder="Jelszó" v-model="Passwd"/>
+                <div class="passwdCon">
+                    <Input :type="passShown ? 'text' : 'password'" id="passwdinput" placeholder="Jelszó" v-model="Passwd"/>
                     <div v-if="passShown" class="PasswdSVG">
                         <passwdShown @click.prevent="onShown" class="show"/>
                     </div>
@@ -84,7 +84,7 @@
     .inputName{
         @apply text-neutral-500
     }
-    .passwd{
+    .passwdCon{
         @apply flex flex-row justify-between content-center items-center w-full
     }
     .show{
@@ -96,7 +96,7 @@
     #email{
         width: 100%;
     }
-    #passwd{
+    #passwdinput{
         @apply tracking-widest;
         width: 90%;
     }
