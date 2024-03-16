@@ -39,20 +39,20 @@
             </div>
                 <div class="InputContainer">
                     <h3 class="inputName">E-mail</h3>
-                    <Input id="email" placeholder="E-mail" v-model="Email"/>
+                    <Input class="input" placeholder="E-mail" v-model="Email"/>
                 </div>
                 <div class="InputContainer">
                     <h3 class="inputName">Felhasználónév</h3>
-                    <Input id="username" placeholder="Felhasználónév" v-model="UserName"/>
+                    <Input class="input" placeholder="Felhasználónév" v-model="UserName"/>
                 </div>
                 <div class="InputContainer">
                     <h3 class="inputName">Megjelenített név</h3>
-                    <Input id="displayname" placeholder="Megjelenített név" v-model="DisplayName"/>
+                    <Input class="input" placeholder="Megjelenített név" v-model="DisplayName"/>
                 </div>
                 <div class="InputContainer">
                     <h3 class="inputName">Jelszó</h3>
                     <div class="passwdCon">
-                        <Input :type="passShown ? 'text' : 'password'" class="passwd" placeholder="Jelszó" v-model="Passwd"/>
+                        <Input :type="passShown ? 'text' : 'password'" class="passwd" :class="{'hide': !passShown}" placeholder="Jelszó" v-model="Passwd"/>
                         <div v-if="passShown" class="PasswdSVG">
                             <passwdShown @click.prevent="onPasswdShown" class="show"/>
                         </div>
@@ -64,8 +64,8 @@
                 <div class="InputContainer">
                     <h3 class="inputName">Jelszó megerősítés</h3>
                     <div class="passwdCon">
-                        <Input :type="passConfShown ? 'text' : 'password'" class="passwd" placeholder="Jelszó" v-model="PasswdConf"/>
-                        <div v-if="passShown" class="PasswdSVG">
+                        <Input :type="passConfShown ? 'text' : 'password'" class="passwd" :class="{'hide': !passConfShown}" placeholder="Jelszó" v-model="PasswdConf"/>
+                        <div v-if="passConfShown" class="PasswdSVG">
                             <passwdShown @click.prevent="onPasswdConfShown" class="show"/>
                         </div>
                         <div v-else class="PasswdSVG">
@@ -126,22 +126,12 @@
         height: 3rem;
         padding: 5px;
     }
-    #email{
-        width: 100%;
-    }
     .passwd{
-        @apply tracking-widest;
+        @apply tracking-normal;
         width: 90%;
-    }
-
-    #username{
-        width: 100%;
-    }
-    #displayname{
-        width: 100%;
-    }
-    #passwdconf{
-        width: 100%;
+        &.hide{
+            @apply tracking-widest
+        }
     }
     #Reg{
         padding-left: 5px;
@@ -149,5 +139,7 @@
     #Title{
         @apply text-neutral-800 text-3xl
     }
-
+    .input{
+        @apply w-full
+    }
 </style>
