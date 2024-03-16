@@ -2,36 +2,73 @@
     import { RouterLink, RouterView } from 'vue-router'
     import {ref} from 'vue'
     import Button from '../components/Button.vue'
-    
     import Input from '@/components/Input.vue';
+    import passwdShown from '@/components/passwdShown.vue';
+    import passwdHidden from '@/components/passwdHidden.vue';
+    import { onMounted } from 'vue';
+
+
+    let passShown = ref<boolean>(false);
+    let passConfShown = ref<boolean>(false);
+    const onPasswdShown = () =>{
+        
+        passShown.value =!passShown.value
+        
+    }
+    
+
+    const onPasswdConfShown = () =>{
+        passConfShown.value =! passConfShown.value
+    }
+    onMounted(()=>{
+        passShown.value = false
+        passConfShown.value = false
+    })
 </script>
 <template>
-    <!--     <div class="container w-full flex flex-col justify-center items-center"> -->
-        <div class=" flex flex-column justify-center content-center items-center h-screen">
-            <div class="loginWindow rounded-lg border-2 border-neutral-300 bg-neutral-100 drop-shadow-lg flex flex-col justify-between items-center content-center">
+    
+        <div class="RegContainer">
+            <div class="loginWindow">
 
-            <div class="TitleContainer w-full flex justify-start">
-                <h1 class="text-neutral-800 text-3xl" id="Title">Regisztráció</h1>
+            <div class="TitleContainer">
+                <h1 class="" id="Title">Regisztráció</h1>
             </div>
                 <div class="InputContainer">
-                    <h3 class="text-neutral-500">E-mail</h3>
+                    <h3 class="inputName">E-mail</h3>
                     <Input id="email" placeholder="E-mail"/>
                 </div>
                 <div class="InputContainer">
-                    <h3 class="text-neutral-500">Felhasználónév</h3>
+                    <h3 class="inputName">Felhasználónév</h3>
                     <Input id="username" placeholder="Felhasználónév"/>
                 </div>
                 <div class="InputContainer">
-                    <h3 class="text-neutral-500">Megjelenített név</h3>
+                    <h3 class="inputName">Megjelenített név</h3>
                     <Input id="displayname" placeholder="Megjelenített név"/>
                 </div>
                 <div class="InputContainer">
-                    <h3 class="text-neutral-500">Jelszó</h3>
-                    <Input id="passwd" placeholder="Jelszó"/>
+                    <h3 class="inputName">Jelszó</h3>
+                    <div class="passwdCon">
+                        <Input :type="passShown ? 'text' : 'password'" class="passwd" placeholder="Jelszó"/>
+                        <div v-if="passShown" class="PasswdSVG">
+                            <passwdShown @click.prevent="onPasswdShown" class="show"/>
+                        </div>
+                        <div v-else class="PasswdSVG">
+                            <passwdHidden @click.prevent="onPasswdShown" class="show"/>
+                        </div>
+                    </div>
                 </div>
                 <div class="InputContainer">
-                    <h3 class="text-neutral-500">Jelszó megerősítés</h3>
-                    <Input id="passwdconf" placeholder="Jelszó megerősítés"/>
+                    <h3 class="inputName">Jelszó megerősítés</h3>
+                    <div class="passwdCon">
+                        <Input :type="passConfShown ? 'text' : 'password'" class="passwd" placeholder="Jelszó"/>
+                        <div v-if="passShown" class="PasswdSVG">
+                            <passwdShown @click.prevent="onPasswdConfShown" class="show"/>
+                        </div>
+                        <div v-else class="PasswdSVG">
+                            <passwdHidden @click.prevent="onPasswdConfShown" class="show"/>
+                        </div>
+                    </div>
+
                 </div>
                 
                 <!--PassWd input field-->
@@ -55,14 +92,44 @@
     *{
         margin: 0;
         padding: 0;
-
+    }
+    .loginWindow{
+        @apply rounded-lg border-2 border-neutral-300 bg-neutral-100 drop-shadow-lg flex flex-col justify-between items-center content-center;
+        width: 40%;
+        height: 70%;
+        padding: 2rem 1rem 2rem 1rem;
+    }
+    .GoToPages{
+        @apply w-full;
+    }
+    .InputContainer {
+        @apply w-full flex flex-col justify-center content-center;
+    }
+    .TitleContainer{
+        @apply w-full flex justify-start
+    }
+    .RegContainer{
+        @apply flex flex-col justify-center content-center items-center h-screen
+    }
+    .inputName{
+        @apply text-neutral-500
+    }
+    .passwdCon{
+        @apply flex flex-row justify-between content-center items-center w-full
+    }
+    .show{
+        width: 3rem;
+        height: 3rem;
+        padding: 5px;
     }
     #email{
         width: 100%;
     }
-    #passwd{
-        width: 100%;
+    .passwd{
+        @apply tracking-widest;
+        width: 90%;
     }
+
     #username{
         width: 100%;
     }
@@ -72,23 +139,11 @@
     #passwdconf{
         width: 100%;
     }
-    .loginWindow{
-        width: 40%;
-        height: 70%;
-        padding: 2rem 1rem 2rem 1rem;
-    }
-    .GoToPages{
-        width: 100%;
-
-    }
     #Reg{
         padding-left: 5px;
     }
-
-    .InputContainer {
-        @apply w-full flex flex-col justify-center content-center;
-
-        
+    #Title{
+        @apply text-neutral-800 text-3xl
     }
 
 </style>
