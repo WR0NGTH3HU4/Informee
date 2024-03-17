@@ -10,7 +10,7 @@
         Url: string,
     }
     //Global Var helyett
-    let IsLoggedIn= false;
+    let IsLoggedIn= true;
 
     const LoggedInContent = ref<Link[]>([
         {Id:0,Title:"Posztok", Url:"/Posztok"},

@@ -1,5 +1,13 @@
+<script lang="ts" setup>
+    import Sidebar from '@/components/Sidebar.vue';
+</script>
 <template>
-    <div>
-        <h2>Posztok</h2>
+    <div class="FullPostPage">
+        <!--Sidebar-->
+        <Sidebar/>
+        <div class="Posts">
+            <!--Searchbar-->
+            <!--Postlist-->
+        </div>
     </div>
 </template>
