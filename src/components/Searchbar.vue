@@ -15,7 +15,7 @@
 </template>
 <style lang="scss" scoped>
     .searchbar{
-        @apply flex flex-row justify-evenly content-center items-center w-full;
+        @apply flex flex-row justify-between content-center items-center w-full;
         #bar{
             width: 80%;
         }
