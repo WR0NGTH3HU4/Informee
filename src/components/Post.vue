@@ -38,7 +38,14 @@
         margin-right: 10px;
     }
     .post h3{
-        @apply text-3xl;
+        @apply text-3xl text-neutral-800;
         margin:30px 0;
+    }
+    .post p{
+        @apply text-neutral-600;
+        margin-bottom:30px ;
+    }
+    head h3{
+        @apply text-neutral-600;
     }
 </style>
