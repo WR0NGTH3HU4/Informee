@@ -9,7 +9,7 @@
 </template>
 
 <style scoped>
-.upvote {
+.like {
   border-radius: 10px;
   background-color: #22c55e;
   color: #fafafa;
