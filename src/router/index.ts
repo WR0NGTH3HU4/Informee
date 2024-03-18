@@ -64,7 +64,8 @@ const router = createRouter({
     {
       path:'/SajatPosztok',
       name: 'SajatPosztok',
-      component: () => import('../views/SajatPosztok.vue')
+      component: () => import('../views/SajatPosztok.vue'),
+      meta:{public:true}
     },
     //Bejelentkezés
     {
