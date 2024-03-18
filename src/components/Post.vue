@@ -47,10 +47,10 @@
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem nihil accusantium libero ipsa magnam. Dolorum, ipsa rerum. Cumque dignissimos praesentium, sapiente repellendus natus sed veniam animi atque quod harum beatae.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem nihil accusantium libero ipsa magnam. Dolorum, ipsa rerum. Cumque dignissimos praesentium, sapiente repellendus natus sed veniam animi atque quod harum beatae.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem nihil accusantium libero ipsa magnam. Dolorum, ipsa rerum. Cumque dignissimos praesentium, sapiente repellendus natus sed veniam animi atque quod harum beatae.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem nihil accusantium libero ipsa magnam. Dolorum, ipsa rerum. Cumque dignissimos praesentium, sapiente repellendus natus sed veniam animi atque quod harum beatae.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem nihil accusantium libero ipsa magnam. Dolorum, ipsa rerum. Cumque dignissimos praesentium, sapiente repellendus natus sed veniam animi atque quod harum beatae.</p>
         </div>
         <div class="postactions">
-            <PostActionButton type="like"></PostActionButton>
-            <PostActionButton type="dislike"></PostActionButton>
-            <PostActionButton type="share"></PostActionButton>
-            <PostActionButton type="report"></PostActionButton>
+            <PostActionButton class="postaction like"></PostActionButton>
+            <PostActionButton class="postaction dislike"></PostActionButton>
+            <PostActionButton class="postaction share"></PostActionButton>
+            <PostActionButton class="postaction report"></PostActionButton>
         </div>
     </div>
         </div>
@@ -117,4 +117,8 @@
     p{
         @apply font-normal
     }
+    .postactions{
+        @apply flex flex-row justify-evenly content-center w-full 
+    }
+
 </style>

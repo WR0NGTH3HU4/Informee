@@ -17,7 +17,7 @@
     .searchbar{
         @apply flex flex-row justify-between content-center items-center w-full;
         #bar{
-            width: 80%;
+            width: 70%;
         }
     }
 
