@@ -36,7 +36,11 @@ const router = createRouter({
     {
       path:'/Posztok',
       name: 'Posztok',
-      component: () => import('../views/Posztok.vue')
+      component: () => import('../views/Posztok.vue'),
+      //Ideiglenesen, teszteléshez !!!
+      meta: {
+        public: true
+      }
     },
     {
       path: '/PosztSzerkeszto',
