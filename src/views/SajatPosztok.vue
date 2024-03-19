@@ -5,30 +5,33 @@
     import Postediting from '@/components/Postediting.vue';
     import Uploaded from '@/components/Uploaded.vue'
     import UploadFile from '@/components/UploadFile.vue'
+    import Post from '@/components/Post.vue'
+    import Bio from '@/components/Bio.vue'
 </script>
 <template>
-    
-    <div class="balloldal">
-        <h2>SajatPosztok</h2>
+<div class="full_page">
+
+
+    <div class="bio">
+        <Bio/>
     </div>
-    <div class="jobboldal">
-        <h2>SajatPosztok</h2>
-    </div>
+   <!-- <div class="posztok">
+        <Post/>
+    </div>-->
+</div>
 </template>
 <style>
-.balloldal{
-    background-color: brown;
-    @apply flex flex-row justify-between content-center;
-        height: 100%;
-        width: 30%;
-        margin: 10px
-        
+.full_page{
+    @apply flex  justify-between content-center;
 }
-.jobboldal{
+
+.posztok{
     background-color: blue;
     @apply flex flex-row justify-between content-center;
-        height: 100%;
-        width: 50%;
-        margin: 10px
+        
+    margin-top:30px
+        
+        
+        
 }
 </style>
