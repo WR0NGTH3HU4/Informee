@@ -27,9 +27,10 @@ import Button from '../components/Button.vue'
     .full_bio{
         @apply flex flex-col justify-center content-center ;
         background-color:lightblue;
+        width: 130%;
     }
     .fejlec{
-        @apply flex flex-row justify-center content-center ;
+        @apply flex flex-row justify-start content-center ;
         background-color: cadetblue;
         //padding: 30px;
         width: 100%;
@@ -40,6 +41,6 @@ import Button from '../components/Button.vue'
         padding: 10px;
     }
     .name{
-        @apply flex flex-col justify-center content-center ;
+        @apply flex flex-col justify-end content-center ;
     }
 </style>
