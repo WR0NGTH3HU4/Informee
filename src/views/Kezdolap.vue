@@ -1,6 +1,7 @@
 
 <script setup>
 import Button from '../components/Button.vue'
+import linkButton from '../components/linkButton.vue'
 
 </script>
 
@@ -28,6 +29,8 @@ import Button from '../components/Button.vue'
         </svg>
       </div>
     </div>
+
+    <linkButton text="link" class="linkButton"></linkButton>
 
 </template>
 
