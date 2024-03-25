@@ -1,9 +1,6 @@
-
-
-
-
 <script setup lang="ts">
 import Button from '@/components/Button.vue';
+
 
 </script>
 
@@ -31,7 +28,7 @@ import Button from '@/components/Button.vue';
     </div>
 
 
-    <linkButton text="link" class="linkButton"></linkButton>
+
 
 
 <!--Footer-->
