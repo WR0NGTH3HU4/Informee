@@ -6,7 +6,12 @@
     import passwdShown from '@/components/passwdShown.vue';
     import passwdHidden from '@/components/passwdHidden.vue';
     import { onMounted } from 'vue';
+    import axios from 'axios'
+    
 
+    
+
+    
     const Email = ref('');
     const Passwd = ref('');
     
@@ -19,11 +24,18 @@
         
     }
 
-    const onLogIn = () =>{
-        console.log(Email.value, Passwd.value)
+    const onLogIn = async () =>{
+
+        const data = await axios.post('http://91.120.112.81:8080/auth/login', {
+            email: Email.value,
+            password: Passwd.value,
+        })
+        console.log(data.data)
     }
+
     onMounted(()=>{
         passShown.value = false
+        
     })
 </script>
 <template>
