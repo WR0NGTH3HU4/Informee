@@ -15,9 +15,13 @@
     <div class="bio">
         <Bio/>
     </div>
-   <!-- <div class="posztok">
-        <Post/>
-    </div>-->
+   <div class="posztok">
+       <div class="poszt">
+            <Post/>
+       </div>
+       
+        
+    </div>
 </div>
 </template>
 <style>
@@ -26,12 +30,23 @@
 }
 
 .posztok{
-    background-color: blue;
-    @apply flex flex-row justify-between content-center;
+    
+    @apply flex flex-col justify-between content-center;
         
-    margin-top:30px
+    width: 70%;
+
+    
         
         
-        
+}
+.poszt{
+    margin: 20px;
+    height: auto;
+}
+
+@media (max-width: 800px) {
+    .full_page{
+    @apply flex flex-col justify-between content-center;
+}
 }
 </style>
