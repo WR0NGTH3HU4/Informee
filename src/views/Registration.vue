@@ -101,7 +101,7 @@
         @apply rounded-lg border-2 border-neutral-300 bg-neutral-100 drop-shadow-lg flex flex-col justify-between items-center content-center;
         width: 40%;
         height: 70%;
-        padding: 2rem 1rem 2rem 1rem;
+        padding: 1.5rem;
     }
     .GoToPages{
         @apply w-full;

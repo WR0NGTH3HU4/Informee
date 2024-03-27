@@ -68,18 +68,16 @@
     </div>
 </template>
 <style scoped lang="scss">
-    *{
-        margin: 0;
-        padding: 0;
-    }
+
     .FullPage{
         @apply flex flex-col justify-center content-center items-center h-screen
     }
     .loginWindow{
-        @apply rounded-lg border-2 border-neutral-300 bg-neutral-100 drop-shadow-lg flex flex-col justify-between items-center content-center;
-        width: 40%;
-        height: 50%;
-        padding: 2rem 1rem 2rem 1rem;
+        @apply rounded-lg  border-neutral-300 bg-neutral-100 drop-shadow-lg flex flex-col justify-between items-center content-center;
+        width: 30%;
+        height: 40%;
+        border-width: 1px;
+        padding: 1.5rem;
     }
     .TitleContainer{
         @apply w-full flex justify-start; 
@@ -88,7 +86,7 @@
         @apply w-full flex flex-col justify-center content-center
     }
     .GoToPages{
-        @apply flex flex-row justify-between content-center items-end w-full
+        @apply flex flex-row justify-between content-center items-center w-full
     }
     .Title{
         @apply text-neutral-800 text-3xl;
