@@ -1,5 +1,52 @@
+<script lang="ts" setup>
+    import { RouterLink, RouterView } from 'vue-router'
+    import {ref} from 'vue'
+    import Button from '../components/Button.vue'
+    import Postediting from '@/components/Postediting.vue';
+    import Uploaded from '@/components/Uploaded.vue'
+    import UploadFile from '@/components/UploadFile.vue'
+    import Post from '@/components/Post.vue'
+    import Bio from '@/components/Bio.vue'
+</script>
 <template>
-    <div>
-        <h2>SajatPosztok</h2>
+<div class="full_page">
+
+
+    <div class="bio">
+        <Bio/>
     </div>
+   <div class="posztok">
+       <div class="poszt">
+            <Post/>
+       </div>
+       
+        
+    </div>
+</div>
 </template>
+<style>
+.full_page{
+    @apply flex  justify-between content-center;
+}
+
+.posztok{
+    
+    @apply flex flex-col justify-between content-center;
+        
+    width: 70%;
+
+    
+        
+        
+}
+.poszt{
+    margin: 20px;
+    height: auto;
+}
+
+@media (max-width: 800px) {
+    .full_page{
+    @apply flex flex-col justify-between content-center;
+}
+}
+</style>
