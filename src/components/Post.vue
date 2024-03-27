@@ -47,10 +47,10 @@
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem nihil accusantium libero ipsa magnam. Dolorum, ipsa rerum. Cumque dignissimos praesentium, sapiente repellendus natus sed veniam animi atque quod harum beatae.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem nihil accusantium libero ipsa magnam. Dolorum, ipsa rerum. Cumque dignissimos praesentium, sapiente repellendus natus sed veniam animi atque quod harum beatae.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem nihil accusantium libero ipsa magnam. Dolorum, ipsa rerum. Cumque dignissimos praesentium, sapiente repellendus natus sed veniam animi atque quod harum beatae.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem nihil accusantium libero ipsa magnam. Dolorum, ipsa rerum. Cumque dignissimos praesentium, sapiente repellendus natus sed veniam animi atque quod harum beatae.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem nihil accusantium libero ipsa magnam. Dolorum, ipsa rerum. Cumque dignissimos praesentium, sapiente repellendus natus sed veniam animi atque quod harum beatae.</p>
         </div>
         <div class="postactions">
-            <PostActionButton type="like" class="postaction"></PostActionButton>
-            <PostActionButton type="dislike" class="postaction"></PostActionButton>
-            <PostActionButton type="share" class="postaction"></PostActionButton>
-            <PostActionButton type="report" class="postaction"></PostActionButton>
+            <PostActionButton type="like"></PostActionButton>
+            <PostActionButton type="dislike"></PostActionButton>
+            <PostActionButton type="share"></PostActionButton>
+            <PostActionButton type="report"></PostActionButton>
         </div>
     </div>
         </div>

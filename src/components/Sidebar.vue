@@ -37,8 +37,9 @@
         width: 20%;
     }
     h3{
-        @apply w-full self-start text-3xl text-neutral-700 font-bold;
-        margin: 20px 0px;
+        @apply w-full self-start text-3xl text-neutral-700 p-4 font-bold;
+
+        margin: 20px 0px ;
     }
     .tag{
         @apply flex flex-col justify-center content-center items-center text-neutral-500;
