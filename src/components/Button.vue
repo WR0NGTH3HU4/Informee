@@ -16,7 +16,7 @@ defineProps(['text', 'type', 'click']);
     .success { @apply bg-green-500 hover:bg-green-400 active:bg-green-600; }
 
     button {
-        @apply px-4 py-2 rounded-md border-none shadow-md duration-200 text-zinc-100 cursor-pointer;
+        @apply px-4 py-2 rounded border-none shadow-md duration-200 text-zinc-100 cursor-pointer;
     }
 
     button:not(.primary):not(.danger):not(.muted):not(.success) {
