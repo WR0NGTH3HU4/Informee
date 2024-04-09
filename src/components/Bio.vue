@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import Button from '../components/Button.vue'
 import Input from '../components/Input.vue'
+import linkButton from './linkButton.vue';
 </script>
 <template>
 <div class="full_bio">
@@ -29,10 +30,11 @@ import Input from '../components/Input.vue'
             <div>
                 <h3>Linkek</h3>
                 <div >
-                    <Button text="Linkek"></Button>
-                    <Button text="Linkek"></Button>
-                    <Button text="Linkek"></Button>
-                    <Button text="Linkek"></Button>
+                    <linkButton text="YouTube" class="linkButton"></linkButton>
+                    <linkButton text="Weboldal" class="WeboldalLink"></linkButton>
+                    <linkButton text="Email" class="EmailLink"></linkButton>
+                    <linkButton text="Steam" class="SteamLink"></linkButton>
+                    <linkButton text="Facebook" class="FacebookLink"></linkButton>
                 </div>
             </div>
 
