@@ -2,7 +2,7 @@
     <footer class="footer">
       <div class="fullfooter">
         <h1 id="felsoszoveg">Informee</h1>
-        <div class="rechtangle"></div>
+        
         <div class="footer-content">
           <Logo />
         </div>
@@ -44,11 +44,13 @@
   
   <style scoped>
   .footer {
-    background-color: #737373;
+
+    background-image: url(../assets/hatterfooter.svg);
     padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 50%;
   }
   
   .footer-content ul {
@@ -86,13 +88,6 @@
   #felsoszoveg {
     color: #fff;
     font-size: xx-large;
-  }
-  
-  .rechtangle {
-    width: 1500px;
-    height: 0;
-    padding-top: 8%; 
-    background-color: #fff;
   }
   </style>
   
