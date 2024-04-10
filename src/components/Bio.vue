@@ -29,7 +29,7 @@ import linkButton from './linkButton.vue';
             </div>
             <div>
                 <h3>Linkek</h3>
-                <div >
+                <div  class="link">
                     <linkButton text="YouTube" class="linkButton"></linkButton>
                     <linkButton text="Weboldal" class="WeboldalLink"></linkButton>
                     <linkButton text="Email" class="EmailLink"></linkButton>
@@ -47,10 +47,13 @@ import linkButton from './linkButton.vue';
 <style lang="scss">
     .full_bio{
         @apply flex flex-col justify-center content-center drop-shadow-lg border-neutral-300 ;
-        background-color: #F5F5F5;
+        background-color: #D4D4D4;
        border-radius: 10px;
        box-sizing: 5px;
-       margin: 5px;
+       //margin: 5px;
+       margin-left: 10px;
+       margin-right: 10px;
+       
         
     }
     .tartalom{
@@ -70,6 +73,10 @@ import linkButton from './linkButton.vue';
         margin-right:20px ;
         padding: 10px;
     }
+    .link{
+        @apply flex flex-row  justify-start content-center ;
+        flex-wrap: wrap;
+    }
     .name{
         @apply flex flex-col justify-end content-center ;
     }
@@ -78,21 +85,30 @@ import linkButton from './linkButton.vue';
         
     }
     #biotext{
-        width: 100%;
+        //width: 100%;
+        width: 92%;
         height: 200px;
+        float: center;
         
     }
     .like{
         @apply flex flex-row justify-center content-center ;
     }
-    @media (max-width: 800px) {
+    @media (max-width: 799px) {
         .full_bio{
         @apply flex flex-col justify-center content-center drop-shadow-lg border-neutral-300 ;
         background-color: #D4D4D4;
        border-radius: 10px;
        box-sizing: 5px;
-       margin: 10px;
-      
+       margin: 10px;}
+
+       #biotext{
+        width: 100%;
+        //width: 92%;
+        height: 200px;
+        float: center;
+        
+    
         
     
     }

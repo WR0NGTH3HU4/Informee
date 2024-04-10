@@ -40,7 +40,8 @@
         
 }
 .poszt{
-    margin: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
     height: auto;
 }
 
@@ -49,4 +50,10 @@
     @apply flex flex-col justify-between content-center;
 }
 }
+@media (min-width: 800px) {
+    .bio{
+        width: 550px;
+    }
+}
+
 </style>
