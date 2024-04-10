@@ -1,6 +1,7 @@
-
 <script setup lang="ts">
 import Button from '@/components/Button.vue';
+
+
 </script>
 
 <template>
@@ -25,7 +26,13 @@ import Button from '@/components/Button.vue';
         <img src="../assets/fooldal_logo.svg" alt="">
       </div>
     </div>
+
+
+
+
+
 <!--Footer-->
+
 </template>
 
 <style scoped>
