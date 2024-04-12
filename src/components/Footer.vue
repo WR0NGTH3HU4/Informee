@@ -5,28 +5,30 @@
         
         <div class="footer-content">
           <div class="bal">
-            <h1>Bögrék</h1>
+            <h1 class = "masodik-sor">Bögrék</h1>
             <p>Pólók, pulcsik, bögrék, genyók.</p>
             <p>Iratkozz fel! Pólók, pulcsik, bögrék, genyók.</p>
             <p>Iratkozz fel! Pólók, pulcsik, bögrék, genyók.</p>
             <p>Iratkozz fel! Pólók, pulcsik, bögrék, genyók.</p>
           </div>
           <div class="mid">
-            <h1>Genyók</h1>
+            <h1 class = "masodik-sor">Genyók</h1>
             <p>Pólók, pulcsik, bögrék, genyók.</p>
             <p>Iratkozz fel! Pólók, pulcsik, bögrék, genyók.</p>
             <p>Iratkozz fel! Pólók, pulcsik, bögrék, genyók.</p>
             <p>Iratkozz fel! Pólók, pulcsik, bögrék, genyók.</p>
           </div>
           <div class="jobb">
-            <h1>Pólók, pulcsik, bögrék, genyók. Iratkozz fel!</h1>
+            <h1  class = "masodik-sor">Pólók, pulcsik, bögrék, genyók. Iratkozz fel!</h1>
           </div>
         </div>
+        
         <div class="footer-social">
           <ul>
-            <li><a href="https://github.com/WR0NGTH3HU4/Informee/tree/P2-63"><linkButton class="GithubLink" text="Github"></linkButton></a></li>
-            <li><a href="#"><linkButton class="linkButton" text="SHÉR"></linkButton></a></li>
+            
             <li><a href="https://discord.com/"><linkButton class="DiscordButton" text="Discord"></linkButton></a></li>
+            <li><a href="#"><linkButton class="ShareButton" text="SHÉR"></linkButton></a></li>
+            <li><a href="https://github.com/WR0NGTH3HU4/Informee/tree/P2-63"><linkButton class="GithubLink" text="Github"></linkButton></a></li>
           </ul>
         </div>
       </div>
@@ -65,11 +67,14 @@
     background-image: url(../assets/hatterfooter.svg);
     padding: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     height: 50%;
   }
-  
+
+  .footer-content{
+    align-items: flex-end;
+  }
   .footer-content ul {
     list-style: none;
     margin: 0;
@@ -84,7 +89,10 @@
   .footer-social ul {
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 20px;
+    align-items: flex-end;
+    display: flex;
+    flex-direction: row-reverse;
   }
   
   .footer-social ul li {
@@ -101,17 +109,34 @@
   #felsoszoveg {
     color: #FAFAFA;
     font-size: xx-large;
+    margin-top: 5%;
+    margin-bottom: 5%;
   }
   .footer-content {
   color: #FAFAFA;
   display: flex;
-  flex-direction: row; /* Soron belüli elrendezés */
-  justify-content: space-between; /* Egyenletes elosztás */
+  flex-direction: row;
+  margin-bottom: 2%;
+}
+.bal {
+  flex: 1; 
+  margin-right: auto; /* Az automatikus margin eltolja a bal oszlopot a footer bal szélére */
 }
 
-.bal, .mid, .jobb {
-  flex: 1; /* Egyenlő részre osztja az elrendezést */
-  margin-right: 10%; /* Opcionális: térköz a div-ek között */
+.mid {
+  flex: 1;
+  margin-left: auto; /* Az automatikus margin eltolja a mid oszlopot a footer közepére */
+  margin-right: auto; /* Az automatikus margin eltolja a mid oszlopot a footer közepére */
+}
+
+.jobb {
+  flex: 1; 
+  margin-left: auto; /* Az automatikus margin eltolja a jobb oszlopot a footer jobb szélére */
+}
+
+
+.masodik-sor{
+  font-size: x-large;
 }
   </style>
   
