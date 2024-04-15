@@ -65,16 +65,20 @@
   .footer {
 
     background-image: url(../assets/hatterfooter.svg);
-    padding: 20px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     height: 50%;
   }
 
-  .footer-content{
-    align-items: flex-end;
-  }
+  .footer-content {
+    color: #FAFAFA;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2%;
+    width: calc(100% - 40px);
+    text-align: center;
+}
   .footer-content ul {
     list-style: none;
     margin: 0;
@@ -134,9 +138,16 @@
   margin-left: auto; /* Az automatikus margin eltolja a jobb oszlopot a footer jobb szélére */
 }
 
-
 .masodik-sor{
   font-size: x-large;
+  text-align: center;
 }
+
+.footer-social {
+    background-color: #171717;
+    margin-bottom: 15px;
+    width: 100%; /* Töltse ki a lábléc teljes szélességét */
+}
+
   </style>
   

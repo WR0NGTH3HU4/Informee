@@ -76,7 +76,7 @@ defineProps(['text', 'linkButton', 'click'])
   justify-content: center;
   flex-direction: row-reverse;
   border-radius: 10px;
-  padding: 8px;
+  padding: 6px;
   width: fit-content;
 }
 
@@ -89,7 +89,7 @@ defineProps(['text', 'linkButton', 'click'])
   justify-content: center;
   flex-direction: row-reverse;
   border-radius: 10px;
-  padding: 8px;
+  padding: 6px;
   width: fit-content;
 }
 
@@ -101,7 +101,7 @@ defineProps(['text', 'linkButton', 'click'])
   justify-content: center;
   flex-direction: row-reverse;
   border-radius: 10px;
-  padding: 8px;
+  padding: 6px;
   width: fit-content;
 }
 
