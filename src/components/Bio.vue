@@ -58,8 +58,10 @@ import linkButton from './linkButton.vue';
        
         
     }
+    
     .tartalom{
-        margin: 10px
+        margin: 10px;
+        width:90%;
     }
     .fejlec{
         @apply flex flex-row justify-start content-center drop-shadow-lg border-neutral-300 ;
@@ -79,6 +81,7 @@ import linkButton from './linkButton.vue';
         @apply flex flex-row  justify-start content-center ;
         flex-wrap: wrap;
         margin:-5px;
+        
     }
     .name{
         @apply flex flex-col justify-end content-center ;
@@ -100,11 +103,12 @@ import linkButton from './linkButton.vue';
         border-color: none;
         margin: 5px;
        // margin:5px;
-        //margin-right:-5px;
-        
+        margin-right:0px;
+        margin-left:0px;        
     }
     .like{
         @apply flex flex-row justify-center content-center ;
+        width:92%;
     }
     @media (max-width: 799px) {
         .full_bio{

@@ -52,7 +52,7 @@
 }
 @media (min-width: 800px) {
     .bio{
-        width: 550px;
+        width: 500px;
     }
 }
 
