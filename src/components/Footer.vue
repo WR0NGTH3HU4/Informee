@@ -24,8 +24,8 @@
         </div>
         
         <div class="footer-social">
-          <ul>
-            
+          <Logo class="w-[150px]"/>
+          <ul> 
             <li><a href="https://discord.com/"><linkButton class="DiscordButton" text="Discord"></linkButton></a></li>
             <li><a href="#"><linkButton class="ShareButton" text="SHÉR"></linkButton></a></li>
             <li><a href="https://github.com/WR0NGTH3HU4/Informee/tree/P2-63"><linkButton class="GithubLink" text="Github"></linkButton></a></li>
@@ -38,7 +38,7 @@
   <script setup lang="ts">
   import { RouterLink } from 'vue-router';
   import { ref } from 'vue';
-  import Logo from './Logo.vue';
+  import Logo from '@/components/Logo.vue';
   import Button from './Button.vue';
   import linkButton from './linkButton.vue'
   
@@ -124,18 +124,18 @@
 }
 .bal {
   flex: 1; 
-  margin-right: auto; /* Az automatikus margin eltolja a bal oszlopot a footer bal szélére */
+  margin-right: auto; 
 }
 
 .mid {
   flex: 1;
-  margin-left: auto; /* Az automatikus margin eltolja a mid oszlopot a footer közepére */
-  margin-right: auto; /* Az automatikus margin eltolja a mid oszlopot a footer közepére */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .jobb {
   flex: 1; 
-  margin-left: auto; /* Az automatikus margin eltolja a jobb oszlopot a footer jobb szélére */
+  margin-left: auto; 
 }
 
 .masodik-sor{
@@ -146,7 +146,11 @@
 .footer-social {
     background-color: #171717;
     margin-bottom: 15px;
-    width: 100%; /* Töltse ki a lábléc teljes szélességét */
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 1%;
 }
 
   </style>
