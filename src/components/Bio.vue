@@ -37,7 +37,9 @@ import linkButton from './linkButton.vue';
                     <linkButton text="Facebook" class="FacebookLink"></linkButton>
                 </div>
             </div>
-
+            
+                <Button text="Edit" class="edit" ></Button>
+            
         </div>
     </div>
 </div>
@@ -76,6 +78,7 @@ import linkButton from './linkButton.vue';
     .link{
         @apply flex flex-row  justify-start content-center ;
         flex-wrap: wrap;
+        margin:-5px;
     }
     .name{
         @apply flex flex-col justify-end content-center ;
@@ -83,12 +86,21 @@ import linkButton from './linkButton.vue';
     Button {
         margin: 5px;
         
+        
     }
     #biotext{
         //width: 100%;
         width: 92%;
         height: 200px;
         float: center;
+        
+    }
+    .edit{
+        width:92%;
+        border-color: none;
+        margin: 5px;
+       // margin:5px;
+        //margin-right:-5px;
         
     }
     .like{
