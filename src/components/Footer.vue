@@ -29,7 +29,7 @@
     </footer>
     <div class="black-bar">
       <div class="footer-social">
-          <Feherlogo class="w-[150px]"/>
+          <Feherlogo class="w-[150px]" id="istenem"/>
           <ul> 
             <li><a href="https://discord.com/"><linkButton class="DiscordButton" text="Discord"></linkButton></a></li>
             <li><a href="#"><linkButton class="ShareButton" text="SHÉR"></linkButton></a></li>
@@ -68,12 +68,12 @@
   
   <style scoped>
   .footer {
-
     background-image: url(../assets/hatterfooter.svg);
     display: flex;
     justify-content: space-around;
     align-items: center;
     height: 50%;
+    padding: 5%;
   }
 
   .footer-content {
@@ -172,5 +172,8 @@
   
 }
 
+#istenem{
+  margin-top: 15px;  
+}
   </style>
   
