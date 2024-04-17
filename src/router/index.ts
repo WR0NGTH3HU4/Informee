@@ -55,9 +55,9 @@ const router = createRouter({
       meta: { public: true }
     },
     {
-      path: '/login',
-      name: 'Login',
-      component: () => import('../views/Login.vue'),
+      path: '/bejelentkezes',
+      name: 'Bejelentkezes',
+      component: () => import('../views/Bejelentkezes.vue'),
       meta: {
         public: true
       }
