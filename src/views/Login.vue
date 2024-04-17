@@ -60,7 +60,7 @@
                     </div>
                 </div>
             </div>
-            <div class="flex flex-row justify-between content-center items-center w-full gap-4">
+            <div class="flex flex-row justify-between content-center items-center w-full gap-8">
                 <h5 class="text-neutral-500 font-medium flex flex-row">Nincs még fiókod?<RouterLink to="/Registration"><h5 class="text-orange-500 underline" id="Reg">Regisztrálj!</h5></RouterLink></h5> 
                 <Button text="Bejelentkezés" type="primary" @click.prevent="onLogIn"></Button>
             </div>
