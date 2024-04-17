@@ -46,7 +46,7 @@ const LoggedOutContent = ref<Link[]>([
         }}</a>
     </span>
     </div>
-    <RouterLink to="/Login">
+    <RouterLink to="Bejelentkezes">
       <Button text="Bejelentkezés"></Button>
     </RouterLink>
   </nav>
