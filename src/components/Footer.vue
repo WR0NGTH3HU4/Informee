@@ -68,64 +68,58 @@
   
   <style scoped>
   .footer {
-    background-image: url(../assets/hatterfooter.svg);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 50%;
-    padding: 5%;
-  }
-
-  .footer-content {
-    color: #171717;
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 2%;
-    width: calc(100% - 40px);
-    text-align: center;
+  background-image: url(../assets/hatterfooter.svg);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 40%; /* Kisebb footer */
+  padding: 2%; /* Kisebb padding */
 }
-  .footer-content ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .footer-content ul li {
-    display: inline-block;
-    margin-right: 20px;
-  }
-  
-  .footer-social ul {
-    list-style: none;
-    margin: 0;
-    padding: 20px;
-    align-items: flex-end;
-    display: flex;
-    flex-direction: row-reverse;
-  }
-  
-  .footer-social ul li {
-    display: inline-block;
-    margin-right: 10px;
-  }
-  
-  .footer-social ul li a {
-    color: rgb(229, 229, 229);
-    font-size: 20px;
-    text-decoration: none;
-  }
-  
-  #felsoszoveg {
-    color: rgb(229, 229, 229);
-    font-size: xx-large;
-    margin-bottom: 5%;
-  }
-  .footer-content {
+
+.footer-content {
   color: rgb(229, 229, 229);
   display: flex;
   flex-direction: row;
   margin-bottom: 5%;
 }
+
+.footer-content ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-content ul li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.footer-social ul {
+  list-style: none;
+  margin: 0;
+  padding: 20px;
+  align-items: flex-end;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.footer-social ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.footer-social ul li a {
+  color: rgb(229, 229, 229);
+  font-size: 20px;
+  text-decoration: none;
+}
+
+#felsoszoveg {
+  color: rgb(229, 229, 229);
+  font-size: xx-large;
+  margin-bottom: 5%;
+}
+
 .bal {
   flex: 1; 
   margin-right: auto; 
@@ -142,19 +136,19 @@
   margin-left: auto; 
 }
 
-.masodik-sor{
+.masodik-sor {
   font-size: x-large;
   text-align: center;
 }
 
 .footer-social {
-    background-color: #171717;
-    margin-bottom: 15px;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-left: 1%;
+  background-color: #171717;
+  margin-bottom: 15px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 1%;
 }
 
 .black-bar {
@@ -163,15 +157,13 @@
   width: 100%; /* Teljes szélesség */
 }
 
-.white-box{
+.white-box {
   background-color: rgba(23, 23, 23, 0.75); /* Világosszürke, 50% átlátszósággal */
-  padding: 20px; /* Például 20px padding minden oldalon */
+  padding: 10px; /* Kisebb padding */
   border-radius: 10px;
-  width: 100%; /* Szélesség 80%-ra */
+  width: 100%; /* Szélesség 100%-ra */
   margin: 0 auto; /* Középre igazítás */
-  
 }
-
 #istenem{
   margin-top: 15px;  
 }
