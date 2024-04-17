@@ -7,11 +7,7 @@
     import passwdHidden from '@/components/passwdHidden.vue';
     import { onMounted } from 'vue';
     import axios from 'axios'
-    
-
-    
-
-    
+        
     const Email = ref('');
     const Passwd = ref('');
     
