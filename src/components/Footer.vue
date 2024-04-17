@@ -1,6 +1,7 @@
 <template>
     <footer class="footer">
       <div class="fullfooter">
+        <div class="white-box">
         <h1 id="felsoszoveg">Informee</h1>
         
         <div class="footer-content">
@@ -22,17 +23,20 @@
             <h1  class = "masodik-sor">Pólók, pulcsik, bögrék, genyók. Iratkozz fel!</h1>
           </div>
         </div>
+        </div>
         
-        <div class="footer-social">
-          <Logo class="w-[150px]"/>
+      </div>
+    </footer>
+    <div class="black-bar">
+      <div class="footer-social">
+          <Feherlogo class="w-[150px]"/>
           <ul> 
             <li><a href="https://discord.com/"><linkButton class="DiscordButton" text="Discord"></linkButton></a></li>
             <li><a href="#"><linkButton class="ShareButton" text="SHÉR"></linkButton></a></li>
             <li><a href="https://github.com/WR0NGTH3HU4/Informee/tree/P2-63"><linkButton class="GithubLink" text="Github"></linkButton></a></li>
           </ul>
         </div>
-      </div>
-    </footer>
+    </div>
   </template>
   
   <script setup lang="ts">
@@ -40,7 +44,8 @@
   import { ref } from 'vue';
   import Logo from '@/components/Logo.vue';
   import Button from './Button.vue';
-  import linkButton from './linkButton.vue'
+  import linkButton from './linkButton.vue';
+  import Feherlogo from './Feherlogo.vue';
   
   interface Link {
     id: number;
@@ -72,7 +77,7 @@
   }
 
   .footer-content {
-    color: #FAFAFA;
+    color: #171717;
     display: flex;
     flex-direction: row;
     margin-bottom: 2%;
@@ -105,22 +110,21 @@
   }
   
   .footer-social ul li a {
-    color: #FAFAFA;
+    color: rgb(229, 229, 229);
     font-size: 20px;
     text-decoration: none;
   }
   
   #felsoszoveg {
-    color: #FAFAFA;
+    color: rgb(229, 229, 229);
     font-size: xx-large;
-    margin-top: 5%;
     margin-bottom: 5%;
   }
   .footer-content {
-  color: #FAFAFA;
+  color: rgb(229, 229, 229);
   display: flex;
   flex-direction: row;
-  margin-bottom: 2%;
+  margin-bottom: 5%;
 }
 .bal {
   flex: 1; 
@@ -151,6 +155,21 @@
     flex-direction: row;
     justify-content: space-between;
     padding-left: 1%;
+}
+
+.black-bar {
+  background-color: #171717;
+  height: 10px; /* Változtasd az igényeknek megfelelően */
+  width: 100%; /* Teljes szélesség */
+}
+
+.white-box{
+  background-color: rgba(23, 23, 23, 0.75); /* Világosszürke, 50% átlátszósággal */
+  padding: 20px; /* Például 20px padding minden oldalon */
+  border-radius: 10px;
+  width: 100%; /* Szélesség 80%-ra */
+  margin: 0 auto; /* Középre igazítás */
+  
 }
 
   </style>
