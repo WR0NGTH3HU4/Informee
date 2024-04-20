@@ -23,22 +23,22 @@ import linkButton from './linkButton.vue';
             <div>
                 <h3>Értékelések</h3>
                 <div class="like">
-                    <Button text="ikon" ></Button>
-                    <Button text="ikon" ></Button>
+                    <Button text="ikon" class="full-width"></Button>
+                    <Button text="ikon" class="full-width"></Button>
                 </div>
             </div>
             <div>
                 <h3>Linkek</h3>
-                <div  class="link">
-                    <linkButton text="YouTube" class="linkButton"></linkButton>
-                    <linkButton text="Weboldal" class="WeboldalLink"></linkButton>
-                    <linkButton text="Email" class="EmailLink"></linkButton>
-                    <linkButton text="Steam" class="SteamLink"></linkButton>
-                    <linkButton text="Facebook" class="FacebookLink"></linkButton>
+                <div class="link">
+                    <linkButton text="YouTube" class="linkButton full-width"></linkButton>
+                    <linkButton text="Weboldal" class="WeboldalLink full-width"></linkButton>
+                    <linkButton text="Email" class="EmailLink full-width"></linkButton>
+                    <linkButton text="Steam" class="SteamLink full-width"></linkButton>
+                    <linkButton text="Facebook" class="FacebookLink full-width"></linkButton>
                 </div>
             </div>
             
-                <Button text="Edit" class="edit" ></Button>
+                <Button text="Edit" class="edit full-width"></Button>
             
         </div>
     </div>
@@ -50,84 +50,112 @@ import linkButton from './linkButton.vue';
     .full_bio{
         @apply flex flex-col justify-center content-center drop-shadow-lg border-neutral-300 ;
         background-color: #D4D4D4;
-       border-radius: 10px;
-       box-sizing: 5px;
-       //margin: 5px;
-       margin-left: 10px;
-       margin-right: 10px;
-       
-        
+        border-radius: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 500px;
     }
     
     .tartalom{
         margin: 10px;
-        width:90%;
+        width:auto;
     }
+    .bio{
+        width: 100%;
+    }
+
+    .bio > div {
+        width: auto;
+        margin-bottom: 10px;
+    }
+
     .fejlec{
         @apply flex flex-row justify-start content-center drop-shadow-lg border-neutral-300 ;
         background-color: cadetblue;
-        //padding: 30px;
-        //width: 100%;
         height: 40%;
         border-radius: 10px;
     }
+
     img{
         width: 9rem;
         margin-top: 30px;
         margin-right:20px ;
         padding: 10px;
     }
+
     .link{
         @apply flex flex-row  justify-start content-center ;
         flex-wrap: wrap;
-        margin:-5px;
-        
+        width: auto;
     }
+
     .name{
         @apply flex flex-col justify-end content-center ;
     }
-    Button {
+
+    Button, linkButton {
         margin: 5px;
-        
-        
     }
+
     #biotext{
-        //width: 100%;
-        width: 92%;
+        width:100%;
+        
         height: 200px;
         float: center;
-        
+
     }
+
     .edit{
-        width:92%;
-        border-color: none;
-        margin: 5px;
-       // margin:5px;
-        margin-right:0px;
-        margin-left:0px;        
+       width: auto;
+        margin: 0
     }
+
     .like{
         @apply flex flex-row justify-center content-center ;
-        width:92%;
+        width:100%;
     }
+
+    .full-width {
+        width: 100%;
+    }
+
     @media (max-width: 799px) {
         .full_bio{
-        @apply flex flex-col justify-center content-center drop-shadow-lg border-neutral-300 ;
-        background-color: #D4D4D4;
-       border-radius: 10px;
-       box-sizing: 5px;
-       margin: 10px;}
+            @apply flex flex-col justify-center content-center drop-shadow-lg border-neutral-300 ;
+            background-color: #D4D4D4;
+            border-radius: 10px;
+            margin: 10px;
+        }
 
-       #biotext{
+        #biotext{
+            width: 100%;
+            height: 200px;
+            float: center;
+        }
+    }
+    @media (max-width: 1000px) {
+    
+    .Abio{
+       width: 100%;
+    }
+    .posztok{
         width: 100%;
-        //width: 92%;
-        height: 200px;
-        float: center;
+    }
+    .Locked{
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    .full_bio{
+        width: auto;
         
-    
-        
-    
+    }
+    .bio{
+        width: auto;
+    }
+    img{
+        width: 15rem;
     }
 }
-    
 </style>
