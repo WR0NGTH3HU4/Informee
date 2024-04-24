@@ -49,11 +49,13 @@ import linkButton from './linkButton.vue';
 <style lang="scss">
     .full_bio{
         @apply flex flex-col justify-center content-center drop-shadow-lg border-neutral-300 ;
-        background-color: #D4D4D4;
+        background-color: #f5f5f5;
         border-radius: 10px;
         margin-left: 10px;
         margin-right: 10px;
         width: 500px;
+        border-color: #D4D4D4;
+        border: 1px;
     }
     
     .tartalom{
