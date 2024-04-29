@@ -18,7 +18,7 @@ import Button from '@/components/Button.vue';
         <span class="text-neutral-500 font-medium flex flex-row items-center gap-4">
           <Button class="primary" text="Jelentkezz be"></Button>
           <RouterLink to="Regisztracio">
-            <span class="text-neutral-500 underline" id="Reg">vagy kezdj hozzá it!</span>
+            <span class="text-neutral-500 underline" id="Reg">vagy kezdj hozzá itt!</span>
           </RouterLink>
         </span>
       </div>
