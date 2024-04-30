@@ -3,9 +3,25 @@
 </script>
 <template>
     <div class="FullPage w-full h-full ">
-        <div class="Profile flex flex-col justify-center content-center items-start bg-neutral-50 ">
-            <div class="Banner">
-                <div class="ProfilePic"></div>
+        <div class="Profile flex flex-col justify-center content-center items-start bg-neutral-50 p-10 ">
+            <div class="Banner  flex flex-row justify-between content-center items-center w-full">
+                <div class="flex flex-col justify-center content-center items-start">
+                    <h3>molnarKiki</h3>
+                    <h3>Molnar Krisztian</h3>
+                </div>
+                <div class="ProfilePic w-96 aspect-square bg-no-repeat bg-cover"></div>
+                
+            </div>
+            <div class="flex flex-row justify-between content-center items-center w-full">
+                <div class="">
+                    <h3>Felhasználónév:</h3>
+                    
+                    <!--Tbox-->
+                </div>
+                <div class="">
+                    <h3>Név:</h3>
+                    <!--Tbox-->
+                </div>
             </div>
             <div class="Infos flex flex-col justify-center content-center items-center w-full">
                 <h3>Profilkép:</h3>
@@ -15,7 +31,7 @@
 
                 </div>
                 <h3>Linkek</h3>
-                <div>
+                <div class="flex flex-row justify-center content-center">
 
                 </div>
                 <div>
@@ -44,6 +60,7 @@
         padding: 10%;
     }
     .ProfilePic{
-        background-image: url("../assets/logo.svg")
+        background-image: url("../assets/logo.svg");
+
     }
 </style>
