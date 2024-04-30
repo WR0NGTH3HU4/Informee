@@ -6,12 +6,13 @@
     import passwdShown from '@/components/passwdShown.vue';
     import passwdHidden from '@/components/passwdHidden.vue';
     import { onMounted } from 'vue';
+import { ApiWrapper } from '@/composables/ApiWrapper';
 
-    const Email = ref('');
-    const UserName = ref('');
-    const DisplayName = ref('');
-    const Passwd = ref('');
-    const PasswdConf = ref('');
+    const email = ref('');
+    const userName = ref('');
+    const displayName = ref('');
+    const passwd = ref('');
+    const passwdConf = ref('');
 
     let passShown = ref<boolean>(false);
     let passConfShown = ref<boolean>(false);
@@ -25,7 +26,13 @@
     }
 
     function onSignUp() {
-
+        const res = ApiWrapper.post('auth/register', {
+            email: email.value,
+            password: passwd.value,
+            displayName: userName.value,
+            username: userName.value,
+        });
+        console.log(res);
     }
 
     onMounted(()=>{
@@ -42,16 +49,16 @@
             </div>
             <div class="InputContainer">
                 <h3 class="inputName">E-mail</h3>
-                <Input type="text" id="email" placeholder="E-mail" v-model="Email"/>
+                <Input type="text" id="email" placeholder="E-mail" v-model="email"/>
             </div>
             <div class="InputContainer">
                 <h3 class="inputName">Username</h3>
-                <Input type="text" id="email" placeholder="E-mail" v-model="Email"/>
+                <Input type="text" id="email" placeholder="E-mail" v-model="email"/>
             </div>
             <div class="InputContainer">
                 <h3 class="inputName">Jelszó</h3>
                 <div class="passwdCon">
-                    <Input :type="passShown ? 'text' : 'password'" id="passwdinput" :class="{'hide' : !passShown}" placeholder="Jelszó" v-model="Passwd"/>
+                    <Input :type="passShown ? 'text' : 'password'" id="passwdinput" :class="{'hide' : !passShown}" placeholder="Jelszó" v-model="passwd"/>
                     <div v-if="passShown" class="PasswdSVG">
                         <passwdShown @click.prevent="onPasswdShown" class="show"/>
                     </div>
