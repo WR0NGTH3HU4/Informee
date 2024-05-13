@@ -10,9 +10,10 @@
 html, body, #app {
     
     height: 100%;
+    
     margin: 0;
     padding: 0;
-    width: 100vw;
+    
 }
 
 *{
@@ -25,7 +26,7 @@ html, body, #app {
 #app {
     display: flex;
     flex-direction: column;
-    min-width: 100vw;
+    
     
 }
 
