@@ -6,6 +6,12 @@
     import passwdShown from '@/components/passwdShown.vue';
     import passwdHidden from '@/components/passwdHidden.vue';
     import { onMounted } from 'vue';
+    import axios from 'axios';
+import { useUserStore } from '@/stores/user';
+import { useRouter } from 'vue-router';
+
+    const userStore = useUserStore();
+    const router = useRouter();
 
     const Email = ref('');
     const Passwd = ref('');
@@ -19,8 +25,16 @@
         
     }
 
-    const onLogIn = () =>{
+    const onLogIn = async () =>{
         console.log(Email.value, Passwd.value)
+        const res = await axios.post('http://localhost:3000/auth/login', {
+            email: Email.value,
+            password: Passwd.value,
+        });
+
+        userStore.setUser(res.data.data.token);
+                console.log(userStore.loggedIn())
+                router.push('Posztok');
     }
     onMounted(()=>{
         passShown.value = false
