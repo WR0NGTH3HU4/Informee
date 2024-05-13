@@ -1,39 +1,28 @@
 import { useUserStore } from '@/stores/user'
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import Kezdolap from '@/views/Kezdolap.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomeView,
-      meta: {
-        public: true
-      }
-    },
-    //Kezdőlap
-    {
-      path: '/Kezdolap',
       name: 'Kezdolap',
-      component: () => import('../views/Kezdolap.vue'),
+      component: Kezdolap,
       meta: {
         public: true
       }
     },
-    //Rólunk
     {
-      path: '/Rolunk',
+      path: '/rolunk',
       name: 'Rolunk',
       component: () => import('../views/Rolunk.vue'),
       meta: {
         public: true
       }
     },
-    //Posztok
     {
-      path: '/Posztok',
+      path: '/posztok',
       name: 'Posztok',
       component: () => import('../views/Posztok.vue'),
       //Ideiglenesen, teszteléshez !!!
@@ -42,56 +31,45 @@ const router = createRouter({
       }
     },
     {
-      path: '/PosztSzerkeszto',
+      path: '/poszt-szerkeszto',
       name: 'PosztSzerkeszto',
-      component: () => import('../views/Posztszerkesztes.vue'),
+      component: () => import('../views/PosztSzerkeszto.vue'),
       //Ideiglenesen, teszteléshez
       meta: {
         public: true
       }
     },
     {
-      path: '/PostOpened',
-      name: 'PostOpened',
-      component: () => import('../views/PostOpened.vue'),
+      path: '/poszt',
+      name: 'Poszt',
+      component: () => import('../views/Poszt.vue'),
       //Ideiglenesen, teszteléshez
       meta: {
         public: true
       }
     },
-    //Saját posztok
     {
-      path: '/SajatPosztok',
+      path: '/sajat-posztok',
       name: 'SajatPosztok',
       component: () => import('../views/SajatPosztok.vue'),
       meta: { public: true }
     },
-    //Bejelentkezés
     {
-      path: '/Login',
-      name: 'Login',
-      component: () => import('../views/Login.vue'),
-      meta: {
-        public: true
-      }
-    },
-    //Regisztráció
-    {
-      path: '/Registration',
-      name: 'Registration',
-      component: () => import('../views/Registration.vue'),
+      path: '/bejelentkezes',
+      name: 'Bejelentkezes',
+      component: () => import('../views/Bejelentkezes.vue'),
       meta: {
         public: true
       }
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
-    }
+      path: '/regisztracio',
+      name: 'Regisztracio',
+      component: () => import('../views/Regisztracio.vue'),
+      meta: {
+        public: true
+      }
+    },
   ]
 });
 
