@@ -8,5 +8,5 @@ import linkButton from './linkButton.vue';
         <Fejleszto>
             
             
-            </div>
+    </div>
 </template>
