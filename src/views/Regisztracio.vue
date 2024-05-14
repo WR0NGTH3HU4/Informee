@@ -53,7 +53,7 @@ import { ApiWrapper } from '@/composables/ApiWrapper';
             </div>
             <div class="InputContainer">
                 <h3 class="inputName">Username</h3>
-                <Input type="text" id="email" placeholder="E-mail" v-model="email"/>
+                <Input type="text" id="email" placeholder="E-mail" v-model="userName"/>
             </div>
             <div class="InputContainer">
                 <h3 class="inputName">Jelszó</h3>
