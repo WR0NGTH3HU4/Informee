@@ -7,15 +7,18 @@ import linkButton from './linkButton.vue';
 
 <template>
     <div class="fejleszto">
-        <img src="" alt="">
-        <div class="tartalom">
-            <h4>Molnár Kirsztián</h4>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias repellendus sequi accusantium aliquam quas pariatur, distincti</p>
-            <div class="linkek">
-                <linkButton text="YouTube" class="linkButton full-width"></linkButton>
-                <linkButton text="Weboldal" class="WeboldalLink full-width"></linkButton>
-            </div>
+        <div class="fejlec">
+        <img src="/powerpoint/IMG/kulimak.png" alt="">
+        <div class="name">
+            
+            
+            <h3>Molnár Krisztián</h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse aliquid, repudiandae cum doloremque officia quibusdam quis. Maiores, natus odio molestiae ipsum ex architecto vero harum libero, deleniti consequuntur neque excepturi.
+            </p>
         </div>
+        
+    </div>
     </div>
 
 
@@ -25,19 +28,26 @@ import linkButton from './linkButton.vue';
 </template>
 <style lang="scss">
     .fejleszto{
-        @apply flex flex-col justify-start content-center
-        background-color: #E5E5E5;
+        @apply flex flex-col justify-start content-center;
+        background-color: red;
         border-radius: 20px;
         width: 800px;
         height: 400px;
+    }
+    .fejlec{
+        @apply flex flex-row justify-start content-center drop-shadow-lg border-neutral-300 ;
+        //background-color: cadetblue;
+        //height: 40%;
+        border-radius: 10px;
     }
     img{
         
         border-radius: 100%;
         width: 300px;
+        height: 300px;
     }
     .tartalom{
-        @apply flex flex-row justify-start content-center
+        @apply flex flex-col justify-start content-center
     }
 
 </style>
