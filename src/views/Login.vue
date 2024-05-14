@@ -6,6 +6,12 @@
     import passwdShown from '@/components/passwdShown.vue';
     import passwdHidden from '@/components/passwdHidden.vue';
     import { onMounted } from 'vue';
+    import axios from 'axios';
+import { useUserStore } from '@/stores/user';
+import { useRouter } from 'vue-router';
+
+    const userStore = useUserStore();
+    const router = useRouter();
 
     const Email = ref('');
     const Passwd = ref('');
@@ -19,8 +25,16 @@
         
     }
 
-    const onLogIn = () =>{
+    const onLogIn = async () =>{
         console.log(Email.value, Passwd.value)
+        const res = await axios.post('http://localhost:3000/auth/login', {
+            email: Email.value,
+            password: Passwd.value,
+        });
+
+        userStore.setUser(res.data.data.token);
+                console.log(userStore.loggedIn())
+                router.push('Posztok');
     }
     onMounted(()=>{
         passShown.value = false
@@ -39,7 +53,7 @@
             <div class="InputContainer">
                 <h3 class="inputName">Jelszó</h3>
                 <div class="passwdCon">
-                    <Input :type="passShown ? 'text' : 'password'" id="passwdinput" placeholder="Jelszó" v-model="Passwd"/>
+                    <Input :type="passShown ? 'text' : 'password'" id="passwdinput" :class="{'hide' : !passShown}" placeholder="Jelszó" v-model="Passwd"/>
                     <div v-if="passShown" class="PasswdSVG">
                         <passwdShown @click.prevent="onShown" class="show"/>
                     </div>
@@ -97,8 +111,11 @@
         width: 100%;
     }
     #passwdinput{
-        @apply tracking-widest;
+        @apply tracking-normal;
         width: 90%;
+        &.hide{
+            @apply tracking-widest
+        }
     }
     #Reg{
         padding-left: 5px;
