@@ -16,7 +16,9 @@ import Button from '@/components/Button.vue';
         <h1 class="text-neutral-800 text-6xl">Informee</h1>
         <p class="text-neutral-700 font-normal">Mindig is vágytál egy helyre, ahol segítséget kérhetsz másoktól? Vagy esetleg szeretnél segíteni másoknak? Ezen az odalon mindkettőre lehetőséged van! Ha esetleg kérdésed lenne akkor nézd meg a gyakran ismételt kérdések oldalunkat <a href="#">itt</a>.</p>
         <span class="text-neutral-500 font-medium flex flex-row items-center gap-4">
-          <Button class="primary" text="Jelentkezz be"></Button>
+          <RouterLink to="bejelentkezes">
+            <Button class="primary" text="Jelentkezz be"></Button>
+          </RouterLink>
           <RouterLink to="Regisztracio">
             <span class="text-neutral-500 underline" id="Reg">vagy kezdj hozzá itt!</span>
           </RouterLink>

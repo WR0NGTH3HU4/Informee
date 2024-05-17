@@ -18,11 +18,6 @@
         </div>
     </div>
 
-    <linkButton text="YouTube" class="linkButton"> </linkButton>
-    <linkButton text="Weboldal" class="WeboldalLink"> </linkButton>
-    <linkButton text="Email" class="EmailLink"> </linkButton>
-    <linkButton text="Steam" class="SteamLink"> </linkButton>
-    <linkButton text="Facebook" class="FacebookLink"> </linkButton>
 
 </template>
 <style lang="scss" scoped>
