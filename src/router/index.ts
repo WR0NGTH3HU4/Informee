@@ -70,7 +70,16 @@ const router = createRouter({
         public: true
       }
     },
-  ]
+
+    {
+      path:'/Login',
+      name:'Login',
+      component: () => import('../views/Profile.vue'),
+      meta:{
+        public: true
+      }
+    }
+
 });
 
 function getNavLinks() {
