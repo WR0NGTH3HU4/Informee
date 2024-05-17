@@ -79,7 +79,7 @@ const router = createRouter({
         public: true
       }
     }
-
+]
 });
 
 function getNavLinks() {
