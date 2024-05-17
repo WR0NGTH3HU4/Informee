@@ -10,7 +10,7 @@ const updateModel = (event: Event) => {
 </script>
 
 <template>
-  <input class="border border-neutral-300 rounded-md px-3 py-2 shadow-sm" :type="type" name="" id="alap" placeholder="Placeholder" @input="updateModel" />
+  <input class="border border-neutral-300 rounded-md px-3 py-2 shadow-sm font-normal text-neutral-500" :type="type" name="" id="alap" placeholder="Placeholder" @input="updateModel" />
 </template>
 
 <style scoped>

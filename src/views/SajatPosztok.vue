@@ -12,12 +12,32 @@
 <div class="full_page">
 
 
-    <div class="bio">
+    <div class="Abio">
         <Bio/>
     </div>
+    
    <div class="posztok">
        <div class="poszt">
             <Post/>
+            <Post/>
+            <Post/>
+            <Post/>
+            <Post/>
+            <Post/><Post/>
+            <Post/>
+            <Post/>
+            <Post/>
+            <Post/>
+            <Post/>
+
+
+            <Post/>
+            <Post/>
+            <Post/>
+
+            <Post/>
+
+
        </div>
        
         
@@ -39,14 +59,29 @@
         
         
 }
+.Locked{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
 .poszt{
-    margin: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
     height: auto;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
     .full_page{
     @apply flex flex-col justify-between content-center;
+    .Abio{
+       width: 100%;
+    }
 }
 }
+@media (min-width: 800px) {
+    .Abio{
+       width: 500px;
+    }
+}
+
 </style>
