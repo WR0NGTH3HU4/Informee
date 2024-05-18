@@ -45,14 +45,14 @@ const router = createRouter({
       component: () => import('../views/Poszt.vue'),
       //Ideiglenesen, teszteléshez
       meta: {
-        public: true
+        public: false
       }
     },
     {
       path: '/sajatposztok',
       name: 'SajatPosztok',
       component: () => import('../views/SajatPosztok.vue'),
-      meta: { public: true }
+      meta: { public: true}
     },
     {
       path: '/bejelentkezes',
@@ -72,9 +72,9 @@ const router = createRouter({
     },
 
     {
-      path:'/login',
-      name:'Login',
-      component: () => import('../views/Profile.vue'),
+      path:'/faq',
+      name:'Faq',
+      component:() => import('../views/GyakranIsmetelt.vue'),
       meta:{
         public: true
       }

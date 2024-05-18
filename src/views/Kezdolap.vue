@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Button from '@/components/Button.vue';
+import { RouterLink} from 'vue-router'
 </script>
 
 <template>
@@ -14,7 +15,7 @@ import Button from '@/components/Button.vue';
 
       <div class="flex flex-col w-[600px] gap-8">
         <h1 class="text-neutral-800 text-6xl">Informee</h1>
-        <p class="text-neutral-700 font-normal">Mindig is vágytál egy helyre, ahol segítséget kérhetsz másoktól? Vagy esetleg szeretnél segíteni másoknak? Ezen az odalon mindkettőre lehetőséged van! Ha esetleg kérdésed lenne akkor nézd meg a gyakran ismételt kérdések oldalunkat <a href="#">itt</a>.</p>
+        <p class="text-neutral-700 font-normal">Mindig is vágytál egy helyre, ahol segítséget kérhetsz másoktól? Vagy esetleg szeretnél segíteni másoknak? Ezen az odalon mindkettőre lehetőséged van! Ha esetleg kérdésed lenne akkor nézd meg a gyakran ismételt kérdések oldalunkat <RouterLink to="/faq"><b>itt.</b></RouterLink></p>
         <span class="text-neutral-500 font-medium flex flex-row items-center gap-4">
           <RouterLink to="bejelentkezes">
             <Button class="primary" text="Jelentkezz be"></Button>
