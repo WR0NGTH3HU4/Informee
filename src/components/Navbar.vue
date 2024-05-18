@@ -26,7 +26,10 @@ const LoggedOutContent = ref<Link[]>([
   <nav class="flex justify-between items-center px-4">
     <div class="flex">
       <!--Logo-->
-      <Logo class="w-[150px]" />
+      <RouterLink to="/">
+        <Logo class="w-[150px]" />
+      </RouterLink>
+
       <!--Separator-->
       <svg
         id="separator"

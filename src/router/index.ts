@@ -31,12 +31,12 @@ const router = createRouter({
       }
     },
     {
-      path: '/poszt-szerkeszto',
+      path: '/posztszerkeszto',
       name: 'PosztSzerkeszto',
       component: () => import('../views/PosztSzerkeszto.vue'),
       //Ideiglenesen, teszteléshez
       meta: {
-        public: true
+        public: false
       }
     },
     {
@@ -49,7 +49,7 @@ const router = createRouter({
       }
     },
     {
-      path: '/sajat-posztok',
+      path: '/sajatposztok',
       name: 'SajatPosztok',
       component: () => import('../views/SajatPosztok.vue'),
       meta: { public: true }
@@ -72,7 +72,7 @@ const router = createRouter({
     },
 
     {
-      path:'/Login',
+      path:'/login',
       name:'Login',
       component: () => import('../views/Profile.vue'),
       meta:{
