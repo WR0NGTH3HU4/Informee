@@ -13,7 +13,7 @@ const Dominik = new URL('@/assets/Dominik.png', import.meta.url).href
 
 <template>
   <div class="flex flex-col justify-center content-center items-center">
-    <h3 class="text-3xl text-neutral-800">Fejlesztők</h3>
+    <h3 class="text-3xl text-neutral-800 my-20">Fejlesztők</h3>
     <div class="Cards flex flex-row flex-wrap justify-center content-center items-center p-3">
       <DEVbio 
         name="Csanádi Kevin" 
