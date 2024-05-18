@@ -24,7 +24,7 @@ const props = defineProps<{
         <h3 class="text-neutral-700 font-medium text-lg my-3">{{ name }}</h3>
       </div>
       <div class="w-full">
-        <p class="text-neutral-700 font-medium text-base">{{ text }}</p>
+        <p class="text-neutral-700 font-medium text-base text-justify">{{ text }}</p>
       </div>
       <div class="flex flex-row justify-start content-start items-start w-full my-3">
         <LinkButton :text="firstLinkName" :href="firstLinkURL" class="FacebookLink mr-3"></LinkButton>
