@@ -20,7 +20,7 @@ const LoggedInContent = ref<Link[]>([
   { Id: 1, Title: 'Saját posztok', Url: '/SajatPosztok' }
 ])
 const LoggedOutContent = ref<Link[]>([
-  { Id: 0, Title: 'Kezdőlap', Url: '/Kezdolap' },
+  { Id: 0, Title: 'Kezdőlap', Url: '/' },
   { Id: 1, Title: 'Rólunk', Url: '/Rolunk' }
 ])
 </script>
