@@ -12,56 +12,64 @@ const Dominik = new URL('@/assets/Dominik.png', import.meta.url).href
 </script>
 
 <template>
-<h3>Fejlesztők</h3>
-<div class="flex flex-row flex-wrap justify-center content-center items-center">
-  <DEVbio 
-    name="Csanádi Kevin" 
-    :pic="Kevin" 
-    firstLinkURL="" 
-    secondLinkURL="" 
-    firstLinkName="Facebook" 
-    secondLinkName="Instagram" 
-    text=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad molestiae numquam aut temporibus atque, sequi alias amet repellendus qui ducimus iste omnis pariatur voluptates magni cupiditate ab, id quod. Inventore."
-  ></DEVbio>
-  <DEVbio 
-    name="Császár András" 
-    :pic="Andras" 
-    firstLinkURL="" 
-    secondLinkURL="" 
-    firstLinkName="Facebook" 
-    secondLinkName="Instagram" 
-    text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad molestiae numquam aut temporibus atque, sequi alias amet repellendus qui ducimus iste omnis pariatur voluptates magni cupiditate ab, id quod. Inventore."
-  ></DEVbio>
-  <DEVbio 
-    name="Kulimák Máté" 
-    :pic="Mate" 
-    firstLinkURL="" 
-    secondLinkURL="" 
-    firstLinkName="Facebook" 
-    secondLinkName="Instagram" 
-    text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad molestiae numquam aut temporibus atque, sequi alias amet repellendus qui ducimus iste omnis pariatur voluptates magni cupiditate ab, id quod. Inventore."
-  ></DEVbio>
-  <DEVbio 
-    name="Kővágó Levente" 
-    :pic="Levente" 
-    firstLinkURL="" 
-    secondLinkURL="" 
-    firstLinkName="Facebook" 
-    secondLinkName="Instagram" 
-    text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad molestiae numquam aut temporibus atque, sequi alias amet repellendus qui ducimus iste omnis pariatur voluptates magni cupiditate ab, id quod. Inventore."
-  ></DEVbio>
-  <DEVbio 
-    name="Tátrai Dominik Oszkár" 
-    :pic="Dominik" 
-    firstLinkURL="" 
-    secondLinkURL="" 
-    firstLinkName="Facebook" 
-    secondLinkName="Instagram" 
-    text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad molestiae numquam aut temporibus atque, sequi alias amet repellendus qui ducimus iste omnis pariatur voluptates magni cupiditate ab, id quod. Inventore."
-  ></DEVbio>
-</div>
+  <div class="flex flex-col justify-center content-center items-center">
+    <h3 class="text-3xl text-neutral-800">Fejlesztők</h3>
+    <div class="Cards flex flex-row flex-wrap justify-center content-center items-center p-3">
+      <DEVbio 
+        name="Csanádi Kevin" 
+        :pic="Kevin" 
+        firstLinkURL="" 
+        secondLinkURL="" 
+        firstLinkName="Facebook" 
+        secondLinkName="Instagram" 
+        text=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad molestiae numquam aut temporibus atque, sequi alias amet repellendus qui ducimus iste omnis pariatur voluptates magni cupiditate ab, id quod. Inventore."
+      ></DEVbio>
+      <DEVbio 
+        name="Császár András" 
+        :pic="Andras" 
+        firstLinkURL="" 
+        secondLinkURL="" 
+        firstLinkName="Facebook" 
+        secondLinkName="Instagram" 
+        text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad molestiae numquam aut temporibus atque, sequi alias amet repellendus qui ducimus iste omnis pariatur voluptates magni cupiditate ab, id quod. Inventore."
+      ></DEVbio>
+      <DEVbio 
+        name="Kulimák Máté" 
+        :pic="Mate" 
+        firstLinkURL="" 
+        secondLinkURL="" 
+        firstLinkName="Facebook" 
+        secondLinkName="Instagram" 
+        text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad molestiae numquam aut temporibus atque, sequi alias amet repellendus qui ducimus iste omnis pariatur voluptates magni cupiditate ab, id quod. Inventore."
+      ></DEVbio>
+      <DEVbio 
+        name="Kővágó Levente" 
+        :pic="Levente" 
+        firstLinkURL="" 
+        secondLinkURL="" 
+        firstLinkName="Facebook" 
+        secondLinkName="Instagram" 
+        text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad molestiae numquam aut temporibus atque, sequi alias amet repellendus qui ducimus iste omnis pariatur voluptates magni cupiditate ab, id quod. Inventore."
+      ></DEVbio>
+      <DEVbio 
+        name="Tátrai Dominik Oszkár" 
+        :pic="Dominik" 
+        firstLinkURL="" 
+        secondLinkURL="" 
+        firstLinkName="Facebook" 
+        secondLinkName="Instagram" 
+        text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad molestiae numquam aut temporibus atque, sequi alias amet repellendus qui ducimus iste omnis pariatur voluptates magni cupiditate ab, id quod. Inventore."
+      ></DEVbio>
+    </div>
+  </div>
 
 </template>
 
-<style>
+<style scoped lang="scss">
+  @media only screen and (max-width: 860px){
+    .Cards{
+        @apply flex flex-col justify-center content-center items-center
+    }
+  }
+
 </style>
