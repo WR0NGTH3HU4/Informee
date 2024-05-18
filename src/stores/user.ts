@@ -8,9 +8,9 @@ export const useUserStore = defineStore('user', () =>{
     function setUser(user: any){
         currentUser.value = user;
     };
-    function setJwt(token :string){
+    /*function setJwt(token :string){
         Jwt.value = token;
-    }
+    }*/
     
     function loggedIn() :boolean {
         return currentUser.value != null;

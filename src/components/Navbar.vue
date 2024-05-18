@@ -3,7 +3,7 @@ import { RouterLink, RouterView } from 'vue-router'
 import Logo from './Logo.vue'
 import { ref } from 'vue'
 import Button from './Button.vue'
-import {useUserStore} from '../stores/user.ts'
+import {useUserStore} from '@/stores/user'
 
 
 interface Link {
@@ -46,7 +46,7 @@ const LoggedOutContent = ref<Link[]>([
         <line x1="1.60449" x2="1.60449" y2="61" stroke="#A3A3A3" stroke-width="2" />
       </svg>
       <!--NavLinks-->
-      <span v-if="useUserStore().isLoggedIn()" class="flex items-center gap-4">
+      <span v-if="useUserStore().loggedIn()" class="flex items-center gap-4">
         <a class="text-neutral-700 text-lg" v-for="link in LoggedInContent" :key="link.Id" :href="link.Url">{{
         link.Title
         }}</a>
