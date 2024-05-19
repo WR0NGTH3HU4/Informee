@@ -70,6 +70,43 @@ defineProps(['text', 'linkButton', 'click', 'url'])
     padding: 8px;
     width: fit-content;
 }
+
+.GithubLink{
+  display: flex;
+  background-color: #6E5494;
+  color: #fafafa;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row-reverse;
+  border-radius: 10px;
+  padding: 6px;
+  width: fit-content;
+}
+
+
+.ShareButton{
+  display: flex;
+  background-color: #945454;
+  color: #fafafa;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row-reverse;
+  border-radius: 10px;
+  padding: 6px;
+  width: fit-content;
+}
+
+.DiscordButton{
+  display: flex;
+  background-color: #5865F2;
+  color: #fafafa;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row-reverse;
+  border-radius: 10px;
+  padding: 6px;
+  width: fit-content;
+
 .InstagramLink {
     display: flex;
     background-color: #515BD4;
@@ -80,6 +117,7 @@ defineProps(['text', 'linkButton', 'click', 'url'])
     border-radius: 10px;
     padding: 8px;
     width: fit-content;
+
 }
 
 span {
