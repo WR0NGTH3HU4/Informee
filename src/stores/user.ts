@@ -9,7 +9,7 @@ export const useUserStore = defineStore('user', () => {
     currentUser.value = null;
   }
 
-  function setJwt(token: string) {
+  function setJwt(token: string): void {
     currentUser.value = {
       jwt: token
     };
@@ -19,9 +19,23 @@ export const useUserStore = defineStore('user', () => {
     return currentUser.value != null;
   }
 
-  function getUser(): any {
+  function getUser(): User | null {
     return currentUser.value;
   }
 
-  return { loggedIn, getUser, setJwt, clearUser };
+  function getJwt(): string | undefined {
+    if (loggedIn()) 
+      return currentUser.value?.jwt;
+
+    return;
+  }
+
+  function getUserData(): User['data'] {
+    if (loggedIn()) 
+      return currentUser.value?.data;
+
+    return;
+  }
+
+  return { loggedIn, getUser, getUserData, getJwt, setJwt, clearUser };
 });
