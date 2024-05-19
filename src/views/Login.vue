@@ -6,12 +6,13 @@
     import passwdShown from '@/components/passwdShown.vue';
     import passwdHidden from '@/components/passwdHidden.vue';
     import { onMounted } from 'vue';
-    import axios from 'axios'
-    
+    import axios from 'axios';
+import { useUserStore } from '@/stores/user';
+import { useRouter } from 'vue-router';
 
-    
+    const userStore = useUserStore();
+    const router = useRouter();
 
-    
     const Email = ref('');
     const Passwd = ref('');
     
@@ -25,17 +26,18 @@
     }
 
     const onLogIn = async () =>{
-
-        const data = await axios.post('http://91.120.112.81:8080/auth/login', {
+        console.log(Email.value, Passwd.value)
+        const res = await axios.post('http://localhost:3000/auth/login', {
             email: Email.value,
             password: Passwd.value,
-        })
-        console.log(data.data)
-    }
+        });
 
+        userStore.setUser(res.data.data.token);
+                console.log(userStore.loggedIn())
+                router.push('Posztok');
+    }
     onMounted(()=>{
         passShown.value = false
-        
     })
 </script>
 <template>
@@ -68,16 +70,18 @@
     </div>
 </template>
 <style scoped lang="scss">
-
+    *{
+        margin: 0;
+        padding: 0;
+    }
     .FullPage{
         @apply flex flex-col justify-center content-center items-center h-screen
     }
     .loginWindow{
-        @apply rounded-lg  border-neutral-300 bg-neutral-100 drop-shadow-lg flex flex-col justify-between items-center content-center;
-        width: 30%;
-        height: 40%;
-        border-width: 1px;
-        padding: 1.5rem;
+        @apply rounded-lg border-2 border-neutral-300 bg-neutral-100 drop-shadow-lg flex flex-col justify-between items-center content-center;
+        width: 40%;
+        height: 50%;
+        padding: 2rem 1rem 2rem 1rem;
     }
     .TitleContainer{
         @apply w-full flex justify-start; 
@@ -86,7 +90,7 @@
         @apply w-full flex flex-col justify-center content-center
     }
     .GoToPages{
-        @apply flex flex-row justify-between content-center items-center w-full
+        @apply flex flex-row justify-between content-center items-end w-full
     }
     .Title{
         @apply text-neutral-800 text-3xl;
