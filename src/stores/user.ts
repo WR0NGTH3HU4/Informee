@@ -1,24 +1,27 @@
-import {ref, computed} from 'vue'
-import { defineStore } from 'pinia'
+import { ref, type Ref } from 'vue';
+import { defineStore } from 'pinia';
+import type { User } from '@/types/User';
 
-export const useUserStore = defineStore('user', () =>{
-    const currentUser = ref(null);
-    const Jwt = ref(null)
+export const useUserStore = defineStore('user', () => {
+  const currentUser: Ref<User | null> = ref(null);
 
-    function setUser(user: any){
-        currentUser.value = user;
+  function clearUser() {
+    currentUser.value = null;
+  }
+
+  function setJwt(token: string) {
+    currentUser.value = {
+      jwt: token
     };
-    /*function setJwt(token :string){
-        Jwt.value = token;
-    }*/
-    
-    function loggedIn() :boolean {
-        return currentUser.value != null;
-    };
+  }
 
-    function getUser(): any{
-        return currentUser.value;
-    }
+  function loggedIn(): boolean {
+    return currentUser.value != null;
+  }
 
-    return {setUser, loggedIn, getUser}
-})
+  function getUser(): any {
+    return currentUser.value;
+  }
+
+  return { loggedIn, getUser, setJwt, clearUser };
+});
