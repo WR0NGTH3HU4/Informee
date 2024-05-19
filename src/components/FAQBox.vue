@@ -72,7 +72,7 @@
 </script>
 <template>
     <div v-for="(topic,index) in Topics" :key="index" class="Full w-full h-full flex flex-row justify-center content-center items-center p-3">
-        <div v-if="topic.BOXopened" class="FullBox flex flex-col justify-center content-center items-center w-full h-1/3 bg-orange-400  rounded ">
+        <div v-if="topic.BOXopened" class="FullBox flex flex-col justify-center content-center items-center w-full h-1/3 bg-orange-400  rounded drop-shadow-lg">
             <div class="flex flex-col justify-center content-center items-center h-5/6 gap-3 p-3">
                 <h3 class="text-neutral-50 text-3xl">{{ topic.Topic }}</h3>
                 <svg width="46" height="80" viewBox="0 0 46 80" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -136,5 +136,7 @@
     .dropDown{
         border-radius: 0 0 0.25rem 0.25rem;
     }
-
+    .Qlist{
+        border-radius: 0.25rem 0.25rem 0 0;
+    }
 </style>
