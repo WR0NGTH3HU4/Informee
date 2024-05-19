@@ -38,7 +38,7 @@ export class ApiWrapper {
             baseURL: ApiWrapper.BACKEND_URL,
             data,
             headers: this.userStore.loggedIn() ? {
-                Authorization: `Bearer ${this.userStore.getUser()}`,
+                Authorization: `Bearer ${this.userStore.getJwt()}`,
                 ...extraHeaders,
             } : extraHeaders,
         })

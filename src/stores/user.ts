@@ -5,6 +5,10 @@ import type { User } from '@/types/User';
 export const useUserStore = defineStore('user', () => {
   const currentUser: Ref<User | null> = ref(null);
 
+  function refreshLocalStorage() {
+    localStorage.setItem('user', JSON.stringify(currentUser.value || {}));
+  }
+
   function clearUser() {
     currentUser.value = null;
   }
@@ -13,15 +17,14 @@ export const useUserStore = defineStore('user', () => {
     currentUser.value = {
       jwt: token
     };
+
+    refreshLocalStorage();
   }
 
   function loggedIn(): boolean {
     return currentUser.value != null;
   }
 
-  function getUser(): User | null {
-    return currentUser.value;
-  }
 
   function getJwt(): string | undefined {
     if (loggedIn()) 
@@ -34,8 +37,14 @@ export const useUserStore = defineStore('user', () => {
     if (loggedIn()) 
       return currentUser.value?.data;
 
-    return;
+    return undefined;
   }
 
-  return { loggedIn, getUser, getUserData, getJwt, setJwt, clearUser };
+  if (currentUser.value == null) {
+    const lsUser = localStorage.getItem('user');
+
+    currentUser.value = lsUser ? JSON.parse(lsUser) : null;
+  }
+
+  return { loggedIn, getUserData, getJwt, setJwt, clearUser };
 });
