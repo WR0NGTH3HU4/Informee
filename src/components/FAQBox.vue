@@ -39,7 +39,7 @@
             Topic:"Bing chilling?",
             BOXopened: true,
             Questions: [
-                {ID: 9, Question:"Kórház?", Explanation: "Békéscsaba mentők", Opened: false},
+                {ID: 9, Question:"Bing chilling?", Explanation: "Xiàn zài wǒ yǒu bing chilling Wǒ hěn xǐ huān bing chilling Dàn shì sù dù yǔ jī qíng jiǔ bǐ bing chilling Xiàn zài wǒ yǒu bing chilling Wǒ hěn xǐ huān bing chilling Dàn shì sù dù yǔ jī qíng jiǔ bǐ bing chilling Xiàn zài wǒ yǒu bing chilling Wǒ hěn xǐ huān bing chilling Dàn shì sù dù yǔ jī qíng jiǔ bǐ bing chilling Xiàn zài wǒ yǒu bing chilling Wǒ hěn xǐ huān bing chilling Dàn shì sù dù yǔ jī qíng jiǔ bǐ bing chilling", Opened: false},
                 {ID: 10, Question:"De a Kórház?", Explanation: "Békéscsaba mentők", Opened: false},
                 {ID: 11, Question:"De a Kórház?", Explanation: "Békéscsaba mentők", Opened: false},
                 {ID: 12, Question:"De a Kórház?", Explanation: "Békéscsaba mentők", Opened: false}
@@ -120,7 +120,7 @@
                                 </svg>
                             </div>
                             <div class="flex-1 flex flex-col justify-center content-center items-center p-3 bg-neutral-100">
-                                <p class="text-neutral-600 font-semibold">
+                                <p class="text-neutral-600 font-semibold text-justify">
                                     {{ question.Explanation }}
                                 </p>
                             </div>
