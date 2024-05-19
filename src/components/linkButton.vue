@@ -106,7 +106,7 @@ defineProps(['text', 'linkButton', 'click', 'url'])
   border-radius: 10px;
   padding: 6px;
   width: fit-content;
-
+}
 .InstagramLink {
     display: flex;
     background-color: #515BD4;

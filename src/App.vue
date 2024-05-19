@@ -19,7 +19,7 @@ function asd() {
   <RouterView/>
 
 
-  <Footer />
+
 
 </template>
 
