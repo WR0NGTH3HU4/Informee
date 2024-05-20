@@ -1,8 +1,6 @@
 <script setup lang="ts">
     import {ref} from 'vue'
     
-
-    
     interface Question{
         ID: number,
         Question: string,
@@ -132,7 +130,7 @@
         </div>
     </div>
 </template>
-<style scoped lang="scss">
+<style scoped>
     .dropDown{
         border-radius: 0 0 0.25rem 0.25rem;
     }

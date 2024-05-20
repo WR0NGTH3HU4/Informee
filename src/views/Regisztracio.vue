@@ -1,43 +1,46 @@
 <script setup lang="ts">
-    import { RouterLink, RouterView } from 'vue-router'
+    import { RouterLink, RouterView, useRouter } from 'vue-router'
     import {ref} from 'vue'
     import Button from '../components/Button.vue'
     import Input from '@/components/Input.vue';
     import passwdShown from '@/components/passwdShown.vue';
     import passwdHidden from '@/components/passwdHidden.vue';
     import { onMounted } from 'vue';
-import { ApiWrapper } from '@/composables/ApiWrapper';
+    import { ApiWrapper } from '@/composables/ApiWrapper';
+    import { useUserStore } from '@/stores/user';
+    
 
+    const userStore = useUserStore(); 
+    const router = useRouter();
     const email = ref('');
     const userName = ref('');
-    const displayName = ref('');
     const passwd = ref('');
-    const passwdConf = ref('');
+    
 
     let passShown = ref<boolean>(false);
-    let passConfShown = ref<boolean>(false);
 
-    const onPasswdShown = () =>{
+
+    const onShown = () =>{
         passShown.value =!passShown.value
     }
 
-    const onPasswdConfShown = () =>{
-        passConfShown.value =! passConfShown.value
-    }
-
-    function onSignUp() {
-        const res = ApiWrapper.post('auth/register', {
+    const onSignUp = async ()  => {
+        const res = await ApiWrapper.post('auth/register', {
             email: email.value,
             password: passwd.value,
-            displayName: userName.value,
             username: userName.value,
         });
-        console.log(res);
+        if(res.type == 'success'){
+            userStore.setJwt(res.data.token)
+            
+        }
+        router.push('Profil')
+        
     }
 
     onMounted(()=>{
         passShown.value = false
-        passConfShown.value = false
+        
     })
 </script>
 
@@ -53,18 +56,21 @@ import { ApiWrapper } from '@/composables/ApiWrapper';
             </div>
             <div class="InputContainer">
                 <h3 class="inputName">Username</h3>
-                <Input type="text" id="email" placeholder="E-mail" v-model="userName"/>
+                <Input type="text" id="username" placeholder="Username" v-model="userName"/>
             </div>
             <div class="InputContainer">
                 <h3 class="inputName">Jelszó</h3>
                 <div class="passwdCon">
-                    <Input :type="passShown ? 'text' : 'password'" id="passwdinput" :class="{'hide' : !passShown}" placeholder="Jelszó" v-model="passwd"/>
-                    <div v-if="passShown" class="PasswdSVG">
-                        <passwdShown @click.prevent="onPasswdShown" class="show"/>
-                    </div>
-                    <div v-else class="PasswdSVG">
-                        <passwdHidden @click.prevent="onPasswdShown" class="show"/>
-                    </div>
+                    <Input
+                        :type="passShown ? 'text' : 'password'"
+                        id="passwdinput"
+                        :class="{ hide: !passShown }"
+                        class="relative w-full"
+                        placeholder="Jelszó"
+                        v-model="passwd"
+                    />
+                    <span v-if="passShown" @click.prevent="onShown" class="material-symbols-outlined"> visibility_off </span>
+                    <span v-else @click.prevent="onShown" class="material-symbols-outlined"> visibility </span>
                 </div>
             </div>
             <div class="flex flex-row justify-between content-center items-center w-full gap-8">
@@ -82,9 +88,13 @@ import { ApiWrapper } from '@/composables/ApiWrapper';
     .inputName{
         @apply text-neutral-500;
     }
-    .passwdCon{
-        @apply flex flex-row justify-between content-center items-center w-full;
-    }
+    .passwdCon {
+  @apply flex flex-row justify-between content-center items-center w-full relative;
+
+  & span {
+    @apply text-neutral-500 absolute right-2 mt-[1px] text-[22px];
+  }
+}
     .show{
         width: 3rem;
         height: 3rem;
@@ -94,13 +104,12 @@ import { ApiWrapper } from '@/composables/ApiWrapper';
     #email{
         width: 100%;
     }
-    #passwdinput{
-        @apply tracking-normal;
-        width: 90%;
-        &.hide{
-            @apply tracking-widest;
-        }
+    #passwdinput {
+    @apply tracking-normal;
+    &.hide {
+        @apply tracking-widest;
     }
+}
     #Reg{
         padding-left: 5px;
     }
