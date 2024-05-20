@@ -43,7 +43,7 @@ onMounted(() => {
       class="flex flex-col p-6 bg-neutral-100 shadow-md justify-between items-center content-center border border-neutral-300 rounded-lg gap-4"
     >
       <div class="w-full flex justify-start">
-        <h1 class="text-neutral-800 text-3xl" id="Title">Bejelentkezés</h1>
+        <h1 class="text-neutral-800 text-3xl font-semibold">Bejelentkezés</h1>
       </div>
       <div class="InputContainer">
         <h3 class="inputName">E-mail</h3>
@@ -81,7 +81,7 @@ onMounted(() => {
 }
 
 .inputName {
-  @apply text-neutral-500 mb-1;
+  @apply text-neutral-500 mb-1 font-medium;
 }
 
 .passwdCon {

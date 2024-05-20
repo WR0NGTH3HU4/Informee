@@ -3,7 +3,7 @@ defineProps(['text', 'type', 'click']);
 </script>
 
 <template>
-    <button class="shadow-md" :class="type" @click="click">{{ text }}</button>
+    <button class="shadow-md font-[500]" :class="type" @click="click">{{ text }}</button>
 </template>
 
 <style scoped>
