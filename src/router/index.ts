@@ -36,7 +36,7 @@ const router = createRouter({
       component: () => import('../views/PosztSzerkeszto.vue'),
       //Ideiglenesen, teszteléshez
       meta: {
-        public: false
+        public: true
       }
     },
     {
