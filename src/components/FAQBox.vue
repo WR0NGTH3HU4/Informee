@@ -1,8 +1,6 @@
 <script setup lang="ts">
     import {ref} from 'vue'
     
-
-    
     interface Question{
         ID: number,
         Question: string,
@@ -39,7 +37,7 @@
             Topic:"Bing chilling?",
             BOXopened: true,
             Questions: [
-                {ID: 9, Question:"Kórház?", Explanation: "Békéscsaba mentők", Opened: false},
+                {ID: 9, Question:"Bing chilling?", Explanation: "Xiàn zài wǒ yǒu bing chilling Wǒ hěn xǐ huān bing chilling Dàn shì sù dù yǔ jī qíng jiǔ bǐ bing chilling Xiàn zài wǒ yǒu bing chilling Wǒ hěn xǐ huān bing chilling Dàn shì sù dù yǔ jī qíng jiǔ bǐ bing chilling Xiàn zài wǒ yǒu bing chilling Wǒ hěn xǐ huān bing chilling Dàn shì sù dù yǔ jī qíng jiǔ bǐ bing chilling Xiàn zài wǒ yǒu bing chilling Wǒ hěn xǐ huān bing chilling Dàn shì sù dù yǔ jī qíng jiǔ bǐ bing chilling", Opened: false},
                 {ID: 10, Question:"De a Kórház?", Explanation: "Békéscsaba mentők", Opened: false},
                 {ID: 11, Question:"De a Kórház?", Explanation: "Békéscsaba mentők", Opened: false},
                 {ID: 12, Question:"De a Kórház?", Explanation: "Békéscsaba mentők", Opened: false}
@@ -72,7 +70,7 @@
 </script>
 <template>
     <div v-for="(topic,index) in Topics" :key="index" class="Full w-full h-full flex flex-row justify-center content-center items-center p-3">
-        <div v-if="topic.BOXopened" class="FullBox flex flex-col justify-center content-center items-center w-full h-1/3 bg-orange-400  rounded ">
+        <div v-if="topic.BOXopened" class="FullBox flex flex-col justify-center content-center items-center w-full h-1/3 bg-orange-400  rounded drop-shadow-lg">
             <div class="flex flex-col justify-center content-center items-center h-5/6 gap-3 p-3">
                 <h3 class="text-neutral-50 text-3xl">{{ topic.Topic }}</h3>
                 <svg width="46" height="80" viewBox="0 0 46 80" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -120,7 +118,7 @@
                                 </svg>
                             </div>
                             <div class="flex-1 flex flex-col justify-center content-center items-center p-3 bg-neutral-100">
-                                <p class="text-neutral-600 font-semibold">
+                                <p class="text-neutral-600 font-semibold text-justify">
                                     {{ question.Explanation }}
                                 </p>
                             </div>
@@ -132,9 +130,11 @@
         </div>
     </div>
 </template>
-<style scoped lang="scss">
+<style scoped>
     .dropDown{
         border-radius: 0 0 0.25rem 0.25rem;
     }
-
+    .Qlist{
+        border-radius: 0.25rem 0.25rem 0 0;
+    }
 </style>
