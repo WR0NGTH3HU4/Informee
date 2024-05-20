@@ -58,15 +58,15 @@
     <main class="flex justify-center items-center h-full">
         <div class="flex flex-col p-6 bg-neutral-100 shadow-md justify-between items-center content-center border border-neutral-300 rounded-lg gap-4">
             <div class="w-full flex justify-start">
-                <h1 class="text-neutral-800 text-3xl" id="Title">Regisztracio</h1>
+                <h1 class="text-neutral-800 text-3xl font-semibold">Regisztráció</h1>
             </div>
             <div class="InputContainer">
                 <h3 class="inputName">E-mail</h3>
                 <Input type="text" id="email" placeholder="E-mail" v-model="email"/>
             </div>
             <div class="InputContainer">
-                <h3 class="inputName">Username</h3>
-                <Input type="text" id="username" placeholder="Username" v-model="userName"/>
+                <h3 class="inputName">Felhasználónév</h3>
+                <Input type="text" id="username" placeholder="Felhasználónév" v-model="userName"/>
             </div>
             <div class="InputContainer">
                 <h3 class="inputName">Jelszó</h3>
@@ -84,8 +84,8 @@
                 </div>
             </div>
             <div class="flex flex-row justify-between content-center items-center w-full gap-8">
-                <h5 class="text-neutral-500 font-medium flex flex-row">Van mar fiokod?<RouterLink to="Bejelentkezes"><h5 class="text-orange-500 underline" id="Reg">Jelentkezz be!</h5></RouterLink></h5> 
-                <Button text="Regisztracio" type="primary" @click.prevent="onSignUp"></Button>
+                <h5 class="text-neutral-500 font-medium flex flex-row">Van már fiókod?<RouterLink to="Bejelentkezes"><h5 class="text-orange-500 underline" id="Reg">Jelentkezz be!</h5></RouterLink></h5> 
+                <Button text="Regisztráció" type="primary" @click.prevent="onSignUp"></Button>
             </div>
         </div>
     </main>
@@ -96,7 +96,7 @@
         @apply w-full flex flex-col justify-center content-center;
     }
     .inputName{
-        @apply text-neutral-500;
+        @apply text-neutral-500 mb-1 font-medium;
     }
     .passwdCon {
   @apply flex flex-row justify-between content-center items-center w-full relative;
