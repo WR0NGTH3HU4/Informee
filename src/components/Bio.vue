@@ -15,8 +15,8 @@ import RatingButton from "../components/Ratingbutton.vue"
                 <h3 class="text-neutral-50 font-normal">Kovago Levente</h3>
             </div>
         </div>
-        <div class="content flex flex-col justify-evenly content-center items-center h-full p-3">
-            <div class="BioPhrase w-full flex flex-col justify-center content-center items-start">
+        <div class="content flex flex-col justify-evenly content-center items-center h-full p-3 w-full">
+            <div class="BioPhrase w-full flex flex-col justify-center content-center items-start ">
                 <h3>Bio</h3>
                 <TextBox class="w-full"></TextBox>
             </div>
@@ -52,5 +52,10 @@ import RatingButton from "../components/Ratingbutton.vue"
     background-size: cover;
     width: 10rem;
     height: 10rem;
+}
+@media only screen and (max-width:1000px) {
+    .content{
+        @apply gap-y-10
+    }
 }
 </style>

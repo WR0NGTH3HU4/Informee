@@ -18,11 +18,11 @@
             <div class="flex flex-row justify-between content-center items-center w-full my-3">
                 <div class="flex flex-row justify-between content-center items-center w-full mr-3 ">
                     <h3 class="user">Felhasználónév:</h3>
-                    <TextBox></TextBox>
+                    <TextBox class="w-full"></TextBox>
                 </div>
                 <div class="flex flex-row justify-between content-center items-center w-full ">
                     <h3 class="user">Név:</h3>
-                    <TextBox ></TextBox>
+                    <TextBox class="w-full"></TextBox>
                 </div>
             </div>
             <div class="Infos flex flex-col justify-center content-center items-center w-full">
@@ -33,7 +33,7 @@
                 </div>
                     <div class="flex flex-col justify-center content-center items-center w-1/2 my-3">
                         <h3>Bio</h3>
-                        <TextBox></TextBox>
+                        <TextBox class="w-full"></TextBox>
                     </div>
                 <h3>Linkek</h3>
                 <div class="flex flex-row justify-center content-center items-center">
@@ -45,7 +45,7 @@
                         <Button type="primary" text="Hozzáad"></Button>
                     </div>  
                     <div class="flex flex-col justify-center items-center content-center w-full">
-                        <TextBox ></TextBox>
+                        <TextBox class="w-full"></TextBox>
                     </div>
                 </div>
             </div>
