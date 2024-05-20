@@ -1,35 +1,37 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import Logo from './Logo.vue'
-import { ref } from 'vue'
-import Button from './Button.vue'
-import {useUserStore} from '../stores/user.ts'
-
+import { RouterLink } from 'vue-router';
+import Logo from './Logo.vue';
+import { ref } from 'vue';
+import Button from './Button.vue';
+import { useUserStore } from '@/stores/user';
 
 interface Link {
-  Id: number
-  Title: string
-  Url: string
+  Id: number;
+  Title: string;
+  Url: string;
 }
 //Global Var helyett
-
-
+const userStore = useUserStore();
 
 const LoggedInContent = ref<Link[]>([
-  { Id: 0, Title: 'Posztok', Url: '/Posztok' },
-  { Id: 1, Title: 'Saját posztok', Url: '/SajatPosztok' }
-])
+  { Id: 0, Title: 'Posztok', Url: '/posztok' },
+  { Id: 1, Title: 'Saját posztok', Url: '/sajatposztok' },
+]);
 const LoggedOutContent = ref<Link[]>([
-  { Id: 0, Title: 'Kezdőlap', Url: '/Kezdolap' },
-  { Id: 1, Title: 'Rólunk', Url: '/Rolunk' }
-])
+  { Id: 0, Title: 'Kezdőlap', Url: '/' },
+  { Id: 1, Title: 'Rólunk', Url: '/rolunk' },
+  { Id: 1, Title: 'GYIK', Url: '/faq' },
+]);
 </script>
 
 <template>
   <nav class="flex justify-between items-center px-4">
     <div class="flex">
       <!--Logo-->
-      <Logo class="w-[150px]" />
+      <RouterLink :to="userStore.loggedIn() ? '/Posztok' : '/'">
+        <Logo class="w-[150px]" />
+      </RouterLink>
+
       <!--Separator-->
       <svg
         id="separator"
@@ -43,15 +45,15 @@ const LoggedOutContent = ref<Link[]>([
         <line x1="1.60449" x2="1.60449" y2="61" stroke="#A3A3A3" stroke-width="2" />
       </svg>
       <!--NavLinks-->
-      <span v-if="useUserStore().isLoggedIn()" class="flex items-center gap-4">
-        <a class="text-neutral-700 text-lg" v-for="link in LoggedInContent" :key="link.Id" :href="link.Url">{{
-        link.Title
-        }}</a>
-      </span>
-      <span v-else class="flex items-center gap-4">
-        <a class="text-neutral-700 text-lg" v-for="link in LoggedOutContent" :key="link.Id" :href="link.Url">{{
-        link.Title
-        }}</a>
+      <span class="flex items-center gap-4">
+        <RouterLink
+          class="text-neutral-700 text-lg"
+          v-for="link in userStore.loggedIn() ? LoggedInContent : LoggedOutContent"
+          :key="link.Id"
+          :to="link.Url"
+        >
+          {{ link.Title }}
+        </RouterLink>
       </span>
     </div>
     <RouterLink to="Bejelentkezes">

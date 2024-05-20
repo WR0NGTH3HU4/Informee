@@ -1,11 +1,13 @@
 <script setup lang="ts">
-defineProps(['text', 'linkButton', 'click'])
+defineProps(['text', 'linkButton', 'click', 'url'])
 </script>
 
 <template>
+  <a :href="url">
   <button :class="linkButton" @click="click">
     {{ text }} <span class="material-symbols-outlined"> link </span>
   </button>
+  </a>
 </template>
 
 <style scoped>
@@ -67,6 +69,55 @@ defineProps(['text', 'linkButton', 'click'])
     border-radius: 10px;
     padding: 8px;
     width: fit-content;
+}
+
+.GithubLink{
+  display: flex;
+  background-color: #6E5494;
+  color: #fafafa;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row-reverse;
+  border-radius: 10px;
+  padding: 6px;
+  width: fit-content;
+}
+
+
+.ShareButton{
+  display: flex;
+  background-color: #945454;
+  color: #fafafa;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row-reverse;
+  border-radius: 10px;
+  padding: 6px;
+  width: fit-content;
+}
+
+.DiscordButton{
+  display: flex;
+  background-color: #5865F2;
+  color: #fafafa;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row-reverse;
+  border-radius: 10px;
+  padding: 6px;
+  width: fit-content;
+}
+.InstagramLink {
+    display: flex;
+    background-color: #515BD4;
+    color: #fafafa;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+    border-radius: 10px;
+    padding: 8px;
+    width: fit-content;
+
 }
 
 span {

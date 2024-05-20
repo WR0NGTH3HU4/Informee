@@ -22,7 +22,7 @@
     ]);
 </script>
 <template>
-    <div class="sidebar">
+    <div class="sidebar mx-3">
         <h3>Címkék</h3>
         <div class="tags">
             <div v-for="tag in Tags " class="tag">
@@ -37,7 +37,7 @@
         width: 20%;
     }
     h3{
-        @apply w-full self-start text-3xl text-neutral-700 font-bold;
+        @apply w-full self-start text-3xl text-neutral-700 font-medium;
         margin: 20px 0px;
     }
     .tag{
