@@ -27,7 +27,7 @@ const router = createRouter({
       component: () => import('../views/Posztok.vue'),
       //Ideiglenesen, teszteléshez !!!
       meta: {
-        public: false
+        public: true
       }
     },
     {
@@ -52,7 +52,7 @@ const router = createRouter({
       path: '/sajatposztok',
       name: 'SajatPosztok',
       component: () => import('../views/SajatPosztok.vue'),
-      meta: { public: false}
+      meta: { public: true}
     },
     {
       path: '/bejelentkezes',
@@ -84,7 +84,7 @@ const router = createRouter({
       name:'Profil',
       component:() => import('../views/Profile.vue'),
       meta:{
-        public:false
+        public:true
       }
     }
 ]

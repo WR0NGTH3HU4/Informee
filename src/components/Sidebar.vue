@@ -34,17 +34,17 @@
 <style scoped lang="scss">
     .sidebar{
         @apply flex flex-col justify-center content-start items-center h-full;
-        width: 20%;
+        
     }
     h3{
         @apply w-full self-start text-3xl text-neutral-700 font-medium;
         margin: 20px 0px;
     }
     .tag{
-        @apply flex flex-col justify-center content-center items-center text-neutral-500;
+        @apply flex flex-col justify-center content-center items-center text-neutral-500 px-3 py-1 w-full;
         margin-bottom: 0.5rem;
         border-radius: 10px;
-        padding: 5px 3rem;
+        
         &:nth-child(even){
             @apply bg-orange-200;
             &:hover{

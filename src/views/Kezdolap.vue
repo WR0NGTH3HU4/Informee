@@ -11,10 +11,16 @@ import { RouterLink} from 'vue-router'
       </div>
     </div>
 
-    <div class="flex flex-row justify-evenly content-center items-center h-full">
+
+
+    <div class="FullPage flex flex-row justify-evenly content-center items-center h-full p-3">
+
+      <div class="content flex flex-col w-[600px] gap-8">
+        <h1 class="text-neutral-800 text-6xl">Mert a tudás mindenkinek jár</h1>
 
       <div class="flex flex-col w-[600px] gap-8">
         <h1 class="text-neutral-800 text-6xl font-urbanist leading-[70px] font-[500]">Mert a tudás mindenkinek jár</h1>
+
         <p class="text-neutral-700 font-normal">Az Informee Magyarország legújabb tudás-orientált fórumja. Oszd meg a saját vázlataid, tételeid és válogass közösségünk könyvtárából. Ha esetleg kérdésed lenne, nézd meg a gyakran ismételt kérdések oldalunkat <RouterLink to="/faq"><b>itt.</b></RouterLink></p>
         <span class="text-neutral-500 font-medium flex flex-row items-center gap-4">
           <RouterLink to="bejelentkezes">
@@ -31,10 +37,6 @@ import { RouterLink} from 'vue-router'
         <img src="../assets/fooldal_logo.svg" alt="">
       </div>
     </div>
-
-
-
-
 
 <!--Footer-->
 
@@ -56,4 +58,34 @@ import { RouterLink} from 'vue-router'
     .hatter{
       width: 100%;
     }
+  @media only screen and (max-width: 800px){
+    .FullPage{
+      @apply flex-col-reverse
+    }
+  }
+  @media only screen and (max-width: 650px){
+    .FullPage{
+      @apply flex-col-reverse
+    }
+    img{
+      @apply w-3/4
+    }
+    .content{
+      @apply w-3/4
+    }
+  }
+  @media only screen and (max-width: 520px){
+    img{
+      @apply w-3/5
+    }
+    .content{
+      
+      @apply w-3/5
+    
+    }
+    h1{
+      @apply text-3xl
+    }
+
+  }
 </style>

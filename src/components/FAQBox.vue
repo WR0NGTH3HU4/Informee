@@ -137,4 +137,9 @@
     .Qlist{
         border-radius: 0.25rem 0.25rem 0 0;
     }
+    @media only screen and (max-width: 700px){
+        .Full{
+            height: 
+        }
+    }
 </style>
