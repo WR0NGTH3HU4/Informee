@@ -47,7 +47,7 @@ const LoggedOutContent = ref<Link[]>([
       <!--NavLinks-->
       <span class="flex items-center gap-4">
         <RouterLink
-          class="text-neutral-700 text-lg"
+          class="text-neutral-700 text-lg font-medium"
           v-for="link in userStore.loggedIn() ? LoggedInContent : LoggedOutContent"
           :key="link.Id"
           :to="link.Url"
@@ -56,9 +56,10 @@ const LoggedOutContent = ref<Link[]>([
         </RouterLink>
       </span>
     </div>
-    <RouterLink to="Bejelentkezes">
+    <RouterLink v-if="!userStore.loggedIn()" to="Bejelentkezes">
       <Button text="Bejelentkezés"></Button>
     </RouterLink>
+    <img v-else src="https://img.itch.zone/aW1nLzgzNDY4MjEuZ2lm/original/PjfoQj.gif" alt="">
   </nav>
 </template>
 
