@@ -7,7 +7,7 @@
 </script>
 <template>
     <!--Free-->
-    <div v-if="Locked" class="FullPost">
+    <div v-if="Locked" class="FullPost m-3">
         <div class="head">
             <img src="../assets/logo.svg" alt="">
             <h3>Molnar Krisztián</h3>
@@ -16,15 +16,15 @@
             <h3>vitces cim</h3>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem nihil accusantium libero ipsa magnam. Dolorum, ipsa rerum. Cumque dignissimos praesentium, sapiente repellendus natus sed veniam animi atque quod harum beatae.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem nihil accusantium libero ipsa magnam. Dolorum, ipsa rerum. Cumque dignissimos praesentium, sapiente repellendus natus sed veniam animi atque quod harum beatae.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem nihil accusantium libero ipsa magnam. Dolorum, ipsa rerum. Cumque dignissimos praesentium, sapiente repellendus natus sed veniam animi atque quod harum beatae.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem nihil accusantium libero ipsa magnam. Dolorum, ipsa rerum. Cumque dignissimos praesentium, sapiente repellendus natus sed veniam animi atque quod harum beatae.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem nihil accusantium libero ipsa magnam. Dolorum, ipsa rerum. Cumque dignissimos praesentium, sapiente repellendus natus sed veniam animi atque quod harum beatae.</p>
         </div>
-        <div class="postactions">
-            <PostActionButton buttonClass="like"></PostActionButton>
-            <PostActionButton class="dislike"></PostActionButton>
-            <PostActionButton class="share"></PostActionButton>
-            <PostActionButton class="report"></PostActionButton>
+        <div class="flex flex-row justify-evenly content-start items-center">
+            <PostActionButton type="like"></PostActionButton>
+            <PostActionButton type="dislike"></PostActionButton>
+            <PostActionButton type="share"></PostActionButton>
+            <PostActionButton type="report"></PostActionButton>
         </div>
     </div>
     <!--Locked-->
-    <div v-else class="Locked">
+    <div v-else class="Locked m-3">
         <div class="Credit">
             <div class="Lock">
                 <!--Lock svg-->
@@ -46,7 +46,7 @@
             <h3>vitces cim</h3>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem nihil accusantium libero ipsa magnam. Dolorum, ipsa rerum. Cumque dignissimos praesentium, sapiente repellendus natus sed veniam animi atque quod harum beatae.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem nihil accusantium libero ipsa magnam. Dolorum, ipsa rerum. Cumque dignissimos praesentium, sapiente repellendus natus sed veniam animi atque quod harum beatae.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem nihil accusantium libero ipsa magnam. Dolorum, ipsa rerum. Cumque dignissimos praesentium, sapiente repellendus natus sed veniam animi atque quod harum beatae.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem nihil accusantium libero ipsa magnam. Dolorum, ipsa rerum. Cumque dignissimos praesentium, sapiente repellendus natus sed veniam animi atque quod harum beatae.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem nihil accusantium libero ipsa magnam. Dolorum, ipsa rerum. Cumque dignissimos praesentium, sapiente repellendus natus sed veniam animi atque quod harum beatae.</p>
         </div>
-        <div class="postactions">
+        <div class="flex flex-row justify-between content-center items-center">
             <PostActionButton type="like"></PostActionButton>
             <PostActionButton type="dislike"></PostActionButton>
             <PostActionButton type="share"></PostActionButton>

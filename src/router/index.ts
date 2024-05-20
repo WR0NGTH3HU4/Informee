@@ -31,12 +31,12 @@ const router = createRouter({
       }
     },
     {
-      path: '/poszt-szerkeszto',
+      path: '/posztszerkeszto',
       name: 'PosztSzerkeszto',
       component: () => import('../views/PosztSzerkeszto.vue'),
       //Ideiglenesen, teszteléshez
       meta: {
-        public: true
+        public: false
       }
     },
     {
@@ -45,14 +45,14 @@ const router = createRouter({
       component: () => import('../views/Poszt.vue'),
       //Ideiglenesen, teszteléshez
       meta: {
-        public: true
+        public: false
       }
     },
     {
-      path: '/sajat-posztok',
+      path: '/sajatposztok',
       name: 'SajatPosztok',
       component: () => import('../views/SajatPosztok.vue'),
-      meta: { public: true }
+      meta: { public: true}
     },
     {
       path: '/bejelentkezes',
@@ -70,7 +70,16 @@ const router = createRouter({
         public: true
       }
     },
-  ]
+
+    {
+      path:'/faq',
+      name:'Faq',
+      component:() => import('../views/GyakranIsmetelt.vue'),
+      meta:{
+        public: true
+      }
+    }
+]
 });
 
 function getNavLinks() {
