@@ -31,10 +31,20 @@
             username: userName.value,
         });
         if(res.type == 'success'){
-            userStore.setJwt(res.data.token)
             
+            const userReq = async () =>{
+                const userRes = await ApiWrapper.post<{token:string}>('auth/login',{
+                    email: email.value,
+                    password: passwd.value
+                })
+
+                if (userRes.type == 'success'){
+                    userStore.setJwt(userRes.data.token)
+                } 
+                router.push('Profil')
+            }
         }
-        router.push('Profil')
+        
         
     }
 
