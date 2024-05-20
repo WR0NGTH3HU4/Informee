@@ -1,31 +1,30 @@
 <script lang="ts" setup>
-    import Sidebar from '@/components/Sidebar.vue';
-    import Searchbar from '@/components/Searchbar.vue';
-    import Post from '@/components/Post.vue';
-    import linkButton from '@/components/linkButton.vue';
+import Post from '@/components/Post.vue';
+import Input from '@/components/Input.vue';
+import Button from '@/components/Button.vue';
 </script>
+
 <template>
-    <div class="FullPostPage">
-        <!--Sidebar-->
-        <Sidebar/>
-        <div class="Posts">
-            <!--Searchbar-->
-            <Searchbar/>
-            <!--Postlist-->
-            <div class="Postlist">
-                <Post/>
-            </div>
-        </div>
+  <div class="flex p-4 gap-4">
+    <!--Sidebar-->
+    <div class="flex flex-col font-medium">
+      <!-- TODO: FILL WITH CIMKEK MERT CSAK -->
+      <span class="font-medium">CIMKEK</span>
+      <span class="p-4 text-neutral-500 font-medium">cimke</span>
     </div>
-
-
+    <div class="flex flex-col w-full gap-4">
+      <!--Searchbar-->
+      <div class="flex gap-4">
+        <Input class="w-full" type="text" placeholder="Keresés" />
+        <Button type="primary" text="Keresés"></Button>
+        <Button type="secondary" text="Rendezés"></Button>
+      </div>
+      <!--Postlist-->
+      <div class="flex flex-col gap-2">
+        <Post />
+      </div>
+    </div>
+  </div>
 </template>
-<style lang="scss" scoped>
-    .FullPostPage{
-        @apply flex flex-row justify-start content-center items-start
-    }
-    .Posts{
-        @apply w-full;
-        padding: 0 17px;;
-    }
-</style>
+
+<style lang="scss" scoped></style>
