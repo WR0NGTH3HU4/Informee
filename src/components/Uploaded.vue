@@ -2,7 +2,7 @@
     
 </script>
 <template>
-    <div class="container">
+    <div class="container w-full">
         <h3 class="Title">Feltöltött anyagok</h3>
         <div class="file">
             <img src="../assets/logo.svg" alt="">
@@ -23,7 +23,7 @@
         padding:5% 20px;
     }
     .Title{
-        @apply text-neutral-800 text-4xl
+        @apply text-neutral-800 text-3xl
     }
     .Text{
         @apply text-neutral-600 font-bold
