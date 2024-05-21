@@ -14,10 +14,15 @@ const props = defineProps<{
 </script>
 
 <template>
+
   <div class="DEVbio flex flex-row justify-between content-center items-center  w-4/12 min-h-[350px]  bg-neutral-100 rounded pl-6 pr-6 pb-3 pt-3 border-neutral-300 drop-shadow-lg relative m-5">
+
     <div class="svg"></div>
     <div class="flex flex-col justify-center content-center items-center">
-      <div class="BioIMG drop-shadow-xl" :style="{ backgroundImage: `url(${pic})`, backgroundSize: 'cover', width: '13em', height: '13em' }"></div>
+      <div
+        class="BioIMG drop-shadow-xl"
+        :style="{ backgroundImage: `url(${pic})`, backgroundSize: 'cover', width: '13em', height: '13em' }"
+      ></div>
     </div>
     <div class="bio flex flex-col justify-between content-center items-start ml-3 w-full">
       <div>
@@ -37,7 +42,6 @@ const props = defineProps<{
 <style scoped lang="scss">
 .DEVbio {
   border-width: 1px;
-  
 }
 
 .BioIMG {
@@ -45,7 +49,7 @@ const props = defineProps<{
 }
 
 .svg {
-  background-image: url("../assets/BioWave.svg");
+  background-image: url('../assets/BioWave.svg');
   position: absolute;
   top: 0;
   left: 0;
@@ -55,26 +59,25 @@ const props = defineProps<{
   background-repeat: no-repeat;
   z-index: -1;
   margin-top: 0.1px;
-  margin-left: 0.1px
+  margin-left: 0.1px;
 }
-@media only screen and (max-width: 1445px){
-  .DEVbio{
-    @apply w-3/6
+@media only screen and (max-width: 1445px) {
+  .DEVbio {
+    @apply w-3/6;
   }
-  @media only screen and (max-width: 1250px){
-    .DEVbio{
-      @apply w-1/2
+  @media only screen and (max-width: 1250px) {
+    .DEVbio {
+      @apply w-1/2;
     }
   }
-  @media only screen and (max-width: 970px){
-    .DEVbio{
-      @apply w-3/4
+  @media only screen and (max-width: 970px) {
+    .DEVbio {
+      @apply w-3/4;
     }
   }
-  @media only screen and (max-width: 660px){
-    .DEVbio{
-      @apply w-full flex-wrap
-
+  @media only screen and (max-width: 660px) {
+    .DEVbio {
+      @apply w-full flex-wrap;
     }
   }
 }
