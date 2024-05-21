@@ -1,18 +1,30 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router';
-//import HelloWorld from './components/HelloWorld.vue'*/
 import Logo from './components/Logo.vue';
 import Navbar from './components/Navbar.vue';
 import Footer from './components/Footer.vue';
+import Modal from './components/Modal.vue';
+import { onMounted, ref } from 'vue';
 
-function asd() {
-  alert('asdasdasd');
-}
+const ModalShown = ref(false);
+
+const closeModal = () => {
+  ModalShown.value = false;
+};
+
+onMounted(() => {
+  ModalShown.value = false;
+});
 </script>
 
 <template>
   <Navbar />
-  <RouterView />
+  
+    <RouterView />
+  
+  <Modal :isShown="ModalShown" @close="closeModal" />
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>

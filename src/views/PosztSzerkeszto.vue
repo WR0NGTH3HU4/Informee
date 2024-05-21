@@ -2,9 +2,6 @@
 import { RouterLink, RouterView } from 'vue-router';
 import { ref } from 'vue';
 import Button from '../components/Button.vue';
-import Postediting from '@/components/Postediting.vue';
-import Uploaded from '@/components/Uploaded.vue';
-import UploadFile from '@/components/UploadFile.vue';
 import Input from '@/components/Input.vue';
 </script>
 <template>
