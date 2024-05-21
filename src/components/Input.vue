@@ -44,7 +44,6 @@ textarea:not(:focus) {
   transition: border-color 0.3s ease;
 }
 
-
 textarea {
   resize: none;
   box-sizing: border-box;

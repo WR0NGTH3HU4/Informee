@@ -25,17 +25,14 @@ export const useUserStore = defineStore('user', () => {
     return currentUser.value != null;
   }
 
-
   function getJwt(): string | undefined {
-    if (loggedIn()) 
-      return currentUser.value?.jwt;
+    if (loggedIn()) return currentUser.value?.jwt;
 
     return;
   }
 
   function getUserData(): User['data'] {
-    if (loggedIn()) 
-      return currentUser.value?.data;
+    if (loggedIn()) return currentUser.value?.data;
 
     return undefined;
   }

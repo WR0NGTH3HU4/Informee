@@ -1,17 +1,9 @@
 <template>
   <button :class="getClassForType()" @click="handleClick">
-    <span v-if="props.type === 'like'" class="material-symbols-outlined">
-      add_box
-    </span>
-    <span v-else-if="props.type === 'dislike'" class="material-symbols-outlined">
-      remove
-    </span>
-    <span v-else-if="props.type === 'share'" class="material-symbols-outlined">
-      north_east
-    </span>
-    <span v-else-if="props.type === 'report'" class="material-symbols-outlined">
-      report
-    </span>
+    <span v-if="props.type === 'like'" class="material-symbols-outlined"> add_box </span>
+    <span v-else-if="props.type === 'dislike'" class="material-symbols-outlined"> remove </span>
+    <span v-else-if="props.type === 'share'" class="material-symbols-outlined"> north_east </span>
+    <span v-else-if="props.type === 'report'" class="material-symbols-outlined"> report </span>
   </button>
 </template>
 
@@ -52,8 +44,8 @@ const handleClick = () => {
 }
 
 .dislike {
-  border-radius: 10px;  
-  background-color: #EF4444;
+  border-radius: 10px;
+  background-color: #ef4444;
   color: #fafafa;
   padding: 5px;
   display: flex;
@@ -62,8 +54,8 @@ const handleClick = () => {
 }
 
 .share {
-  border-radius: 10px;  
-  background-color: #EA580C;
+  border-radius: 10px;
+  background-color: #ea580c;
   color: #fafafa;
   padding: 5px;
   display: flex;
@@ -71,8 +63,8 @@ const handleClick = () => {
   justify-content: center;
 }
 
-.report { 
-  border-radius: 10px;  
+.report {
+  border-radius: 10px;
   background-color: #404040;
   color: #fafafa;
   padding: 5px;

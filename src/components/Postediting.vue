@@ -12,15 +12,15 @@ import Input from './Input.vue';
     <div class="flex flex-col justify-center content-center items-center w-full gap-y-3 flex-grow">
       <div class="Post">
         <h3 class="InputName">Cím</h3>
-        <Input class="w-full" type="text"/>
+        <Input class="w-full" type="text" />
       </div>
       <div class="Post">
         <h3 class="InputName">Leírás</h3>
-        <Input class="w-full" type="text"/>
+        <Input class="w-full" type="text" />
       </div>
       <div class="Post flex-grow">
         <h3 class="InputName">Tartalom</h3>
-        <Input class="w-full flex-grow h-full" type="textarea"/>
+        <Input class="w-full flex-grow h-full" type="textarea" />
       </div>
     </div>
   </div>
@@ -30,7 +30,7 @@ import Input from './Input.vue';
 .Post {
   @apply flex flex-col justify-center content-center items-start w-full gap-y-1;
 }
-.InputName{
-    @apply text-neutral-500 font-medium text-lg
+.InputName {
+  @apply text-neutral-500 font-medium text-lg;
 }
 </style>

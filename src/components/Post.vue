@@ -10,7 +10,11 @@ const Locked = ref(false);
     <div v-if="Locked">le van zarva a post ocskso</div>
     <div class="flex flex-col gap-2">
       <span class="flex items-center">
-        <img class="aspect-square w-8 rounded-full" src="https://img.itch.zone/aW1nLzgzNDY4MjEuZ2lm/original/PjfoQj.gif" alt="" />
+        <img
+          class="aspect-square w-8 rounded-full"
+          src="https://img.itch.zone/aW1nLzgzNDY4MjEuZ2lm/original/PjfoQj.gif"
+          alt=""
+        />
         <span class="text-neutral-600 font-medium">Molnar Krisztian</span>
       </span>
       <div class="flex flex-col">

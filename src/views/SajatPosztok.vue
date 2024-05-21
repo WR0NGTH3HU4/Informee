@@ -13,9 +13,15 @@ import TextBox from '@/components/TextBox.vue';
       <!-- Banner -->
       <div
         class="p-4 flex items-end gap-2 rounded-md"
-        style="background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.printablee.com%2Fpostpic%2F2012%2F08%2Fminecraft-creeper-face_428904.jpg');"
+        style="
+          background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.printablee.com%2Fpostpic%2F2012%2F08%2Fminecraft-creeper-face_428904.jpg');
+        "
       >
-        <img class="aspect-square w-32 rounded-md" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.printablee.com%2Fpostpic%2F2012%2F08%2Fminecraft-creeper-face_428904.jpg" alt="">
+        <img
+          class="aspect-square w-32 rounded-md"
+          src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.printablee.com%2Fpostpic%2F2012%2F08%2Fminecraft-creeper-face_428904.jpg"
+          alt=""
+        />
         <div class="flex flex-col">
           <span class="text-neutral-400 font-medium">molnarkiki</span>
           <span class="text-neutral-50 text-2xl font-semibold">Molnar Krisztian</span>
@@ -28,19 +34,13 @@ import TextBox from '@/components/TextBox.vue';
       <div class="BioSection">
         <span>Ertekelesek</span>
         <div class="Reviews flex gap-4">
-          <span class="bg-orange-500">
-            2000
-          </span>
-          <span class="bg-neutral-800">
-            2000
-          </span>
+          <span class="bg-orange-500"> 2000 </span>
+          <span class="bg-neutral-800"> 2000 </span>
         </div>
       </div>
       <div class="BioSection">
         <span>Linkek</span>
-        <div class="flex">
-
-        </div>
+        <div class="flex"></div>
       </div>
     </div>
     <div class="flex flex-col w-full gap-2 overflow-auto">
@@ -68,9 +68,9 @@ import TextBox from '@/components/TextBox.vue';
 .Reviews > span {
   @apply p-2 rounded-md font-semibold text-neutral-50 w-full;
 }
-@media only screen and (max-width:1000px) {
-  .FullPage{
-    @apply flex-col
+@media only screen and (max-width: 1000px) {
+  .FullPage {
+    @apply flex-col;
   }
 }
 </style>

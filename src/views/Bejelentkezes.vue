@@ -35,7 +35,6 @@ const onLogIn = async () => {
 onMounted(() => {
   passShown.value = false;
 });
-
 </script>
 <template>
   <main class="flex justify-center items-center h-full">

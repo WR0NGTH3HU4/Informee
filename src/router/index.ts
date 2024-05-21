@@ -1,5 +1,5 @@
-import { useUserStore } from '@/stores/user'
-import { createRouter, createWebHistory } from 'vue-router'
+import { useUserStore } from '@/stores/user';
+import { createRouter, createWebHistory } from 'vue-router';
 import Kezdolap from '@/views/Kezdolap.vue';
 
 const router = createRouter({
@@ -52,7 +52,7 @@ const router = createRouter({
       path: '/sajatposztok',
       name: 'SajatPosztok',
       component: () => import('../views/SajatPosztok.vue'),
-      meta: { public: true}
+      meta: { public: true }
     },
     {
       path: '/bejelentkezes',
@@ -72,36 +72,34 @@ const router = createRouter({
     },
 
     {
-      path:'/faq',
-      name:'Faq',
-      component:() => import('../views/GyakranIsmetelt.vue'),
-      meta:{
+      path: '/faq',
+      name: 'Faq',
+      component: () => import('../views/GyakranIsmetelt.vue'),
+      meta: {
         public: true
       }
     },
     {
-      path:'/profil',
-      name:'Profil',
-      component:() => import('../views/Profile.vue'),
-      meta:{
-        public:true
+      path: '/profil',
+      name: 'Profil',
+      component: () => import('../views/Profile.vue'),
+      meta: {
+        public: true
       }
     }
-]
+  ]
 });
 
-function getNavLinks() {
-  
-}
+function getNavLinks() {}
 
 router.beforeEach((to, from) => {
-  const userStore = useUserStore()
+  const userStore = useUserStore();
 
   if (to.meta['public'] || userStore.loggedIn()) {
-    return // Ha publikus a route vagy a bejelentkezve fgv true akkor a route megjelenik
+    return; // Ha publikus a route vagy a bejelentkezve fgv true akkor a route megjelenik
   }
 
-  router.push('login') // "else" -> küldje a login oldalra
-})
+  router.push('login'); // "else" -> küldje a login oldalra
+});
 
-export default router
+export default router;
