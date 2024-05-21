@@ -79,38 +79,19 @@ const triggerMenu = () =>{
           class="text-neutral-700 text-lg font-medium"
           v-for="link in userStore.loggedIn() ? LoggedInContent : LoggedOutContent"
           :key="link.Id"
-          :to="link.Url"
-        >
+          :to="link.Url">
           {{ link.Title }}
         </RouterLink>
+        
       </span>
     </div>
-
-    <div v-if="!userStore.loggedIn()">
-      <RouterLink to="Bejelentkezes">
-        <Button text="Bejelentkezés"></Button>
-      </RouterLink>
-    </div>
-    <div v-else class="flex flex-row gap-3">
-      <RouterLink to="PosztSzerkeszto">
-        <Button type="primary" text="Új poszt"></Button>
-      </RouterLink>
-      <RouterLink to="Profil">
-        <div class="ProfileMenu flex flex-row justify-between content-center items-center gap-x-1 bg-neutral-200 pr-2 drop-shadow-lg">
-          <div class="FullProfile"></div>
-          <h3 class="Kredit text-neutral-600 py-1 px-2 bg-neutral-300 ">300</h3>
-        </div>
-      </RouterLink>
-
-    </div>
-
     <RouterLink v-if="!userStore.loggedIn()" to="Bejelentkezes">
       <Button text="Bejelentkezés"></Button>
     </RouterLink>
     <img v-else src="https://img.itch.zone/aW1nLzgzNDY4MjEuZ2lm/original/PjfoQj.gif" alt="">
-
   </nav>
 </template>
+
 
 <style scoped lang="scss">
 #separator {
