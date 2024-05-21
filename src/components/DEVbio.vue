@@ -14,7 +14,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="DEVbio flex flex-row justify-between content-center items-center  w-4/12  bg-neutral-100 rounded pl-6 pr-6 pb-3 pt-3 border-neutral-300 drop-shadow-lg relative m-5">
+  <div class="DEVbio flex flex-row justify-between content-center items-center  w-4/12 min-h-[350px]  bg-neutral-100 rounded pl-6 pr-6 pb-3 pt-3 border-neutral-300 drop-shadow-lg relative m-5">
     <div class="svg"></div>
     <div class="flex flex-col justify-center content-center items-center">
       <div class="BioIMG drop-shadow-xl" :style="{ backgroundImage: `url(${pic})`, backgroundSize: 'cover', width: '13em', height: '13em' }"></div>

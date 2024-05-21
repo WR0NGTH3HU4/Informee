@@ -1,9 +1,6 @@
 <script setup lang="ts">
 
 import DEVbio from '../components/DEVbio.vue';
-
-
-
 const Kevin = new URL('@/assets/Kevin.png', import.meta.url).href
 const Andras = new URL('@/assets/Andras.png', import.meta.url).href
 const Mate = new URL('@/assets/Kulimak.png', import.meta.url).href
@@ -22,7 +19,7 @@ const Dominik = new URL('@/assets/Dominik.png', import.meta.url).href
         secondLinkURL="" 
         firstLinkName="Facebook" 
         secondLinkName="Instagram" 
-        text=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad molestiae numquam aut temporibus atque, sequi alias amet repellendus qui ducimus iste omnis pariatur voluptates magni cupiditate ab, id quod. Inventore."
+        text="Bro doesn't exist I guess."
       ></DEVbio>
       <DEVbio 
         name="Császár András" 
@@ -31,7 +28,7 @@ const Dominik = new URL('@/assets/Dominik.png', import.meta.url).href
         secondLinkURL="" 
         firstLinkName="Facebook" 
         secondLinkName="Instagram" 
-        text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad molestiae numquam aut temporibus atque, sequi alias amet repellendus qui ducimus iste omnis pariatur voluptates magni cupiditate ab, id quod. Inventore."
+        text="..."
       ></DEVbio>
       <DEVbio 
         name="Kulimák Máté" 
@@ -40,7 +37,7 @@ const Dominik = new URL('@/assets/Dominik.png', import.meta.url).href
         secondLinkURL="" 
         firstLinkName="Facebook" 
         secondLinkName="Instagram" 
-        text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad molestiae numquam aut temporibus atque, sequi alias amet repellendus qui ducimus iste omnis pariatur voluptates magni cupiditate ab, id quod. Inventore."
+        text="Sziasztok, van horgászengedélyem és nagyon szeretek programozni. ❤️Informee❤️"
       ></DEVbio>
       <DEVbio 
         name="Kővágó Levente" 
@@ -49,7 +46,7 @@ const Dominik = new URL('@/assets/Dominik.png', import.meta.url).href
         secondLinkURL="" 
         firstLinkName="Facebook" 
         secondLinkName="Instagram" 
-        text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad molestiae numquam aut temporibus atque, sequi alias amet repellendus qui ducimus iste omnis pariatur voluptates magni cupiditate ab, id quod. Inventore."
+        text="Hello! A Türr Istán technikum 12.a osztályos tanulója vagyok szoftverfejlesztői ágazaton, Baján. Szerbiában egy kis faluban élek, Bezdánban. Versenyszinten kajakozok és napi szinten edzek. A projektben az én feladatom volt figmában a grafikus tervek elkészítése, illetve a logó megtervezése."
       ></DEVbio>
       <DEVbio 
         name="Tátrai Dominik Oszkár" 
@@ -58,7 +55,7 @@ const Dominik = new URL('@/assets/Dominik.png', import.meta.url).href
         secondLinkURL="" 
         firstLinkName="Facebook" 
         secondLinkName="Instagram" 
-        text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad molestiae numquam aut temporibus atque, sequi alias amet repellendus qui ducimus iste omnis pariatur voluptates magni cupiditate ab, id quod. Inventore."
+        text="Hello! Szoftverfejlesztőnek tanulok, ez mellett gitározok, és a bajai logiscoolban tanítok gyerekeket programozni. A feladataim az oldal design-jára (kódolás) és dinamikusságára terjedtek ki, valamint grafikus terveket is készítettem."
       ></DEVbio>
     </div>
   </div>
