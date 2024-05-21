@@ -52,7 +52,7 @@ import TextBox from '@/components/TextBox.vue';
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .BioSection {
   @apply mt-4 flex flex-col px-4;
 
