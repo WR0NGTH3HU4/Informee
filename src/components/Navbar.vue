@@ -68,14 +68,14 @@ const triggerMenu = () => {
         <Logo></Logo>
         <h3 class="text-xl text-neutral-800">Menü</h3>
       </div>
-      <div
+      <RouterLink
         v-for="link in userStore.loggedIn() ? LoggedInContent : LoggedOutContent"
         :key="link.Id"
         :to="link.Url"
         class="menuItems p-6 hover:bg-neutral-50 active:bg-neutral-200 w-full duration-200 flex flex-row items-center justify-center content-center"
       >
         <h3>{{ link.Title }}</h3>
-      </div>
+      </RouterLink>
     </div>
   </nav>
   <nav class="flex justify-between items-center px-4">
