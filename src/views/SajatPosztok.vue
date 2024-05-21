@@ -1,9 +1,22 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { onMounted, ref, type Ref } from 'vue';
 import Button from '../components/Button.vue';
 import Post from '@/components/Post.vue';
 import Bio from '@/components/Bio.vue';
 import TextBox from '@/components/TextBox.vue';
+import { ApiWrapper } from '@/composables/ApiWrapper';
+import { type Post as PostSchema } from '@/types/Post';
+
+
+let posts: Ref<PostSchema[]> = ref([]);
+
+onMounted(() => {
+  ApiWrapper.get<PostSchema[]>('post', null).then(x => {
+    x.data.forEach((post: PostSchema) => {
+      posts.value.push(post);
+    });
+  });
+});
 </script>
 
 <template>
@@ -43,11 +56,8 @@ import TextBox from '@/components/TextBox.vue';
         <div class="flex"></div>
       </div>
     </div>
-    <div class="flex flex-col w-full gap-2 overflow-auto">
-      <Post></Post>
-      <Post></Post>
-      <Post></Post>
-      <Post></Post>
+    <div v-if="posts.length > 0" class="flex flex-col w-full gap-2 overflow-auto">
+      <Post v-for="post in posts" :data="post" :key="post._id" />
     </div>
   </div>
 </template>

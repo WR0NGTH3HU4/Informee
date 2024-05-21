@@ -2,14 +2,18 @@
 import PostActionButton from './PostActionButton.vue';
 import Button from './Button.vue';
 import { ref } from 'vue';
+import { type Post as PostSchema } from '@/types/Post';
 
+const props = defineProps<{
+  data: PostSchema,
+}>()
 const Locked = ref(false);
 </script>
 <template>
   <div class="flex border-[1px] p-4 border-neutral-300 rounded-lg bg-neutral-100 shadow">
     <div v-if="Locked">le van zarva a post ocskso</div>
-    <div class="flex flex-col gap-2">
-      <span class="flex items-center">
+    <div class="flex flex-col gap-2 w-full">
+      <span class="flex items-center gap-2">
         <img
           class="aspect-square w-8 rounded-full"
           src="https://img.itch.zone/aW1nLzgzNDY4MjEuZ2lm/original/PjfoQj.gif"
@@ -18,11 +22,9 @@ const Locked = ref(false);
         <span class="text-neutral-600 font-medium">Molnar Krisztian</span>
       </span>
       <div class="flex flex-col">
-        <span class="font-urbanist text-3xl text-neutral-800 font-semibold">Mi az a rendszervaltas?</span>
+        <span class="font-urbanist text-3xl text-neutral-800 font-semibold">{{ props.data.title }}</span>
         <span class="text-neutral-600">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam laudantium placeat et rem excepturi autem
-          impedit fugiat tempora accusamus ipsa fugit corrupti ratione ad pariatur dolor libero molestiae, nulla
-          voluptates.
+          {{ props.data.description }}
         </span>
       </div>
       <div class="flex justify-between">

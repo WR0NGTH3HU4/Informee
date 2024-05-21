@@ -5,12 +5,40 @@ import Button from '../components/Button.vue';
 import Postediting from '@/components/Postediting.vue';
 import Uploaded from '@/components/Uploaded.vue';
 import UploadFile from '@/components/UploadFile.vue';
+import Input from '@/components/Input.vue';
 </script>
 <template>
-  <div class="FullPage flex flex-row justify-between content-center items-start m-3 h-full gap-x-10">
-    <div class="Edit w-1/2 h-full">
-      <Postediting></Postediting>
+  <div class="FullPage flex flex-col justify-between content-center items-start m-3 h-full gap-4">
+    <div class="flex w-full gap-4 justify-end">
+      <RouterLink to="Posztok">
+        <Button type="secondary" text="Módosítások elvetése"></Button>
+      </RouterLink>
+      <Button type="primary" text="Mentés"></Button>
     </div>
+    <div class="Edit w-1/2 m-auto h-full">
+      <div class="flex flex-col justify-center content-center items-start w-full gap-y-8 h-full">
+        <div class="flex flex-row content-center items-center w-1/2">
+          <h3 class="text-neutral-800 text-4xl font-bold">Posztszerkesztő</h3>
+          <h3 class="self-start text-neutral-500 font-medium">(mentve)</h3>
+        </div>
+        <div class="flex flex-col justify-center items-center w-full gap-2 flex-grow">
+          <div class="Post">
+            <h3 class="InputName">Cím</h3>
+            <Input class="w-full" type="text" />
+          </div>
+          <div class="Post">
+            <h3 class="InputName">Leírás</h3>
+            <Input class="w-full" type="text" />
+          </div>
+          <div class="Post flex-grow">
+            <h3 class="InputName">Tartalom</h3>
+            <Input class="w-full flex-grow h-full" type="textarea" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--
+
     <div class="Files flex flex-col justify-center content-center items-end w-1/2 h-full gap-y-10">
       <div class="flex flex-row justify-end content-center items-center gap-x-3">
         <svg width="34" height="35" viewBox="0 0 34 35" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -27,12 +55,15 @@ import UploadFile from '@/components/UploadFile.vue';
         <UploadFile></UploadFile>
       </div>
     </div>
+
+    -->
   </div>
+
 </template>
 <style scoped lang="scss">
 @media only screen and (max-width: 800px) {
   .FullPage {
-    @apply flex-col-reverse;
+    // @apply flex-col-reverse;
   }
   .Edit {
     @apply w-full;
@@ -40,5 +71,12 @@ import UploadFile from '@/components/UploadFile.vue';
   .Files {
     @apply w-full;
   }
+}
+
+.Post {
+  @apply flex flex-col justify-center content-center items-start w-full gap-y-1;
+}
+.InputName {
+  @apply text-neutral-500 font-medium text-lg;
 }
 </style>

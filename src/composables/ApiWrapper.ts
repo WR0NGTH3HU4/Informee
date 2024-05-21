@@ -9,7 +9,7 @@ export interface ApiResponse<T> {
 
 export class ApiWrapper {
   private static readonly BACKEND_URL = 'http://127.0.0.1:3000/';
-  private static readonly userStore = useUserStore();
+  // private static readonly userStore = useUserStore();
 
   public static async get<T = any>(route: string, data: any, headers = {}): Promise<ApiResponse<T>> {
     return await this.request<T>('GET', route, data, headers);
@@ -35,16 +35,17 @@ export class ApiWrapper {
     method: string,
     route: string,
     data: any,
-    extraHeaders: object
+    extraHeaders: object,
+    store: any = useUserStore(),
   ): Promise<ApiResponse<T>> {
     const res = await axios.request({
       method,
       url: route,
       baseURL: ApiWrapper.BACKEND_URL,
       data,
-      headers: this.userStore.loggedIn()
+      headers: store.loggedIn()
         ? {
-            Authorization: `Bearer ${this.userStore.getJwt()}`,
+            Authorization: `Bearer ${store.getJwt()}`,
             ...extraHeaders
           }
         : extraHeaders

@@ -2,16 +2,30 @@
 import Post from '@/components/Post.vue';
 import Input from '@/components/Input.vue';
 import Button from '@/components/Button.vue';
+import { type Post as PostSchema } from '@/types/Post';
+import { ApiWrapper } from '@/composables/ApiWrapper';
+import { onMounted, ref, type Ref } from 'vue';
+
+let posts: Ref<PostSchema[]> = ref([]);
+
+onMounted(() => {
+  ApiWrapper.get<PostSchema[]>('post', null).then(x => {
+    x.data.forEach((post: PostSchema) => {
+      posts.value.push(post);
+    });
+  });
+});
 </script>
 
 <template>
   <div class="flex p-4 gap-4">
     <!--Sidebar-->
+    <!--
     <div class="flex flex-col font-medium">
-      <!-- TODO: FILL WITH CIMKEK MERT CSAK -->
       <span class="font-medium">CIMKEK</span>
       <span class="p-4 text-neutral-500 font-medium">cimke</span>
     </div>
+    -->
     <div class="flex flex-col w-full gap-4">
       <!--Searchbar-->
       <div class="flex gap-4">
@@ -20,8 +34,8 @@ import Button from '@/components/Button.vue';
         <Button type="secondary" text="Rendezés"></Button>
       </div>
       <!--Postlist-->
-      <div class="flex flex-col gap-2">
-        <Post />
+      <div v-if="posts.length > 0" class="flex flex-col gap-2">
+        <Post v-for="post in posts" :data="post" :key="post._id" />
       </div>
     </div>
   </div>
