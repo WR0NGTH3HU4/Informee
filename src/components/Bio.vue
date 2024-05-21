@@ -1,161 +1,65 @@
-<script lang="ts" setup>
-import Button from '../components/Button.vue'
-import Input from '../components/Input.vue'
-import linkButton from './linkButton.vue';
+<script setup lang="ts">
+import Button from '../components/Button.vue';
+import Input from '../components/Input.vue';
+import LinkButton from './linkButton.vue';
+import TextBox from './TextBox.vue';
+import RatingButton from '../components/Ratingbutton.vue';
 </script>
+
 <template>
-<div class="full_bio">
-    
-    <div class="fejlec">
-        <img src="../assets/fooldal_logo.svg" alt="">
-        <div class="name">
-            <h4>molnarkiki</h4>
-            <h3>Molnár Krisztián</h3>
-        </div>
-        
+  <div
+    class="FullBio flex flex-col justify-between content-center items-center bg-neutral-50 rounded border-neutral-300 drop-shadow-lg mt-3"
+  >
+    <div
+      class="Banner flex flex-row justify-start content-center items-end w-full bg-neutral-800 rounded drop-shadow-lg p-3"
+    >
+      <div class="ProfilePic rounded"></div>
+      <div class="Usernames flex flex-col justify-center content-center items-start mx-1">
+        <h3 class="text-neutral-400 font-normal">Bezdan</h3>
+        <h3 class="text-neutral-50 font-normal">Kovago Levente</h3>
+      </div>
     </div>
-    <div class="tartalom">
-        <div class="bio">
-            <div class="fullbio">
-                <h3>Bio</h3>
-                <Input id="biotext"/>
-            </div>
-            <div>
-                <h3>Értékelések</h3>
-                <div class="like">
-                    <Button text="ikon" class="full-width"></Button>
-                    <Button text="ikon" class="full-width"></Button>
-                </div>
-            </div>
-            <div>
-                <h3>Linkek</h3>
-                <div class="link">
-                    <linkButton text="YouTube" class="linkButton full-width"></linkButton>
-                    <linkButton text="Weboldal" class="WeboldalLink full-width"></linkButton>
-                    <linkButton text="Email" class="EmailLink full-width"></linkButton>
-                    <linkButton text="Steam" class="SteamLink full-width"></linkButton>
-                    <linkButton text="Facebook" class="FacebookLink full-width"></linkButton>
-                </div>
-            </div>
-            
-                <Button text="Edit" class="edit full-width"></Button>
-            
+    <div class="content flex flex-col justify-evenly content-center items-center h-full p-3 w-full">
+      <div class="BioPhrase w-full flex flex-col justify-center content-center items-start">
+        <h3>Bio</h3>
+        <TextBox class="w-full"></TextBox>
+      </div>
+      <div class="Ratings w-full flex-col justify-center content-center items-start">
+        <h3>Értékelések</h3>
+        <div class="flex flex-row justify-center content-center items-center w-full gap-3">
+          <RatingButton type="like" number="12" class="w-full"></RatingButton>
+          <RatingButton type="dislike" number="1" class="w-full"></RatingButton>
         </div>
+      </div>
+      <div class="Links flex flex-row flex-wrap justify-center content-center items-center w-full gap-3">
+        <LinkButton text="YouTube" class="linkButton"></LinkButton>
+        <LinkButton text="YouTube" class="WeboldalLink"></LinkButton>
+        <LinkButton text="YouTube" class="EmailLink"></LinkButton>
+        <LinkButton text="YouTube" class="SteamLink"></LinkButton>
+        <LinkButton text="YouTube" class="FacebookLink"></LinkButton>
+      </div>
+      <Button text="Szerkesztés" type="secondary" class="w-full"></Button>
     </div>
-</div>
-
-
+  </div>
 </template>
-<style lang="scss">
-    .full_bio{
-        @apply flex flex-col justify-center content-center drop-shadow-lg border-neutral-300 ;
-        background-color: #D4D4D4;
-        border-radius: 10px;
-        margin-left: 10px;
-        margin-right: 10px;
-        width: 500px;
-    }
-    
-    .tartalom{
-        margin: 10px;
-        width:auto;
-    }
-    .bio{
-        width: 100%;
-    }
 
-    .bio > div {
-        width: auto;
-        margin-bottom: 10px;
-    }
-
-    .fejlec{
-        @apply flex flex-row justify-start content-center drop-shadow-lg border-neutral-300 ;
-        background-color: cadetblue;
-        height: 40%;
-        border-radius: 10px;
-    }
-
-    img{
-        width: 9rem;
-        margin-top: 30px;
-        margin-right:20px ;
-        padding: 10px;
-    }
-
-    .link{
-        @apply flex flex-row  justify-start content-center ;
-        flex-wrap: wrap;
-        width: auto;
-    }
-
-    .name{
-        @apply flex flex-col justify-end content-center ;
-    }
-
-    Button, linkButton {
-        margin: 5px;
-    }
-
-    #biotext{
-        width:100%;
-        
-        height: 200px;
-        float: center;
-
-    }
-
-    .edit{
-       width: auto;
-        margin: 0
-    }
-
-    .like{
-        @apply flex flex-row justify-center content-center ;
-        width:100%;
-    }
-
-    .full-width {
-        width: 100%;
-    }
-
-    @media (max-width: 799px) {
-        .full_bio{
-            @apply flex flex-col justify-center content-center drop-shadow-lg border-neutral-300 ;
-            background-color: #D4D4D4;
-            border-radius: 10px;
-            margin: 10px;
-        }
-
-        #biotext{
-            width: 100%;
-            height: 200px;
-            float: center;
-        }
-    }
-    @media (max-width: 1000px) {
-    
-    .Abio{
-       width: 100%;
-    }
-    .posztok{
-        width: 100%;
-    }
-    .Locked{
-        margin-left: 0px;
-        margin-right: 0px;
-        margin-bottom: 10px;
-        margin-top: 10px;
-    }
-    .full_bio{
-        width: auto;
-        
-    }
-    .bio{
-        width: auto;
-    }
-    img{
-        width: 15rem;
-    }
+<style scoped lang="scss">
+.FullBio {
+  border-width: 1px;
+}
+.Banner {
+  background-image: url('../assets/banner.svg');
+  background-size: cover;
+}
+.ProfilePic {
+  background-image: url('../assets/Levente.png');
+  background-size: cover;
+  width: 10rem;
+  height: 10rem;
+}
+@media only screen and (max-width: 1000px) {
+  .content {
+    @apply gap-y-10;
+  }
 }
 </style>

@@ -1,107 +1,125 @@
 <script setup lang="ts">
-    import { RouterLink, RouterView } from 'vue-router'
-    import {ref} from 'vue'
-    import Button from '../components/Button.vue'
-    import Input from '@/components/Input.vue';
-    import passwdShown from '@/components/passwdShown.vue';
-    import passwdHidden from '@/components/passwdHidden.vue';
-    import { onMounted } from 'vue';
+import { RouterLink, RouterView, useRouter } from 'vue-router';
+import { ref } from 'vue';
+import Button from '../components/Button.vue';
+import Input from '@/components/Input.vue';
+import passwdShown from '@/components/passwdShown.vue';
+import passwdHidden from '@/components/passwdHidden.vue';
+import { onMounted } from 'vue';
 import { ApiWrapper } from '@/composables/ApiWrapper';
+import { useUserStore } from '@/stores/user';
 
-    const email = ref('');
-    const userName = ref('');
-    const displayName = ref('');
-    const passwd = ref('');
-    const passwdConf = ref('');
+const userStore = useUserStore();
+const router = useRouter();
+const email = ref('');
+const userName = ref('');
+const passwd = ref('');
 
-    let passShown = ref<boolean>(false);
-    let passConfShown = ref<boolean>(false);
+let passShown = ref<boolean>(false);
 
-    const onPasswdShown = () =>{
-        passShown.value =!passShown.value
-    }
+const onShown = () => {
+  passShown.value = !passShown.value;
+};
 
-    const onPasswdConfShown = () =>{
-        passConfShown.value =! passConfShown.value
-    }
+const onSignUp = async () => {
+  const res = await ApiWrapper.post('auth/register', {
+    email: email.value,
+    password: passwd.value,
+    username: userName.value
+  });
+  if (res.type == 'success') {
+    const userReq = async () => {
+      const userRes = await ApiWrapper.post<{ token: string }>('auth/login', {
+        email: email.value,
+        password: passwd.value
+      });
 
-    function onSignUp() {
-        const res = ApiWrapper.post('auth/register', {
-            email: email.value,
-            password: passwd.value,
-            displayName: userName.value,
-            username: userName.value,
-        });
-        console.log(res);
-    }
+      if (userRes.type == 'success') {
+        userStore.setJwt(userRes.data.token);
+      }
+      router.push('Profil');
+    };
+  }
+};
 
-    onMounted(()=>{
-        passShown.value = false
-        passConfShown.value = false
-    })
+onMounted(() => {
+  passShown.value = false;
+});
 </script>
 
 <template>
-    <main class="flex justify-center items-center h-full">
-        <div class="flex flex-col p-6 bg-neutral-100 shadow-md justify-between items-center content-center border border-neutral-300 rounded-lg gap-4">
-            <div class="w-full flex justify-start">
-                <h1 class="text-neutral-800 text-3xl" id="Title">Regisztracio</h1>
-            </div>
-            <div class="InputContainer">
-                <h3 class="inputName">E-mail</h3>
-                <Input type="text" id="email" placeholder="E-mail" v-model="email"/>
-            </div>
-            <div class="InputContainer">
-                <h3 class="inputName">Username</h3>
-                <Input type="text" id="email" placeholder="E-mail" v-model="userName"/>
-            </div>
-            <div class="InputContainer">
-                <h3 class="inputName">Jelszó</h3>
-                <div class="passwdCon">
-                    <Input :type="passShown ? 'text' : 'password'" id="passwdinput" :class="{'hide' : !passShown}" placeholder="Jelszó" v-model="passwd"/>
-                    <div v-if="passShown" class="PasswdSVG">
-                        <passwdShown @click.prevent="onPasswdShown" class="show"/>
-                    </div>
-                    <div v-else class="PasswdSVG">
-                        <passwdHidden @click.prevent="onPasswdShown" class="show"/>
-                    </div>
-                </div>
-            </div>
-            <div class="flex flex-row justify-between content-center items-center w-full gap-8">
-                <h5 class="text-neutral-500 font-medium flex flex-row">Van mar fiokod?<RouterLink to="Bejelentkezes"><h5 class="text-orange-500 underline" id="Reg">Jelentkezz be!</h5></RouterLink></h5> 
-                <Button text="Regisztracio" type="primary" @click.prevent="onSignUp"></Button>
-            </div>
+  <main class="flex justify-center items-center h-full">
+    <div
+      class="flex flex-col p-6 bg-neutral-100 shadow-md justify-between items-center content-center border border-neutral-300 rounded-lg gap-4"
+    >
+      <div class="w-full flex justify-start">
+        <h1 class="text-neutral-800 text-3xl font-semibold">Regisztráció</h1>
+      </div>
+      <div class="InputContainer">
+        <h3 class="inputName">E-mail</h3>
+        <Input type="text" id="email" placeholder="E-mail" v-model="email" />
+      </div>
+      <div class="InputContainer">
+        <h3 class="inputName">Felhasználónév</h3>
+        <Input type="text" id="username" placeholder="Felhasználónév" v-model="userName" />
+      </div>
+      <div class="InputContainer">
+        <h3 class="inputName">Jelszó</h3>
+        <div class="passwdCon">
+          <Input
+            :type="passShown ? 'text' : 'password'"
+            id="passwdinput"
+            :class="{ hide: !passShown }"
+            class="relative w-full"
+            placeholder="Jelszó"
+            v-model="passwd"
+          />
+          <span v-if="passShown" @click.prevent="onShown" class="material-symbols-outlined"> visibility_off </span>
+          <span v-else @click.prevent="onShown" class="material-symbols-outlined"> visibility </span>
         </div>
-    </main>
+      </div>
+      <div class="flex flex-row justify-between content-center items-center w-full gap-8">
+        <h5 class="text-neutral-500 font-medium flex flex-row">
+          Van már fiókod?<RouterLink to="Bejelentkezes"
+            ><h5 class="text-orange-500 underline" id="Reg">Jelentkezz be!</h5></RouterLink
+          >
+        </h5>
+        <Button text="Regisztráció" type="primary" @click.prevent="onSignUp"></Button>
+      </div>
+    </div>
+  </main>
 </template>
 
 <style scoped lang="scss">
-    .InputContainer{
-        @apply w-full flex flex-col justify-center content-center;
-    }
-    .inputName{
-        @apply text-neutral-500;
-    }
-    .passwdCon{
-        @apply flex flex-row justify-between content-center items-center w-full;
-    }
-    .show{
-        width: 3rem;
-        height: 3rem;
-        padding: 5px;
-    }
+.InputContainer {
+  @apply w-full flex flex-col justify-center content-center;
+}
+.inputName {
+  @apply text-neutral-500 mb-1 font-medium;
+}
+.passwdCon {
+  @apply flex flex-row justify-between content-center items-center w-full relative;
 
-    #email{
-        width: 100%;
-    }
-    #passwdinput{
-        @apply tracking-normal;
-        width: 90%;
-        &.hide{
-            @apply tracking-widest;
-        }
-    }
-    #Reg{
-        padding-left: 5px;
-    }
+  & span {
+    @apply text-neutral-500 absolute right-2 mt-[1px] text-[22px];
+  }
+}
+.show {
+  width: 3rem;
+  height: 3rem;
+  padding: 5px;
+}
+
+#email {
+  width: 100%;
+}
+#passwdinput {
+  @apply tracking-normal;
+  &.hide {
+    @apply tracking-widest;
+  }
+}
+#Reg {
+  padding-left: 5px;
+}
 </style>
