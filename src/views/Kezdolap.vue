@@ -11,7 +11,7 @@ import { RouterLink} from 'vue-router'
       </div>
     </div>
 
-    <div class="FullPage flex flex-row justify-evenly content-center items-center h-full">
+    <div class="FullPage flex flex-row justify-evenly content-center items-center h-full p-8">
 
       <div class="content flex flex-col w-[600px] gap-8">
         <h1 class="text-neutral-800 text-6xl font-urbanist leading-[70px] font-[500]">Mert a tudás mindenkinek jár</h1>
