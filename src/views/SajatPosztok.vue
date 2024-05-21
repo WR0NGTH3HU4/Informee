@@ -3,22 +3,70 @@ import { ref } from 'vue';
 import Button from '../components/Button.vue';
 import Post from '@/components/Post.vue';
 import Bio from '@/components/Bio.vue';
+import TextBox from '@/components/TextBox.vue';
 </script>
 
 <template>
-  <div class="FullPage flex flex-row w-full h-full">
-    <Bio></Bio>
-    <div class="Post flex flex-col justify-start content-center items-center w-3/4 mx-3 overflow-y-auto">
+  <div class="flex flex-row w-full h-full p-4 gap-4">
+    <!-- <Bio></Bio> -->
+    <div class="border-[1px] border-neutral-300 bg-neutral-50 rounded-md max-w-[400px] min-w-[400px] h-min">
+      <!-- Banner -->
+      <div
+        class="p-4 flex items-end gap-2 rounded-md"
+        style="background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.printablee.com%2Fpostpic%2F2012%2F08%2Fminecraft-creeper-face_428904.jpg');"
+      >
+        <img class="aspect-square w-32 rounded-md" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.printablee.com%2Fpostpic%2F2012%2F08%2Fminecraft-creeper-face_428904.jpg" alt="">
+        <div class="flex flex-col">
+          <span class="text-neutral-400 font-medium">molnarkiki</span>
+          <span class="text-neutral-50 text-2xl font-semibold">Molnar Krisztian</span>
+        </div>
+      </div>
+      <div class="BioSection">
+        <span>Bio</span>
+        <TextBox></TextBox>
+      </div>
+      <div class="BioSection">
+        <span>Ertekelesek</span>
+        <div class="Reviews flex gap-4">
+          <span class="bg-orange-500">
+            2000
+          </span>
+          <span class="bg-neutral-800">
+            2000
+          </span>
+        </div>
+      </div>
+      <div class="BioSection">
+        <span>Linkek</span>
+        <div class="flex">
+
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col w-full gap-2 overflow-auto">
+      <Post></Post>
+      <Post></Post>
+      <Post></Post>
       <Post></Post>
     </div>
   </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
+.BioSection {
+  @apply mt-4 flex flex-col px-4;
 
-.Post {
-  max-height: calc(100vh - 3rem); 
-  overflow-y: auto;
+  & > span:first-child {
+    @apply mb-1 text-neutral-700 font-medium;
+  }
+
+  &:last-child {
+    @apply mb-4;
+  }
+}
+
+.Reviews > span {
+  @apply p-2 rounded-md font-semibold text-neutral-50 w-full;
 }
 @media only screen and (max-width:1000px) {
   .FullPage{
