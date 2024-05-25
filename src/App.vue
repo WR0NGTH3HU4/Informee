@@ -1,30 +1,43 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router';
-import Logo from './components/Logo.vue';
+import { ref, watch } from 'vue';
+import Modal from '@/components/Modal.vue';
+import { useUserStore } from '@/stores/user';
 import Navbar from './components/Navbar.vue';
-import Footer from './components/Footer.vue';
-import Modal from './components/Modal.vue';
-import { onMounted, ref } from 'vue';
+
 
 
 const ModalShown = ref<boolean>(false);
 
+const userStore = useUserStore();
+const isModalShown = ref(false);
+
+watch(
+  () => userStore.getStatus(),
+  (newStatus) => {
+    isModalShown.value = newStatus !== null && newStatus !== 200;
+  }
+);
+
+
 const closeModal = () => {
-  ModalShown.value = false;
+  isModalShown.value = false;
+  userStore.setStatus(null);
 };
 
-onMounted(() => {
-  ModalShown.value = false;
-});
 </script>
 
 <template>
-  <Navbar />
-  <RouterView />
-  
-  <Modal :isShown="ModalShown" @close="closeModal" />
+
+  <div id="app">
+    <Navbar></Navbar>
+    <Modal :isShown="isModalShown" @close="closeModal" />
+    <RouterView />
+  </div>
+
 </template>
 
-<style scoped>
-
+<style>
+  body {
+    font-family: 'Nunito', sans-serif;
+  }
 </style>

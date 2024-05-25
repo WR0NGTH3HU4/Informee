@@ -1,14 +1,12 @@
 <script setup lang="ts">
-import { RouterLink, RouterView, useRouter } from 'vue-router';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { useUserStore } from '@/stores/user';
+import { ApiWrapper } from '@/composables/ApiWrapper';
 import Button from '../components/Button.vue';
 import Input from '@/components/Input.vue';
 import passwdShown from '@/components/passwdShown.vue';
 import passwdHidden from '@/components/passwdHidden.vue';
-import { onMounted } from 'vue';
-import axios from 'axios';
-import { ApiWrapper } from '@/composables/ApiWrapper';
-import { useUserStore } from '@/stores/user';
 
 const userStore = useUserStore();
 const router = useRouter();
@@ -27,14 +25,15 @@ const onLogIn = async () => {
     password: password.value
   });
 
-  if (res.type == 'success') userStore.setJwt(res.data.token);
-
-  router.push('Posztok');
+  if (res.type === 'success') {
+    userStore.setJwt(res.data.token);
+    userStore.setStatus(200);  
+    router.push('Posztok');
+  } else {
+    userStore.setStatus(res.status); 
+  }
 };
 
-onMounted(() => {
-  passShown.value = false;
-});
 </script>
 <template>
   <main class="flex justify-center items-center h-full">

@@ -4,6 +4,7 @@ import type { User } from '@/types/User';
 
 export const useUserStore = defineStore('user', () => {
   const currentUser: Ref<User | null> = ref(null);
+  const currentStatus: Ref<number | null> = ref(null)
 
   function refreshLocalStorage() {
     localStorage.setItem('user', JSON.stringify(currentUser.value || {}));
@@ -37,11 +38,19 @@ export const useUserStore = defineStore('user', () => {
     return undefined;
   }
 
+  function setStatus(code: number | null):void{
+    currentStatus.value = code;
+  }
+
+  function getStatus(): number | null{
+    return currentStatus.value;
+  }
+
   if (currentUser.value == null) {
     const lsUser = localStorage.getItem('user');
 
     currentUser.value = lsUser ? JSON.parse(lsUser) : null;
   }
 
-  return { loggedIn, getUserData, getJwt, setJwt, clearUser };
+  return { loggedIn, getUserData, getJwt, setJwt, clearUser, getStatus, setStatus };
 });
