@@ -25,7 +25,8 @@ const onSignUp = async () => {
   const res = await ApiWrapper.post('auth/register', {
     email: email.value,
     password: passwd.value,
-    username: userName.value
+    username: userName.value,
+    displayName: userName.value
   });
   if (res.type == 'success') {
     const userReq = async () => {
@@ -36,8 +37,9 @@ const onSignUp = async () => {
 
       if (userRes.type == 'success') {
         userStore.setJwt(userRes.data.token);
+        router.push('Profil');
       }
-      router.push('Profil');
+      
     };
   }
 };
