@@ -6,7 +6,8 @@ import Footer from './components/Footer.vue';
 import Modal from './components/Modal.vue';
 import { onMounted, ref } from 'vue';
 
-const ModalShown = ref(false);
+
+const ModalShown = ref<boolean>(false);
 
 const closeModal = () => {
   ModalShown.value = false;
@@ -19,8 +20,7 @@ onMounted(() => {
 
 <template>
   <Navbar />
-  
-    <RouterView />
+  <RouterView />
   
   <Modal :isShown="ModalShown" @close="closeModal" />
 </template>
