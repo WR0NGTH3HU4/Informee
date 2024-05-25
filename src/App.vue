@@ -4,6 +4,10 @@ import Modal from '@/components/Modal.vue';
 import { useUserStore } from '@/stores/user';
 import Navbar from './components/Navbar.vue';
 
+
+
+const ModalShown = ref<boolean>(false);
+
 const userStore = useUserStore();
 const isUserLoggedIn = ref(false); // Start with false assuming the user is not logged in initially
 const isModalShown = ref(false); // Track whether the modal is shown
@@ -19,12 +23,14 @@ watch(() => userStore.getStatus(), (status) => {
   }
 });
 
+
 const closeModal = () => {
   isModalShown.value = false; // Close the modal
   userStore.clearStatus(); // Clear the status
 };
 </script>
 <template>
+
   <div id="app">
     <Navbar></Navbar>
     
@@ -33,6 +39,7 @@ const closeModal = () => {
     <!-- Show modal only if user is not logged in -->
     <Modal :isShown="isModalShown" @close="closeModal"></Modal>
   </div>
+
 </template>
 
 <style>
