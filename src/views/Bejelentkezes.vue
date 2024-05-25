@@ -7,6 +7,7 @@ import Button from '../components/Button.vue';
 import Input from '@/components/Input.vue';
 import passwdShown from '@/components/passwdShown.vue';
 import passwdHidden from '@/components/passwdHidden.vue';
+import axios,{ AxiosError } from 'axios';
 
 const userStore = useUserStore();
 const router = useRouter();
@@ -20,20 +21,32 @@ const onShown = () => {
 };
 
 const onLogIn = async () => {
-  const res = await ApiWrapper.post<{ token: string }>('auth/login', {
-    email: email.value,
-    password: password.value
-  });
+  try {
+    const res = await ApiWrapper.post<{ token: string }>('auth/login', {
+      email: email.value,
+      password: password.value
+    });
 
-  if (res.type === 'success') {
-    userStore.setJwt(res.data.token);
-    userStore.setStatus(200);  
-    router.push('Posztok');
-  } else {
-    userStore.setStatus(res.status); 
+    
+
+    if (res.type === 'success') {
+      userStore.setJwt(res.data.token);
+      userStore.setStatus(200);
+      //console.log('Login successful, status:', userStore.getStatus());
+      router.push('Posztok');
+    } else {
+      userStore.setStatus(res.status);
+      
+    }
+  } catch (error: any) {
+    
+    if (error.response) {
+      const status = error.response.status;
+      //console.log('Login failed, status:', status);
+      userStore.setStatus(status);
+    }
   }
 };
-
 </script>
 <template>
   <main class="flex justify-center items-center h-full">
