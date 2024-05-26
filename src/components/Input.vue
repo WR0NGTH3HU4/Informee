@@ -1,21 +1,17 @@
 <script setup lang="ts">
 import { defineProps, defineEmits } from 'vue';
 
-const props = defineProps(['modelValue', 'type']);
-const emit = defineEmits();
-const updateModel = (event: Event) => {
-  emit('update:modelValue', (event.target as HTMLInputElement).value);
-};
+defineProps<{
+  placeholder?: string;
+}>();
+const text = defineModel();
 </script>
 
 <template>
-  <component
-    :is="type === 'textarea' ? 'textarea' : 'input'"
+  <input
     class="border border-neutral-300 rounded-md px-3 py-2 shadow-sm font-normal text-neutral-500 w-full"
-    :type="type === 'textarea' ? undefined : type"
-    placeholder="Placeholder"
-    @input="updateModel"
-    v-bind="$attrs"
+    :placeholder="placeholder"
+    v-model="text"
   />
 </template>
 

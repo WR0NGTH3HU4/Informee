@@ -1,24 +1,35 @@
 <script lang="ts" setup>
 import { RouterLink, RouterView, useRoute } from 'vue-router';
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import Button from '../components/Button.vue';
 import Input from '@/components/Input.vue';
 import { ApiWrapper } from '@/composables/ApiWrapper';
+import type { Post } from '@/types/Post';
+import TextBox from '@/components/TextBox.vue';
 
 const route = useRoute();
-const title = ref('');
-const desciption = ref('');
-const content = ref('');
-const priv = ref(true);
+let title = ref('');
+let description = ref('');
+let content = ref('');
+let priv = ref(true);
 
 async function save() {
   await ApiWrapper.patch(`post/${route.params.id}`, {
     title: title.value,
-    description: desciption.value,
+    description: description.value,
     content: content.value,
     private: priv.value,
   });
 }
+
+onMounted(async () => {
+  const res = await ApiWrapper.get<Post[]>(`post/${route.params.id}`, null);
+
+  title.value = res.data[0].title;
+  description.value = res.data[0].description;
+  content.value = res.data[0].content;
+  priv.value = res.data[0].private;
+});
 </script>
 <template>
   <div class="FullPage flex flex-col justify-between content-center items-start m-3 h-full gap-4">
@@ -45,11 +56,11 @@ async function save() {
           </div>
           <div class="Post">
             <h3 class="InputName">Leírás</h3>
-            <Input class="w-full" type="text" v-model="desciption" />
+            <Input class="w-full" type="text" v-model="description" />
           </div>
           <div class="Post flex-grow">
             <h3 class="InputName">Tartalom</h3>
-            <Input class="w-full flex-grow h-full" type="textarea" v-model="content" />
+            <TextBox class="w-full flex-grow h-full" v-model="content" />
           </div>
         </div>
       </div>
