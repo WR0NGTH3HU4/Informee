@@ -3,16 +3,16 @@ import Feherlogo from './Feherlogo.vue';
 import linkButton from './linkButton.vue';
 </script>
 <template>
-  <div class="flex flex-col justify-center content-center items-center bg-neutral-800 pb-3 w-full">
-    <div class="flex flex-row justify-between content-center items-center gap-x-32 p-10">
-      <div class="flex flex-col justify-center content-center items-center">
+  <div class="flex flex-col justify-center content-center items-center bg-neutral-800 p-3 w-full">
+    <div class="Align flex flex-row justify-between content-center items-center p-10">
+      <div class="Thanks flex flex-col justify-center content-center items-center w-full">
         <h3 class="text-3xl text-neutral-400 font-normal">Köszönet!</h3>
         <p class="text-lg text-neutral-400 font-normal text-center">
           Kedves felhasználó, köszönjük, hogy az oldalunkra látogatott reméljük, hogy közös törekvéssel az ország
           leginformációdúsabb közösségét kovácsoljuk!
         </p>
       </div>
-      <div class="flex flex-col justify-center content-center items-center gap-y-5">
+      <div class="Branding flex flex-col justify-center content-center items-center gap-y-5 px-20 w-full">
         <svg width="300" height="87" viewBox="0 0 300 87" fill="none" xmlns="http://www.w3.org/2000/svg">
           <mask
             id="mask0_707_1406"
@@ -40,18 +40,18 @@ import linkButton from './linkButton.vue';
             />
           </g>
         </svg>
-        <h3 class="text-3xl text-neutral-400 font-normal">Használd ki a tudást, és oszd meg!</h3>
-        <svg width="1000" height="6" viewBox="0 0 1000 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <h3 class="text-3xl text-neutral-400 font-normal text-center">Használd ki a tudást, és oszd meg!</h3>
+        <svg id="separator" width="40rem" height="6" viewBox="0 0 1000 6" fill="none" xmlns="http://www.w3.org/2000/svg">
           <line x1="-0.000361533" y1="2.64453" x2="1000" y2="2.49992" stroke="#D4D4D4" stroke-width="5" />
         </svg>
         <h3 class="text-2xl text-neutral-400 font-normal">Segíts nekünk fejlődni!</h3>
-        <div class="flex flex-row justify-center content-center items-center gap-x-36">
+        <div class="Buttons flex flex-row justify-between content-center items-center w-full">
           <linkButton class="EmailLink" text="Informee"></linkButton>
           <linkButton class="FacebookLink" text="Facebook"></linkButton>
           <linkButton class="DiscordButton" text="Discord"></linkButton>
         </div>
       </div>
-      <div class="flex flex-col justify-center content-center items-center">
+      <div class="Warn flex flex-col justify-center content-center items-center w-full">
         <h3 class="text-3xl text-neutral-400 font-normal">Olvasd el!</h3>
         <p class="text-lg text-neutral-400 font-normal text-center">
           Felhívjuk figyelmét, hogy az oldalon kölcsönösen adja meg a tiszteletet és ne sértse meg se az oldal se mások
@@ -59,9 +59,50 @@ import linkButton from './linkButton.vue';
         </p>
       </div>
     </div>
-    <div class="w-full flex flex-row justify-end mr-3">
+    <div class="w-full flex flex-row justify-end pr-3">
       <p class="text-base text-neutral-400 font-normal text-justify">Utoljára frissítve: 2024.05.20</p>
     </div>
   </div>
 </template>
-<style></style>
+<style scoped lang="scss">
+@media only screen and (max-width: 1230px){
+  .Align{
+    @apply flex-wrap gap-y-24
+  }
+  .Thanks{
+    order: 1;
+  }
+  .Warn{
+    order:2;
+  }
+  .Branding{
+    order:3
+  }
+  .Thanks{
+    @apply w-1/2 p-3
+  }
+  .Warn{
+    @apply w-1/2 p-3
+  }
+}
+@media only screen and (max-width: 900px){
+  #separator{
+    width: 30rem;
+  }
+
+}
+@media only screen and (max-width: 750px) {
+  .Align{
+    @apply flex-col p-3
+  }
+  .Branding{
+    @apply px-5
+  }
+}
+@media only screen and (max-width: 560px) {
+  #separator{
+    width: 20rem;
+  }
+}
+
+</style>
