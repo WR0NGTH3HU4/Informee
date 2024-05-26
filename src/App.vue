@@ -3,12 +3,13 @@ import { ref, watch } from 'vue';
 import Modal from '@/components/Modal.vue';
 import { useUserStore } from '@/stores/user';
 import Navbar from './components/Navbar.vue';
-
-
-
-const ModalShown = ref<boolean>(false);
+import Footer from './components/Footer.vue';
+import router from './router';
+import { onMounted } from 'vue';
+import { useRoute } from 'vue-router';
 
 const userStore = useUserStore();
+const route = useRoute();
 const isUserLoggedIn = ref(false); // Start with false assuming the user is not logged in initially
 const isModalShown = ref(false); // Track whether the modal is shown
 
@@ -28,16 +29,16 @@ const closeModal = () => {
   isModalShown.value = false; // Close the modal
   userStore.clearStatus(); // Clear the status
 };
+
+
 </script>
 <template>
 
   <div id="app">
-    <Navbar></Navbar>
-    
+    <Navbar class="z-10 relative"></Navbar>
     <RouterView />
-
-    <!-- Show modal only if user is not logged in -->
     <Modal :isShown="isModalShown" @close="closeModal"></Modal>
+    <Footer v-if="route.name ==='Kezdolap'|| route.name ==='Rolunk'"> </Footer>
   </div>
 
 </template>

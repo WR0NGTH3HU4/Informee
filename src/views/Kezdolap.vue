@@ -8,7 +8,7 @@ import { RouterLink } from 'vue-router';
     <div class="hullamocskak"></div>
   </div>
 
-  <div class="FullPage flex flex-row justify-evenly content-center items-center h-full p-8">
+  <div class="FullPage flex flex-row justify-evenly content-center items-center h-full min-h-[100vh] px-3">
     <div class="content flex flex-col w-[600px] gap-8">
       <h1 class="text-neutral-800 text-6xl font-urbanist leading-[70px] font-[500]">Mert a tudás mindenkinek jár</h1>
       <p class="text-neutral-700 font-normal">
@@ -31,24 +31,25 @@ import { RouterLink } from 'vue-router';
     </div>
   </div>
 
-  <!--Footer-->
+
 </template>
 
 <style scoped>
 .hullamocskak {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: fixed;
+  top:0;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   background-image: url('../assets/hullamcock.svg');
-  background-size: cover; /* Adjusts background size to cover entire container */
-  background-position: center; /* Centers the background image */
-  z-index: -1;
+  background-position: center; 
+  background-size: cover;
+  z-index: -5;
 }
 
 .hatter {
   width: 100%;
+  
+  
 }
 @media only screen and (max-width: 800px) {
   .FullPage {
