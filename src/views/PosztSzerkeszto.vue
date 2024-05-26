@@ -9,12 +9,14 @@ const route = useRoute();
 const title = ref('');
 const desciption = ref('');
 const content = ref('');
+const priv = ref(true);
 
 async function save() {
   await ApiWrapper.patch(`post/${route.params.id}`, {
     title: title.value,
     description: desciption.value,
     content: content.value,
+    private: priv.value,
   });
 }
 </script>
@@ -33,6 +35,10 @@ async function save() {
           <h3 class="self-start text-neutral-500 font-medium">(mentve)</h3>
         </div>
         <div class="flex flex-col justify-center items-center w-full gap-2 flex-grow">
+          <div class="Post">
+            <h3 class="InputName">Privát (Ne lássák más felhasználók)</h3>
+            <input type="checkbox" v-model="priv" id="private">
+          </div>
           <div class="Post">
             <h3 class="InputName">Cím</h3>
             <Input class="w-full" type="text" v-model="title" />
