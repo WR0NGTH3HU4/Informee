@@ -4,6 +4,7 @@ import type { User } from '@/types/User';
 
 export const useUserStore = defineStore('user', () => {
   const currentUser: Ref<User | null> = ref(null);
+  const currentStatus: Ref<number | null> = ref(null);
 
   function refreshLocalStorage() {
     localStorage.setItem('user', JSON.stringify(currentUser.value || {}));
@@ -11,6 +12,7 @@ export const useUserStore = defineStore('user', () => {
 
   function clearUser() {
     currentUser.value = null;
+    refreshLocalStorage();
   }
 
   function setJwt(token: string): void {
@@ -25,19 +27,28 @@ export const useUserStore = defineStore('user', () => {
     return currentUser.value != null;
   }
 
-
   function getJwt(): string | undefined {
-    if (loggedIn()) 
-      return currentUser.value?.jwt;
+    if (loggedIn()) return currentUser.value?.jwt;
 
     return;
   }
 
   function getUserData(): User['data'] {
-    if (loggedIn()) 
-      return currentUser.value?.data;
+    if (loggedIn()) return currentUser.value?.data;
 
     return undefined;
+  }
+
+  function setStatus(code: number | null): void {
+    currentStatus.value = code;
+  }
+
+  function getStatus(): number | null {
+    return currentStatus.value;
+  }
+
+  function clearStatus(): void {
+    currentStatus.value = null;
   }
 
   if (currentUser.value == null) {
@@ -46,5 +57,5 @@ export const useUserStore = defineStore('user', () => {
     currentUser.value = lsUser ? JSON.parse(lsUser) : null;
   }
 
-  return { loggedIn, getUserData, getJwt, setJwt, clearUser };
+  return { loggedIn, getUserData, getJwt, setJwt, clearUser, getStatus, setStatus, clearStatus };
 });

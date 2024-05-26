@@ -1,14 +1,13 @@
 <script setup lang="ts">
-import { RouterLink, RouterView, useRouter } from 'vue-router';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { useUserStore } from '@/stores/user';
+import { ApiWrapper } from '@/composables/ApiWrapper';
 import Button from '../components/Button.vue';
 import Input from '@/components/Input.vue';
 import passwdShown from '@/components/passwdShown.vue';
 import passwdHidden from '@/components/passwdHidden.vue';
-import { onMounted } from 'vue';
-import axios from 'axios';
-import { ApiWrapper } from '@/composables/ApiWrapper';
-import { useUserStore } from '@/stores/user';
+import axios,{ AxiosError } from 'axios';
 
 const userStore = useUserStore();
 const router = useRouter();
@@ -22,20 +21,32 @@ const onShown = () => {
 };
 
 const onLogIn = async () => {
-  const res = await ApiWrapper.post<{ token: string }>('auth/login', {
-    email: email.value,
-    password: password.value
-  });
+  try {
+    const res = await ApiWrapper.post<{ token: string }>('auth/login', {
+      email: email.value,
+      password: password.value
+    });
 
-  if (res.type == 'success') userStore.setJwt(res.data.token);
+    
 
-  router.push('Posztok');
+    if (res.type === 'success') {
+      userStore.setJwt(res.data.token);
+      userStore.setStatus(200);
+      //console.log('Login successful, status:', userStore.getStatus());
+      router.push('Posztok');
+    } else {
+      userStore.setStatus(res.status);
+      
+    }
+  } catch (error: any) {
+    
+    if (error.response) {
+      const status = error.response.status;
+      //console.log('Login failed, status:', status);
+      userStore.setStatus(status);
+    }
+  }
 };
-
-onMounted(() => {
-  passShown.value = false;
-});
-
 </script>
 <template>
   <main class="flex justify-center items-center h-full">
@@ -43,7 +54,7 @@ onMounted(() => {
       class="flex flex-col p-6 bg-neutral-100 shadow-md justify-between items-center content-center border border-neutral-300 rounded-lg gap-4"
     >
       <div class="w-full flex justify-start">
-        <h1 class="text-neutral-800 text-3xl" id="Title">Bejelentkezés</h1>
+        <h1 class="text-neutral-800 text-3xl font-semibold">Bejelentkezés</h1>
       </div>
       <div class="InputContainer">
         <h3 class="inputName">E-mail</h3>
@@ -81,7 +92,7 @@ onMounted(() => {
 }
 
 .inputName {
-  @apply text-neutral-500 mb-1;
+  @apply text-neutral-500 mb-1 font-medium;
 }
 
 .passwdCon {
