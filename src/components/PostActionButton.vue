@@ -1,12 +1,12 @@
 <template>
-  <button :class="props.type" @click="handleClick">
+  <button :class="props.type">
     <span class="material-symbols-outlined"> {{ icons[props.type] }} </span>
   </button>
 </template>
 
 <script setup lang="ts">
 const props = defineProps<{
-  type: string;
+  type: keyof typeof icons;
 }>();
 
 const icons = {
@@ -27,6 +27,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #404040;
 }
 
 .like {
@@ -35,13 +36,5 @@ button {
 
 .dislike {
   background-color: #ef4444;
-}
-
-.share {
-  background-color: #ea580c;
-}
-
-.report {
-  background-color: #404040;
 }
 </style>
