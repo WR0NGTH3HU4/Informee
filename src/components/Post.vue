@@ -3,10 +3,23 @@ import PostActionButton from './PostActionButton.vue';
 import Button from './Button.vue';
 import { ref } from 'vue';
 import { type Post as PostSchema } from '@/types/Post';
+import { useRouter } from 'vue-router';
+import { ApiWrapper } from '@/composables/ApiWrapper';
 
 const props = defineProps<{
   data: PostSchema,
+  editable: boolean,
 }>()
+
+function edit() {
+  useRouter().push(`posztszerkeszto/${props.data._id}`);
+}
+
+async function del() {
+  await ApiWrapper.delete(`post/${props.data._id}`, null);
+  window.location.reload();
+}
+
 const Locked = ref(false);
 </script>
 <template>
@@ -20,6 +33,7 @@ const Locked = ref(false);
           alt=""
         />
         <span class="text-neutral-600 font-medium">Molnar Krisztian</span>
+        <span class="text-neutral-600 font-medium ml-auto" v-if="data.private">(Privat)</span>
       </span>
       <div class="flex flex-col">
         <span class="font-urbanist text-3xl text-neutral-800 font-semibold">{{ props.data.title }}</span>
@@ -35,6 +49,10 @@ const Locked = ref(false);
           <span class="text-red-600 font-medium">0</span>
         </span>
         <span class="flex gap-2">
+          <template v-if="editable" >
+            <PostActionButton type="edit" @click="edit" />
+            <PostActionButton type="delete" @click="del" />
+          </template>
           <PostActionButton type="share" />
           <PostActionButton type="report" />
         </span>
