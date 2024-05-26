@@ -10,24 +10,24 @@ import { useRoute } from 'vue-router';
 
 const userStore = useUserStore();
 const route = useRoute();
-const isUserLoggedIn = ref(false); // Start with false assuming the user is not logged in initially
-const isModalShown = ref(false); // Track whether the modal is shown
+const isUserLoggedIn = ref(false); 
+const isModalShown = ref(false); 
 
 watch(() => userStore.getStatus(), (status) => {
-  // Check if the status indicates that the user is not logged in
+ 
   if (status !== 200) {
     isUserLoggedIn.value = false;
-    isModalShown.value = true; // Show modal when user is not logged in
+    isModalShown.value = true; 
   } else {
     isUserLoggedIn.value = true;
-    isModalShown.value = false; // Hide modal when user is logged in
+    isModalShown.value = false; 
   }
 });
 
 
 const closeModal = () => {
-  isModalShown.value = false; // Close the modal
-  userStore.clearStatus(); // Clear the status
+  isModalShown.value = false; 
+  userStore.clearStatus(); 
 };
 
 
