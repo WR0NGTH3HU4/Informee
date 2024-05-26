@@ -6,13 +6,15 @@ import { type Post as PostSchema } from '@/types/Post';
 import { useRouter } from 'vue-router';
 import { ApiWrapper } from '@/composables/ApiWrapper';
 
+const router = useRouter();
+
 const props = defineProps<{
   data: PostSchema,
   editable: boolean,
 }>()
 
 function edit() {
-  useRouter().push(`posztszerkeszto/${props.data._id}`);
+  router.push(`posztszerkeszto/${props.data._id}`);
 }
 
 async function del() {
