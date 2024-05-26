@@ -31,7 +31,7 @@ const router = createRouter({
       }
     },
     {
-      path: '/posztszerkeszto',
+      path: '/posztszerkeszto/:id',
       name: 'PosztSzerkeszto',
       component: () => import('../views/PosztSzerkeszto.vue'),
       //Ideiglenesen, teszteléshez

@@ -1,8 +1,22 @@
 <script lang="ts" setup>
-import { RouterLink, RouterView } from 'vue-router';
+import { RouterLink, RouterView, useRoute } from 'vue-router';
 import { ref } from 'vue';
 import Button from '../components/Button.vue';
 import Input from '@/components/Input.vue';
+import { ApiWrapper } from '@/composables/ApiWrapper';
+
+const route = useRoute();
+const title = ref('');
+const desciption = ref('');
+const content = ref('');
+
+async function save() {
+  await ApiWrapper.patch(`post/${route.params.id}`, {
+    title: title.value,
+    description: desciption.value,
+    content: content.value,
+  });
+}
 </script>
 <template>
   <div class="FullPage flex flex-col justify-between content-center items-start m-3 h-full gap-4">
@@ -10,7 +24,7 @@ import Input from '@/components/Input.vue';
       <RouterLink to="Posztok">
         <Button type="secondary" text="Módosítások elvetése"></Button>
       </RouterLink>
-      <Button type="primary" text="Mentés"></Button>
+      <Button type="primary" text="Mentés" @click="save"></Button>
     </div>
     <div class="Edit w-1/2 m-auto h-full">
       <div class="flex flex-col justify-center content-center items-start w-full gap-y-8 h-full">
@@ -21,15 +35,15 @@ import Input from '@/components/Input.vue';
         <div class="flex flex-col justify-center items-center w-full gap-2 flex-grow">
           <div class="Post">
             <h3 class="InputName">Cím</h3>
-            <Input class="w-full" type="text" />
+            <Input class="w-full" type="text" v-model="title" />
           </div>
           <div class="Post">
             <h3 class="InputName">Leírás</h3>
-            <Input class="w-full" type="text" />
+            <Input class="w-full" type="text" v-model="desciption" />
           </div>
           <div class="Post flex-grow">
             <h3 class="InputName">Tartalom</h3>
-            <Input class="w-full flex-grow h-full" type="textarea" />
+            <Input class="w-full flex-grow h-full" type="textarea" v-model="content" />
           </div>
         </div>
       </div>
