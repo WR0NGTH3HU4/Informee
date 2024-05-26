@@ -1,75 +1,40 @@
 <template>
-  <button :class="getClassForType()" @click="handleClick">
-    <span v-if="props.type === 'like'" class="material-symbols-outlined"> add_box </span>
-    <span v-else-if="props.type === 'dislike'" class="material-symbols-outlined"> remove </span>
-    <span v-else-if="props.type === 'share'" class="material-symbols-outlined"> north_east </span>
-    <span v-else-if="props.type === 'report'" class="material-symbols-outlined"> report </span>
+  <button :class="props.type">
+    <span class="material-symbols-outlined"> {{ icons[props.type] }} </span>
   </button>
 </template>
 
-<script setup>
-import { ref } from 'vue';
+<script setup lang="ts">
+const props = defineProps<{
+  type: keyof typeof icons;
+}>();
 
-const props = defineProps({
-  type: String
-});
-
-const getClassForType = () => {
-  if (props.type === 'like') {
-    return 'like';
-  } else if (props.type === 'dislike') {
-    return 'dislike';
-  } else if (props.type === 'share') {
-    return 'share';
-  } else if (props.type === 'report') {
-    return 'report';
-  } else {
-    return ''; // Default class or handle invalid type
-  }
-};
-
-const handleClick = () => {
-  // Handle button click
+const icons = {
+  like: 'add',
+  dislike: 'remove',
+  share: 'share',
+  report: 'report',
+  edit: 'edit',
+  delete: 'delete',
 };
 </script>
+
 <style scoped>
-.like {
+button {
   border-radius: 10px;
-  background-color: #22c55e;
   color: #fafafa;
   padding: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #404040;
+}
+
+.like {
+  background-color: #22c55e;
 }
 
 .dislike {
-  border-radius: 10px;
   background-color: #ef4444;
-  color: #fafafa;
-  padding: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.share {
-  border-radius: 10px;
-  background-color: #ea580c;
-  color: #fafafa;
-  padding: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.report {
-  border-radius: 10px;
-  background-color: #404040;
-  color: #fafafa;
-  padding: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 </style>

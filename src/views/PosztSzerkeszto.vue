@@ -1,8 +1,35 @@
 <script lang="ts" setup>
-import { RouterLink, RouterView } from 'vue-router';
-import { ref } from 'vue';
+import { RouterLink, RouterView, useRoute } from 'vue-router';
+import { onMounted, ref } from 'vue';
 import Button from '../components/Button.vue';
 import Input from '@/components/Input.vue';
+import { ApiWrapper } from '@/composables/ApiWrapper';
+import type { Post } from '@/types/Post';
+import TextBox from '@/components/TextBox.vue';
+
+const route = useRoute();
+let title = ref('');
+let description = ref('');
+let content = ref('');
+let priv = ref(true);
+
+async function save() {
+  await ApiWrapper.patch(`post/${route.params.id}`, {
+    title: title.value,
+    description: description.value,
+    content: content.value,
+    private: priv.value,
+  });
+}
+
+onMounted(async () => {
+  const res = await ApiWrapper.get<Post[]>(`post/${route.params.id}`, null);
+
+  title.value = res.data[0].title;
+  description.value = res.data[0].description;
+  content.value = res.data[0].content;
+  priv.value = res.data[0].private;
+});
 </script>
 <template>
   <div class="FullPage flex flex-col justify-between content-center items-start m-3 h-full gap-4">
@@ -10,7 +37,7 @@ import Input from '@/components/Input.vue';
       <RouterLink to="Posztok">
         <Button type="secondary" text="Módosítások elvetése"></Button>
       </RouterLink>
-      <Button type="primary" text="Mentés"></Button>
+      <Button type="primary" text="Mentés" @click="save"></Button>
     </div>
     <div class="Edit w-1/2 m-auto h-full">
       <div class="flex flex-col justify-center content-center items-start w-full gap-y-8 h-full">
@@ -20,16 +47,20 @@ import Input from '@/components/Input.vue';
         </div>
         <div class="flex flex-col justify-center items-center w-full gap-2 flex-grow">
           <div class="Post">
+            <h3 class="InputName">Privát (Ne lássák más felhasználók)</h3>
+            <input type="checkbox" v-model="priv" id="private">
+          </div>
+          <div class="Post">
             <h3 class="InputName">Cím</h3>
-            <Input class="w-full" type="text" />
+            <Input class="w-full" type="text" v-model="title" />
           </div>
           <div class="Post">
             <h3 class="InputName">Leírás</h3>
-            <Input class="w-full" type="text" />
+            <Input class="w-full" type="text" v-model="description" />
           </div>
           <div class="Post flex-grow">
             <h3 class="InputName">Tartalom</h3>
-            <Input class="w-full flex-grow h-full" type="textarea" />
+            <TextBox class="w-full flex-grow h-full" v-model="content" />
           </div>
         </div>
       </div>

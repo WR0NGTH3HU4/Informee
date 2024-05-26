@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router';
+import { RouterLink, useRouter } from 'vue-router';
 import Logo from './Logo.vue';
 import { onMounted, ref } from 'vue';
 import Button from './Button.vue';
 import { useUserStore } from '@/stores/user';
 import { ApiWrapper } from '@/composables/ApiWrapper';
 import { options } from 'node_modules/axios/index.cjs';
-import router from '@/router';
+import type { Post } from '@/types/Post';
 
+const router = useRouter();
 
 interface Link {
   Id: number;
@@ -59,8 +60,8 @@ const triggerOptions = () =>{
 
 
 async function newPost() {
-  alert('trasd')
-  await ApiWrapper.post('post', null);
+  const res = await ApiWrapper.post<Post>('post', null);
+  router.push(`posztszerkeszto/${res.data._id}`);
 }
 </script>
 
@@ -242,9 +243,7 @@ async function newPost() {
       <Button text="Bejelentkezés"></Button>
     </RouterLink>
     <span v-else class="flex items-center gap-4">
-      <RouterLink to="PosztSzerkeszto">
-        <Button text="Új poszt" type="primary" @click="newPost"></Button>
-      </RouterLink>
+      <Button text="Új poszt" type="primary" @click="newPost"></Button>
       <img @click.prevent="triggerOptions" src="https://img.itch.zone/aW1nLzgzNDY4MjEuZ2lm/original/PjfoQj.gif" alt="" />
     </span>
   </nav>

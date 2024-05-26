@@ -6,12 +6,13 @@ import Bio from '@/components/Bio.vue';
 import TextBox from '@/components/TextBox.vue';
 import { ApiWrapper } from '@/composables/ApiWrapper';
 import { type Post as PostSchema } from '@/types/Post';
+import { useUserStore } from '@/stores/user';
 
-
-let posts: Ref<PostSchema[]> = ref([]);
+const posts: Ref<PostSchema[]> = ref([]);
+const userStore = useUserStore();
 
 onMounted(() => {
-  ApiWrapper.get<PostSchema[]>('post', null).then(x => {
+  ApiWrapper.get<PostSchema[]>(`post?from=${userStore.getUserData()?.id}`, null).then(x => {
     x.data.forEach((post: PostSchema) => {
       posts.value.push(post);
     });
@@ -57,7 +58,7 @@ onMounted(() => {
       </div>
     </div>
     <div v-if="posts.length > 0" class="flex flex-col w-full gap-2 overflow-auto">
-      <Post v-for="post in posts" :data="post" :key="post._id" />
+      <Post v-for="post in posts" :data="post" :key="post._id" :editable="post.authorId == userStore.getUserData().id" />
     </div>
   </div>
 </template>

@@ -5,8 +5,10 @@ import Button from '@/components/Button.vue';
 import { type Post as PostSchema } from '@/types/Post';
 import { ApiWrapper } from '@/composables/ApiWrapper';
 import { onMounted, ref, type Ref } from 'vue';
+import { useUserStore } from '@/stores/user';
 
 let posts: Ref<PostSchema[]> = ref([]);
+const userStore = useUserStore();
 
 onMounted(() => {
   ApiWrapper.get<PostSchema[]>('post', null).then(x => {
@@ -35,7 +37,7 @@ onMounted(() => {
       </div>
       <!--Postlist-->
       <div v-if="posts.length > 0" class="flex flex-col gap-2">
-        <Post v-for="post in posts" :data="post" :key="post._id" />
+        <Post v-for="post in posts" :data="post" :editable="post.authorId == userStore.getUserData().id" :key="post._id" />
       </div>
     </div>
   </div>
