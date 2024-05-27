@@ -6,20 +6,28 @@ import Input from '@/components/Input.vue';
 import { ApiWrapper } from '@/composables/ApiWrapper';
 import type { Post } from '@/types/Post';
 import TextBox from '@/components/TextBox.vue';
+import Modal from '@/components/Modal.vue';
 
 const route = useRoute();
 let title = ref('');
 let description = ref('');
 let content = ref('');
 let priv = ref(true);
+const modalShown = ref(false);
 
 async function save() {
-  await ApiWrapper.patch(`post/${route.params.id}`, {
-    title: title.value,
-    description: description.value,
-    content: content.value,
-    private: priv.value,
-  });
+  try {
+    const res = await ApiWrapper.patch(`post/${route.params.id}`, {
+      title: title.value,
+      description: description.value,
+      content: content.value,
+      private: priv.value
+    });
+
+    if (res.type != 'success') modalShown.value = true;
+  } catch {
+    modalShown.value = true;
+  }
 }
 
 onMounted(async () => {
@@ -32,6 +40,18 @@ onMounted(async () => {
 });
 </script>
 <template>
+  <Teleport to="#modals">
+    <Modal v-model="modalShown">
+      <div class="h-full flex flex-col items-center justify-center">
+        <span class="material-symbols-outlined text-neutral-600 text-6xl">error</span>
+        <h3 class="ErrorMsg text-center text-2xl font-bold text-neutral-700">Hiba</h3>
+        <p class="Explanation text-center text-neutral-500">
+          A posztot nem tudtuk frissíteni. Ellenőrizd, hogy a cím 8 és 64 karakter közt van-e, és hogy a tartalom 1024
+          karakternél hosszabb-e.
+        </p>
+      </div>
+    </Modal>
+  </Teleport>
   <div class="FullPage flex flex-col justify-between content-center items-start m-3 h-full gap-4">
     <div class="flex w-full gap-4 justify-end">
       <RouterLink to="Posztok">
@@ -48,7 +68,7 @@ onMounted(async () => {
         <div class="flex flex-col justify-center items-center w-full gap-2 flex-grow">
           <div class="Post">
             <h3 class="InputName">Privát (Ne lássák más felhasználók)</h3>
-            <input type="checkbox" v-model="priv" id="private">
+            <input type="checkbox" v-model="priv" id="private" />
           </div>
           <div class="Post">
             <h3 class="InputName">Cím</h3>
@@ -86,7 +106,6 @@ onMounted(async () => {
 
     -->
   </div>
-
 </template>
 <style scoped lang="scss">
 @media only screen and (max-width: 800px) {
