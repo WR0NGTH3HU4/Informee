@@ -29,6 +29,8 @@ const LoggedOutContent = ref<Link[]>([
 ]);
 const Logout = () => {
   OptionsUnfold.value = false;
+  MenuUnfold.value = false;
+
   userStore.clearUser();
   router.push('/');
 };
