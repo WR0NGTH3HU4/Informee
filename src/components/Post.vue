@@ -34,7 +34,7 @@ const Locked = ref(false);
           src="https://img.itch.zone/aW1nLzgzNDY4MjEuZ2lm/original/PjfoQj.gif"
           alt=""
         />
-        <span class="text-neutral-600 font-medium">Molnar Krisztian</span>
+        <span class="text-neutral-600 font-medium">{{ data.author.displayName }}</span>
         <span class="text-neutral-600 font-medium ml-auto" v-if="data.private">(Privat)</span>
       </span>
       <div class="flex flex-col">
