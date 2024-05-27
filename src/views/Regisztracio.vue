@@ -8,12 +8,14 @@ import passwdHidden from '@/components/passwdHidden.vue';
 import { onMounted } from 'vue';
 import { ApiWrapper } from '@/composables/ApiWrapper';
 import { useUserStore } from '@/stores/user';
+import Modal from '@/components/Modal.vue';
 
 const userStore = useUserStore();
 const router = useRouter();
 const email = ref('');
 const userName = ref('');
 const passwd = ref('');
+const modalShown = ref(false);
 
 let passShown = ref<boolean>(false);
 
@@ -22,7 +24,8 @@ const onShown = () => {
 };
 
 const onSignUp = async () => {
-  const res = await ApiWrapper.post('auth/register', {
+  try{
+    const res = await ApiWrapper.post('auth/register', {
     email: email.value,
     password: passwd.value,
     username: userName.value,
@@ -37,19 +40,35 @@ const onSignUp = async () => {
 
       if (userRes.type == 'success') {
         userStore.setJwt(userRes.data.token);
-        router.push('Profil');
+        router.push('Posztok');
+      }else{
+        modalShown.value = true;
       }
       
     };
   }
+  }catch(error: any){
+    modalShown.value = true;
+  }
+
 };
 
 onMounted(() => {
   passShown.value = false;
+  modalShown.value = false
 });
 </script>
 
 <template>
+    <Teleport to="#modals">
+    <Modal v-model="modalShown">
+      <div class="h-full flex flex-col items-center justify-center">
+        <span class="material-symbols-outlined text-neutral-600 text-6xl">error</span>
+        <h3 class="ErrorMsg text-center text-2xl font-bold text-neutral-700">nemtom</h3>
+        <p class="Explanation text-center text-neutral-500">turros rendszergazda vagyok</p>
+      </div>
+    </Modal>
+  </Teleport>
   <main class="flex justify-center items-center h-full">
     <div
       class="flex flex-col p-6 bg-neutral-100 shadow-md justify-between items-center content-center border border-neutral-300 rounded-lg gap-4"
