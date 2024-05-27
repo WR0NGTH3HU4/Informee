@@ -14,39 +14,51 @@ interface Topics {
 }
 const Topics = ref<Topics[]>([
   {
-    Topic: "What the dog doin'?",
+    Topic: "Az oldalról",
     BOXopened: true,
     Questions: [
-      { ID: 1, Question: 'Kórház?', Explanation: 'Békéscsaba mentők', Opened: false },
-      { ID: 2, Question: 'De a Kórház?', Explanation: 'Békéscsaba mentők', Opened: false },
-      { ID: 3, Question: 'De a Kórház?', Explanation: 'Békéscsaba mentők', Opened: false },
-      { ID: 4, Question: 'De a Kórház?', Explanation: 'Békéscsaba mentők', Opened: false }
+      { ID: 1, Question: 'Mi is ez az Informee?', Explanation: 'Békéscsaba mentők', Opened: false },
+      { ID: 2, Question: 'Hogyan tudok ennek a tagja lenni?', Explanation: 'Békéscsaba mentők', Opened: false },
+      { ID: 3, Question: 'Hol született Molnár Krisztián?', Explanation: 'Békéscsaba mentők', Opened: false },
+      { ID: 4, Question: 'Mi van a halál után?', Explanation: 'Békéscsaba mentők', Opened: false }
     ]
   },
   {
-    Topic: 'Ligma?',
+    Topic: 'Használat',
     BOXopened: true,
     Questions: [
-      { ID: 5, Question: 'Whats Ligma?', Explanation: 'Ligma balls', Opened: false },
-      { ID: 6, Question: 'De a Kórház?', Explanation: 'Békéscsaba mentők', Opened: false },
-      { ID: 7, Question: 'De a Kórház?', Explanation: 'Békéscsaba mentők', Opened: false },
-      { ID: 8, Question: 'De a Kórház?', Explanation: 'Békéscsaba mentők', Opened: false }
+      { ID: 5, Question: 'Hogyan hozok/hozhatok létre posztot?', Explanation: 'Ligma balls', Opened: false },
+      { ID: 6, Question: 'Hogyan módosíthatom a posztomat?', Explanation: 'Békéscsaba mentők', Opened: false },
+      { ID: 7, Question: 'Hogyan tudok mások posztjához hozzászólni?', Explanation: 'Békéscsaba mentők', Opened: false },
+      { ID: 8, Question: 'Hogyan tudok jelenteni idejét múlt posztokat? (Pl: nem működő külsős linkek)', Explanation: 'Békéscsaba mentők', Opened: false }
     ]
   },
   {
-    Topic: 'Bing chilling?',
+    Topic: 'Szabályzat',
     BOXopened: true,
     Questions: [
       {
         ID: 9,
-        Question: 'Bing chilling?',
+        Question: '1. Tartsd tiszteletben másokat.',
         Explanation:
-          'Xiàn zài wǒ yǒu bing chilling Wǒ hěn xǐ huān bing chilling Dàn shì sù dù yǔ jī qíng jiǔ bǐ bing chilling Xiàn zài wǒ yǒu bing chilling Wǒ hěn xǐ huān bing chilling Dàn shì sù dù yǔ jī qíng jiǔ bǐ bing chilling Xiàn zài wǒ yǒu bing chilling Wǒ hěn xǐ huān bing chilling Dàn shì sù dù yǔ jī qíng jiǔ bǐ bing chilling Xiàn zài wǒ yǒu bing chilling Wǒ hěn xǐ huān bing chilling Dàn shì sù dù yǔ jī qíng jiǔ bǐ bing chilling',
+          'Tilos a másik személy becsmérlése, orcázatának támadása és érzékeny információinak a kiszivárogtatása.',
         Opened: false
       },
-      { ID: 10, Question: 'De a Kórház?', Explanation: 'Békéscsaba mentők', Opened: false },
-      { ID: 11, Question: 'De a Kórház?', Explanation: 'Békéscsaba mentők', Opened: false },
-      { ID: 12, Question: 'De a Kórház?', Explanation: 'Békéscsaba mentők', Opened: false }
+
+      { ID: 10,
+        Question: '2. Legyenek a posztjaid hitelesek',
+        Explanation: 'Ne ossz meg kétes, hamis tényeket, vagy olyan dolgokat, amelyek félrevezetőek.', 
+        Opened: false },
+
+      { ID: 11,
+        Question: '3. Szerezsd a káposztát',
+        Explanation: 'Vagy legalább is ne utáld.',
+        Opened: false },
+
+      { ID: 12,
+        Question: '4. Ne fogdoss gyerekeket',
+        Explanation: 'Az köztársasági elnök most már nem fog tudni megmenteni.',
+        Opened: false }
     ]
   }
 ]);
