@@ -48,12 +48,12 @@ const router = createRouter({
         public: false
       }
     },
-    {
+    /*{
       path: '/sajatposztok',
       name: 'SajatPosztok',
       component: () => import('../views/SajatPosztok.vue'),
       meta: { public: false }
-    },
+    },*/
     {
       path: '/bejelentkezes',
       name: 'Bejelentkezes',
