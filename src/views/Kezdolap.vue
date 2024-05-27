@@ -26,8 +26,8 @@ import { RouterLink } from 'vue-router';
       </span>
     </div>
 
-    <div class="flex flex-col justify-center content-center items-center aspect-square w-[500px]">
-      <img src="../assets/fooldal_logo.svg" alt="" />
+    <div class=" flex flex-col justify-center content-center items-center aspect-square w-[500px]">
+      <img class="Graphics" src="../assets/fooldal_logo.svg" alt="" />
     </div>
   </div>
 
@@ -50,6 +50,15 @@ import { RouterLink } from 'vue-router';
   width: 100%;
   
   
+}
+.Graphics{
+  animation:float 3s ease-in-out infinite;
+  
+}
+@keyframes  float{
+  0%{transform: translateY(0px);}
+  50%{transform: translateY(-20px);}
+  100%{transform: translateY(0px);}
 }
 @media only screen and (max-width: 800px) {
   .FullPage {
