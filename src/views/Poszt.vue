@@ -33,13 +33,17 @@ onMounted(async () => {
     reviews.value.push(x);
   });
 });
+
+function scrollToBox() {
+  document.getElementById('reviewBox').scrollIntoView();
+}
 </script>
 <template>
   <div class="flex flex-col justify-center content-center items-center gap-y-10 mt-10 w-full">
     <div class="flex flex-col w-3/4 gap-y-5">
       <div class="flex flex-row justify-between content-center items-center w-full">
         <Button type="secondary" text="Vissza" @click="$router.go(-1)"></Button>
-        <Button type="primary" text="Értékelés"></Button>
+        <Button type="primary" text="Értékelés" @click="scrollToBox"></Button>
       </div>
       <div class="flex flex-col w-full rounded p-4 bg-neutral-100 border-[1px] border-neutral-300 min-h-[400px]">
         <div class="flex flex-row justify-between content-center items-center">
@@ -61,7 +65,7 @@ onMounted(async () => {
       </div>
     </div>
     <div class="flex flex-col justify-center content-center items-center gap-4 w-full pb-8">
-      <ReviewBox :postId="$route.params.id" class="w-3/4"></ReviewBox>
+      <ReviewBox id="reviewBox" :postId="$route.params.id" class="w-3/4"></ReviewBox>
       <Review v-for="review of reviews" :key="review?._id" :review="review"></Review>
     </div>
   </div>
