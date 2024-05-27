@@ -1,14 +1,16 @@
 <script setup lang="ts">
 import Button from '@/components/Button.vue';
 import ReviewBox from '@/components/ReviewBox.vue';
-import comment from '@/components/comment.vue';
+import comment from '@/components/Review.vue';
 import { ApiWrapper } from '@/composables/ApiWrapper';
 import { onMounted, ref, type Ref } from 'vue';
 import { type Post as PostSchema } from '@/types/Post';
+import { type Review as ReviewSchema } from '@/types/Review';
 import { useRoute } from 'vue-router';
 import * as marked from 'marked';
 import sanitizeHtml from 'sanitize-html';
 import moment from 'moment';
+import Review from '@/components/Review.vue';
 
 const route = useRoute();
 const post: Ref<Partial<PostSchema>> = ref({
@@ -20,10 +22,16 @@ const post: Ref<Partial<PostSchema>> = ref({
     username: '',
   }
 });
+const reviews: Ref<Partial<ReviewSchema[]>> = ref([]);
 
 onMounted(async () => {
   const postRes = await ApiWrapper.get<PostSchema[]>(`post/${route.params.id}?content=true`, null);
   post.value = postRes.data[0];
+
+  const reviewsRes = await ApiWrapper.get(`review/post/${route.params.id}`, null);
+  reviewsRes.data.forEach(x => {
+    reviews.value.push(x);
+  });
 });
 </script>
 <template>
@@ -52,11 +60,9 @@ onMounted(async () => {
         </div>
       </div>
     </div>
-    <div class="flex flex-col justify-center content-center items-center gap-4 w-full">
-      <ReviewBox class="w-3/4"></ReviewBox>
-      <comment type="positive"></comment>
-      <comment type="neutral"></comment>
-      <comment type="negative"></comment>
+    <div class="flex flex-col justify-center content-center items-center gap-4 w-full pb-8">
+      <ReviewBox :postId="$route.params.id" class="w-3/4"></ReviewBox>
+      <Review v-for="review of reviews" :key="review?._id" :review="review"></Review>
     </div>
   </div>
 </template>

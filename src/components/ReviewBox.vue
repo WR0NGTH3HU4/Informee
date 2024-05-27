@@ -3,7 +3,16 @@ import Input from '../components/Input.vue'
 import Button from '../components/Button.vue'
 import { ref } from 'vue'
 import { onMounted } from 'vue';
-import comment from "@/components/comment.vue"
+import comment from "@/components/Review.vue"
+import TextBox from './TextBox.vue';
+import { ApiWrapper } from '@/composables/ApiWrapper';
+import { useRoute } from 'vue-router';
+
+const props = defineProps<{
+    postId: string;
+}>();
+
+const route = useRoute();
 
 const positive = ref<boolean>(false);
 const neutral = ref<boolean>(false);
@@ -26,6 +35,17 @@ const setRating = (type: string) => {
     }
 }
 
+async function save() {
+  let val = 0;
+  if (positive.value) val++;
+  else if (negative.value) val--;
+
+  await ApiWrapper.post(`review/post/${route.params.id}`, {
+    value: val,
+    content: Comment.value,
+  });
+}
+
 onMounted(()=>{
     positive.value = false;
     neutral.value = false;
@@ -37,7 +57,7 @@ onMounted(()=>{
     <div class="w-full flex flex-col justify-center content-center items-center">
         <div class="flex flex-col justify-center content-center items-center w-full gap-y-10 bg-neutral-100 p-3 border-neutral-300 border-[1px] drop-shadow-lg rounded">
             <h3 class="text-2xl">Értékeld a posztot!</h3>
-            <p >Ha szeretnél a poszthoz hozzáfűzni valamit, az alábbi három kategóriában megteheted !</p>
+            <p>Ha szeretnél a poszthoz hozzáfűzni valamit, az alábbi három kategóriában megteheted !</p>
             <div class="flex flex-row justify-between content-center items-center w-1/4">
                 <span  @click="setRating('positive')" :class="{ 'text-green-500 bg-green-200 p-3 rounded-lg': positive, 'text-green-500': !positive }" class="material-symbols-outlined font-extrabold text-4xl cursor-pointer">
                     check
@@ -49,8 +69,8 @@ onMounted(()=>{
                     close
                 </span>
             </div>
-            <Input placeholder="Comment" v-modal="Comment"></Input>
-            <Button type="primary" text="Mentes"></Button>
+            <TextBox v-model="Comment" placeholder="Ide írd az értékelésed."></TextBox>
+            <Button type="primary" text="Mentés" @click="save"></Button>
         </div>
     </div>
 </template>
