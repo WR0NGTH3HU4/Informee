@@ -6,17 +6,29 @@ import { type Post as PostSchema } from '@/types/Post';
 import { ApiWrapper } from '@/composables/ApiWrapper';
 import { onMounted, ref, type Ref } from 'vue';
 import { useUserStore } from '@/stores/user';
+import { useRoute, useRouter } from 'vue-router';
 
 let posts: Ref<PostSchema[]> = ref([]);
 const userStore = useUserStore();
+const route = useRoute();
+const router = useRouter();
+const searchText = defineModel();
 
 onMounted(() => {
-  ApiWrapper.get<PostSchema[]>('post', null).then(x => {
+  ApiWrapper.get<PostSchema[]>(`post${route.query.search ? `?search=${route.query.search}` : ''}`, null).then(x => {
     x.data.forEach((post: PostSchema) => {
       posts.value.push(post);
     });
   });
 });
+
+function search() {
+  if (searchText.value) {
+    router.push(`/posztok?search=${searchText.value}`);
+  } else {
+    router.push(`/posztok`);
+  }
+}
 </script>
 
 <template>
@@ -31,8 +43,8 @@ onMounted(() => {
     <div class="flex flex-col w-full gap-4">
       <!--Searchbar-->
       <div class="flex gap-4">
-        <Input class="w-full" type="text" placeholder="Keresés" />
-        <Button type="primary" text="Keresés"></Button>
+        <Input class="w-full" type="text" placeholder="Keresés" v-model="searchText" />
+        <Button type="primary" text="Keresés" @click="search"></Button>
         <Button type="secondary" text="Rendezés"></Button>
       </div>
       <!--Postlist-->
