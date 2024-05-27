@@ -1,12 +1,17 @@
 <script lang="ts" setup>
 import PostActionButton from './PostActionButton.vue';
 import Button from './Button.vue';
-import { ref } from 'vue';
+import { ref, type Ref } from 'vue';
 import { type Post as PostSchema } from '@/types/Post';
 import { useRouter } from 'vue-router';
 import { ApiWrapper } from '@/composables/ApiWrapper';
+import { onMounted } from 'vue';
 
 const router = useRouter();
+let reviews: Ref<{ likes: number; dislikes: number; }> = ref({
+  likes: 0,
+  dislikes: 0,
+});
 
 const props = defineProps<{
   data: PostSchema;
@@ -23,6 +28,10 @@ async function del() {
 }
 
 const Locked = ref(false);
+onMounted(async () => {
+  const reviewRes = await ApiWrapper.get(`review/likes/${props.data._id}`, null);
+  reviews.value = reviewRes.data;
+});
 </script>
 <template>
   <div class="flex border-[1px] p-4 border-neutral-300 rounded-lg bg-neutral-100 shadow">
@@ -52,9 +61,9 @@ const Locked = ref(false);
       <div class="flex justify-between">
         <span class="flex gap-2 items-center">
           <PostActionButton type="like" />
-          <span class="text-emerald-600 font-medium">0</span>
+          <span class="text-emerald-600 font-medium">{{ reviews.likes }}</span>
           <PostActionButton type="dislike" />
-          <span class="text-red-600 font-medium">0</span>
+          <span class="text-red-600 font-medium">{{ reviews.dislikes }}</span>
         </span>
         <span class="flex gap-2">
           <template v-if="editable">
