@@ -80,9 +80,17 @@ const router = createRouter({
       }
     },
     {
-      path: '/profil',
+      path: '/profil/:id',
       name: 'Profil',
-      component: () => import('../views/Profile.vue'),
+      component: () => import('../views/Profil.vue'),
+      meta: {
+        public: false
+      }
+    },
+    {
+      path: '/profilszerkeszto',
+      name: 'ProfilSzerkeszto',
+      component: () => import('../views/ProfilSzerkeszto.vue'),
       meta: {
         public: false
       }
