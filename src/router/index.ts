@@ -40,7 +40,7 @@ const router = createRouter({
       }
     },
     {
-      path: '/poszt',
+      path: '/poszt/:id',
       name: 'Poszt',
       component: () => import('../views/Poszt.vue'),
       //Ideiglenesen, teszteléshez

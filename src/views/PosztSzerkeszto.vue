@@ -31,7 +31,7 @@ async function save() {
 }
 
 onMounted(async () => {
-  const res = await ApiWrapper.get<Post[]>(`post/${route.params.id}`, null);
+  const res = await ApiWrapper.get<Post[]>(`post/${route.params.id}?content=true`, null);
 
   title.value = res.data[0].title;
   description.value = res.data[0].description;

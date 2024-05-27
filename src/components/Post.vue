@@ -9,9 +9,9 @@ import { ApiWrapper } from '@/composables/ApiWrapper';
 const router = useRouter();
 
 const props = defineProps<{
-  data: PostSchema,
-  editable: boolean,
-}>()
+  data: PostSchema;
+  editable: boolean;
+}>();
 
 function edit() {
   router.push(`/posztszerkeszto/${props.data._id}`);
@@ -34,11 +34,17 @@ const Locked = ref(false);
           src="https://img.itch.zone/aW1nLzgzNDY4MjEuZ2lm/original/PjfoQj.gif"
           alt=""
         />
-        <span class="text-neutral-600 font-medium"><RouterLink :to="`/profil/${data.author._id}`">{{ data.author.displayName }}</RouterLink></span>
+        <span class="text-neutral-600 font-medium"
+          ><RouterLink :to="`/profil/${data.author._id}`">{{ data.author.displayName }}</RouterLink></span
+        >
         <span class="text-neutral-600 font-medium ml-auto" v-if="data.private">(Privat)</span>
       </span>
       <div class="flex flex-col">
-        <span class="font-urbanist text-3xl text-neutral-800 font-semibold">{{ props.data.title }}</span>
+        <RouterLink :to="`/poszt/${data._id}`">
+          <span class="font-urbanist text-3xl text-neutral-800 font-semibold">
+            {{ props.data.title }}
+          </span>
+        </RouterLink>
         <span class="text-neutral-600">
           {{ props.data.description }}
         </span>
@@ -51,7 +57,7 @@ const Locked = ref(false);
           <span class="text-red-600 font-medium">0</span>
         </span>
         <span class="flex gap-2">
-          <template v-if="editable" >
+          <template v-if="editable">
             <PostActionButton type="edit" @click="edit" />
             <PostActionButton type="delete" @click="del" />
           </template>
