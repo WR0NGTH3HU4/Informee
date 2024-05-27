@@ -44,6 +44,7 @@ async function save() {
     value: val,
     content: Comment.value,
   });
+  window.location.reload();
 }
 
 onMounted(()=>{
