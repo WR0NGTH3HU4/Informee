@@ -33,18 +33,11 @@ const closeModal = () => {
 
 </script>
 <template>
-
-  <div id="app">
-    <Navbar class="z-10 relative"></Navbar>
-    <RouterView />
-    <Modal :isShown="isModalShown" @close="closeModal"></Modal>
-    <Footer v-if="route.name ==='Kezdolap'|| route.name ==='Rolunk'"> </Footer>
-  </div>
-
+  <div id="modals"></div>
+  <Navbar class="z-10 relative"></Navbar>
+  <RouterView />
+  <Footer v-if="route.name ==='Kezdolap'|| route.name ==='Rolunk'"> </Footer>
 </template>
 
 <style>
-  body {
-    font-family: 'Nunito', sans-serif;
-  }
 </style>
