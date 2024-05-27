@@ -20,7 +20,7 @@ const userStore = useUserStore();
 
 const LoggedInContent = ref<Link[]>([
   { Id: 0, Title: 'Posztok', Url: '/posztok' },
-  { Id: 1, Title: 'Saját posztok', Url: '/sajatposztok' }
+  { Id: 1, Title: 'Profilom', Url: '/profil/@me' }
 ]);
 const LoggedOutContent = ref<Link[]>([
   { Id: 0, Title: 'Kezdőlap', Url: '/' },

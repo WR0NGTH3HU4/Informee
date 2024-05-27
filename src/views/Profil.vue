@@ -7,16 +7,30 @@ import TextBox from '@/components/TextBox.vue';
 import { ApiWrapper } from '@/composables/ApiWrapper';
 import { type Post as PostSchema } from '@/types/Post';
 import { useUserStore } from '@/stores/user';
+import { useRoute } from 'vue-router';
 
+const route = useRoute();
 const posts: Ref<PostSchema[]> = ref([]);
 const userStore = useUserStore();
+const user = ref({
+  displayName: '...',
+  username: '...',
+});
 
-onMounted(() => {
-  ApiWrapper.get<PostSchema[]>(`post?from=${userStore.getUserData()?.id}`, null).then(x => {
-    x.data.forEach((post: PostSchema) => {
-      posts.value.push(post);
-    });
+const isMe = () => route.params.id == '@me' || route.params == userStore.getUserData()?.id;
+const meOrSpecified = () => isMe() ? userStore.getUserData()?.id : route.params.id;
+
+onMounted(async () => {
+  const postRes = await ApiWrapper.get<PostSchema[]>(`post?from=${meOrSpecified()}`, null);
+  postRes.data.forEach((post: PostSchema) => {
+    posts.value.push(post);
   });
+
+  const userRes = await ApiWrapper.get(`user/${meOrSpecified()}`, null);
+  user.value = {
+    displayName: userRes.data.displayName,
+    username: userRes.data.username,
+  }
 });
 </script>
 
@@ -37,8 +51,8 @@ onMounted(() => {
           alt=""
         />
         <div class="flex flex-col">
-          <span class="text-neutral-400 font-medium">molnarkiki</span>
-          <span class="text-neutral-50 text-2xl font-semibold">Molnar Krisztian</span>
+          <span class="text-neutral-400 font-medium">{{ user.username }}</span>
+          <span class="text-neutral-50 text-2xl font-semibold">{{ user.displayName }}</span>
         </div>
       </div>
       <div class="BioSection">
