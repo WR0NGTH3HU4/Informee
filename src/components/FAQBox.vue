@@ -56,8 +56,8 @@ const Topics = ref<Topics[]>([
         Opened: false },
 
       { ID: 12,
-        Question: '4. Ne fogdoss gyerekeket',
-        Explanation: 'Az köztársasági elnök most már nem fog tudni megmenteni.',
+        Question: '4. valami',
+        Explanation: 'megettem ezt a valaszt 1984',
         Opened: false }
     ]
   }
