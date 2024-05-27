@@ -1,73 +1,45 @@
 <script setup lang="ts">
 import Button from '@/components/Button.vue';
+import Commets from '@/components/Comments.vue'
+import comment from '@/components/comment.vue'
 </script>
 <template>
-  <div class="container">
-    <div class="actions">
-      <Button type="secondary" text="Vissza"></Button>
-      <Button type="primary" text="Értékelés"></Button>
-    </div>
-    <div class="post">
-      <div class="head">
-        <div class="profile">
-          <img src="../assets/logo.svg" alt="" />
-          <h3>Molnár Krisztián</h3>
+  <div class="flex flex-col justify-center content-center items-center gap-y-10 mt-10 w-full">
+    <div class="flex flex-col w-3/4 gap-y-5">
+      <div class="flex flex-row justify-between content-center items-center w-full">
+        <Button type="secondary" text="Vissza"></Button>
+        <Button type="primary" text="Értékelés"></Button>
+      </div>
+      <div class="flex flex-col w-full rounded p-3 bg-neutral-100 border-[1px] border-neutral-300 min-h-[400px]">
+        <div class="flex flex-row justify-between content-center items-center">
+        <div class="flex flex-row justify-center content-center items-center gap-x-3">
+            <div class="w-[50px] h-[50px]">
+              <!--ProfilePic-->
+            </div>
+            <h3 class="font-semibold text-lg text-neutral-800">
+              Molnár Krisztián
+            </h3>
         </div>
-        <div class="infos">
-          <h3 class="estimated">1perc</h3>
-          <h3>2024.jún.1.</h3>
+        <div class="flex flex-row justify-center content-center items-center gap-x-3">
+          <h3 class="text-neutral-500">~10 perc olvasás</h3>
+          <h3 class="text-neutral-800 font-semibold">2024.05.27</h3>
+        </div>
+
+      </div>
+        <div class="flex flex-col justify-center content-center items-center gap-y-5">
+          <h3 class="font-bold text-2xl text-neutral-800">Title</h3>
+          <p class="text-neutral-800 text-justify">Content</p> <!--Content-->
         </div>
       </div>
-      <div class="Title">xd</div>
-      <div class="Text">xddddd</div>
     </div>
+    <div class="flex flex-col justify-center content-center items-center gap-y-10 w-full">
+    <Commets class="w-3/4"></Commets>
+    <comment type="positive"></comment>
+    <comment type="neutral"></comment>
+    <comment type="negative"></comment>
+  </div>
   </div>
 </template>
 <style>
-* {
-  margin: 0;
-  padding: 0;
-}
-img {
-  width: 8rem;
-  margin-right: 10px;
-}
-.container {
-  @apply flex flex-col justify-center content-center items-center;
-  min-width: 100%;
-}
-.actions {
-  @apply flex flex-row justify-between content-center;
-  width: 60%;
-}
-.post {
-  @apply bg-neutral-100 drop-shadow flex flex-col justify-start content-center;
-  width: 60%;
-  height: 52rem;
-  border-radius: 10px;
-  margin-top: 10px;
-  padding: 20px;
-}
-.head {
-  @apply flex flex-row justify-between content-center;
-}
-.profile {
-  @apply flex flex-row justify-between content-center items-end;
-}
-.infos {
-  @apply flex flex-row justify-between content-center items-center;
-}
-.estimated {
-  margin-right: 10px;
-}
-.Title {
-  @apply flex flex-row justify-center content-center items-center text-4xl text-neutral-800;
-  width: 100%;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-.Text {
-  @apply flex flex-row justify-center content-center items-center text-xl text-neutral-800;
-  width: 100%;
-}
+
 </style>
