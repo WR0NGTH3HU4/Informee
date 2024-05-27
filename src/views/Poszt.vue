@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Button from '@/components/Button.vue';
-import Commets from '@/components/Comments.vue'
+import ReviewBox from '@/components/ReviewBox.vue'
 import comment from '@/components/comment.vue'
 </script>
 <template>
@@ -33,7 +33,7 @@ import comment from '@/components/comment.vue'
       </div>
     </div>
     <div class="flex flex-col justify-center content-center items-center gap-y-10 w-full">
-    <Commets class="w-3/4"></Commets>
+    <ReviewBox class="w-3/4"></ReviewBox>
     <comment type="positive"></comment>
     <comment type="neutral"></comment>
     <comment type="negative"></comment>
