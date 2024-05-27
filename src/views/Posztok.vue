@@ -37,7 +37,7 @@ onMounted(() => {
       </div>
       <!--Postlist-->
       <div v-if="posts.length > 0" class="flex flex-col gap-2">
-        <Post v-for="post in posts" :data="post" :editable="post.authorId == userStore.getUserData().id" :key="post._id" />
+        <Post v-for="post in posts" :data="post" :editable="post.author._id == userStore.getUserData().id" :key="post._id" />
       </div>
     </div>
   </div>
