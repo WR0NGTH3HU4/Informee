@@ -10,7 +10,7 @@ import { RouterLink } from 'vue-router';
 
   <div class="FullPage flex flex-row justify-evenly content-center items-center h-full min-h-[100vh] px-3">
     <div class="content flex flex-col w-[600px] gap-8">
-      <h1 class="text-neutral-800 text-6xl font-urbanist leading-[70px] font-[500]">Mert a tudás mindenkinek jár</h1>
+      <h1 class="text-neutral-800 text-6xl font-urbanist leading-[70px] font-[500]">Mert a tudás mindenkinek jár.</h1>
       <p class="text-neutral-700 font-normal">
         Az Informee Magyarország legújabb tudás-orientált fórumja. Oszd meg a saját vázlataid, tételeid és válogass
         közösségünk könyvtárából. Ha esetleg kérdésed lenne, nézd meg a gyakran ismételt kérdések oldalunkat
