@@ -60,7 +60,7 @@ const triggerOptions = () => {
 
 async function newPost() {
   const res = await ApiWrapper.post<Post>('post', null);
-  router.push(`posztszerkeszto/${res.data._id}`);
+  router.push(`/posztszerkeszto/${res.data._id}`);
 }
 </script>
 

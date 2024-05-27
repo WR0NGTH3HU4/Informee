@@ -14,7 +14,7 @@ const props = defineProps<{
 }>()
 
 function edit() {
-  router.push(`posztszerkeszto/${props.data._id}`);
+  router.push(`/posztszerkeszto/${props.data._id}`);
 }
 
 async function del() {
